@@ -101,6 +101,8 @@
         
         <div id="heading"><strong>P</strong>roject <strong>S</strong>afe <strong>F</strong>light <strong>I</strong>ntegrated <strong>S</strong>urvey <strong>T</strong>ool</p></div>
 
+
+    <form>
     
         Volunteer Name</br>
         <input type="text" id="volunteer_name" class="textField"></input></p>
@@ -177,6 +179,8 @@
         <input type="text" id="patrolNotes" class="textField"></input></p>
 
         <button onclick="logData()">Submit</button></p>
+
+    </form>
 
 
 
@@ -290,7 +294,7 @@
                     
                     for (i = 0; i < bpl_1_numberBirds; i++){
                     
-                        $('<form>', {id:"speciesForm_"+i , class:"bpl_1_speciesForm"}).appendTo('#bpl_1_speciesList');
+                        $('<div>', {id:"speciesForm_"+i , class:"bpl_1_speciesForm"}).appendTo('#bpl_1_speciesList');
                     }
                     
                    $(document).ready(function(){
@@ -309,7 +313,7 @@
                     
                     for (i = 0; i < bp_1_numberBirds; i++){
                     
-                        $('<form>', {id:"speciesForm_"+i , class:"bp_1_speciesForm"}).appendTo('#bp_1_speciesList');
+                        $('<div>', {id:"speciesForm_"+i , class:"bp_1_speciesForm"}).appendTo('#bp_1_speciesList');
                     }
                     
                    $(document).ready(function(){
@@ -328,7 +332,7 @@
                     
                     for (i = 0; i < bp_2_numberBirds; i++){
                     
-                        $('<form>', {id:"speciesForm_"+i , class:"bp_2_speciesForm"}).appendTo('#bp_2_speciesList');
+                        $('<div>', {id:"speciesForm_"+i , class:"bp_2_speciesForm"}).appendTo('#bp_2_speciesList');
                     }
                     
                    $(document).ready(function(){
@@ -347,7 +351,7 @@
                     
                     for (i = 0; i < bp_3_numberBirds; i++){
                     
-                        $('<form>', {id:"speciesForm_"+i , class:"bp_3_speciesForm"}).appendTo('#bp_3_speciesList');
+                        $('<div>', {id:"speciesForm_"+i , class:"bp_3_speciesForm"}).appendTo('#bp_3_speciesList');
                     }
                     
                    $(document).ready(function(){
@@ -366,7 +370,7 @@
                     
                     for (i = 0; i < bp_4_numberBirds; i++){
                     
-                        $('<form>', {id:"speciesForm_"+i , class:"bp_4_speciesForm"}).appendTo('#bp_4_speciesList');
+                        $('<div>', {id:"speciesForm_"+i , class:"bp_4_speciesForm"}).appendTo('#bp_4_speciesList');
                     }
                     
                    $(document).ready(function(){
@@ -385,7 +389,7 @@
                     
                     for (i = 0; i < cul_1_numberBirds; i++){
                     
-                        $('<form>', {id:"speciesForm_"+i , class:"cul_1_speciesForm"}).appendTo('#cul_1_speciesList');
+                        $('<div>', {id:"speciesForm_"+i , class:"cul_1_speciesForm"}).appendTo('#cul_1_speciesList');
                     }
                     
                    $(document).ready(function(){
@@ -404,7 +408,7 @@
                     
                     for (i = 0; i < cunwc_1_numberBirds; i++){
                     
-                        $('<form>', {id:"speciesForm_"+i , class:"cunwc_speciesForm"}).appendTo('#cunwc_1_speciesList');
+                        $('<div>', {id:"speciesForm_"+i , class:"cunwc_speciesForm"}).appendTo('#cunwc_1_speciesList');
                     }
                     
                    $(document).ready(function(){
@@ -423,7 +427,7 @@
                     
                     for (i = 0; i < ffb_1_numberBirds; i++){
                     
-                        $('<form>', {id:"speciesForm_"+i , class:"ffb_1_speciesForm"}).appendTo('#ffb_1_speciesList');
+                        $('<div>', {id:"speciesForm_"+i , class:"ffb_1_speciesForm"}).appendTo('#ffb_1_speciesList');
                     }
                     
                    $(document).ready(function(){
@@ -442,7 +446,7 @@
                     
                     for (i = 0; i < ffb_2_numberBirds; i++){
                     
-                        $('<form>', {id:"speciesForm_"+i , class:"ffb_2_speciesForm"}).appendTo('#ffb_2_speciesList');
+                        $('<div>', {id:"speciesForm_"+i , class:"ffb_2_speciesForm"}).appendTo('#ffb_2_speciesList');
                     }
                     
                    $(document).ready(function(){
@@ -461,7 +465,7 @@
                     
                     for (i = 0; i < ffb_3_numberBirds; i++){
                     
-                        $('<form>', {id:"speciesForm_"+i , class:"ffb_3_speciesForm"}).appendTo('#ffb_3_speciesList');
+                        $('<div>', {id:"speciesForm_"+i , class:"ffb_3_speciesForm"}).appendTo('#ffb_3_speciesList');
                     }
                     
                    $(document).ready(function(){
@@ -480,7 +484,7 @@
                     
                     for (i = 0; i < jav_1_numberBirds; i++){
                     
-                        $('<form>', {id:"speciesForm_"+i , class:"jav_1_speciesForm"}).appendTo('#jav_1_speciesList');
+                        $('<div>', {id:"speciesForm_"+i , class:"jav_1_speciesForm"}).appendTo('#jav_1_speciesList');
                     }
                     
                    $(document).ready(function(){
@@ -499,7 +503,7 @@
                     
                     for (i = 0; i < jav_2_numberBirds; i++){
                     
-                        $('<form>', {id:"speciesForm_"+i , class:"jav_2_speciesForm"}).appendTo('#jav_2_speciesList');
+                        $('<div>', {id:"speciesForm_"+i , class:"jav_2_speciesForm"}).appendTo('#jav_2_speciesList');
                     }
                     
                    $(document).ready(function(){
@@ -518,7 +522,7 @@
                     
                     for (i = 0; i < jav_3_numberBirds; i++){
                     
-                        $('<form>', {id:"speciesForm_"+i , class:"jav_3_speciesForm"}).appendTo('#jav_3_speciesList');
+                        $('<div>', {id:"speciesForm_"+i , class:"jav_3_speciesForm"}).appendTo('#jav_3_speciesList');
                     }
                     
                    $(document).ready(function(){
@@ -537,7 +541,7 @@
                     
                     for (i = 0; i < jav_4_numberBirds; i++){
                     
-                        $('<form>', {id:"speciesForm_"+i , class:"jav_4_speciesForm"}).appendTo('#jav_4_speciesList');
+                        $('<div>', {id:"speciesForm_"+i , class:"jav_4_speciesForm"}).appendTo('#jav_4_speciesList');
                     }
                     
                    $(document).ready(function(){
@@ -556,7 +560,7 @@
                     
                     for (i = 0; i < jav_5_numberBirds; i++){
                     
-                        $('<form>', {id:"speciesForm_"+i , class:"jav_5_speciesForm"}).appendTo('#jav_5_speciesList');
+                        $('<div>', {id:"speciesForm_"+i , class:"jav_5_speciesForm"}).appendTo('#jav_5_speciesList');
                     }
                     
                    $(document).ready(function(){
@@ -575,7 +579,7 @@
                     
                     for (i = 0; i < jav_6_numberBirds; i++){
                     
-                        $('<form>', {id:"speciesForm_"+i , class:"jav_6_speciesForm"}).appendTo('#jav_6_speciesList');
+                        $('<div>', {id:"speciesForm_"+i , class:"jav_6_speciesForm"}).appendTo('#jav_6_speciesList');
                     }
                     
                    $(document).ready(function(){
@@ -594,7 +598,7 @@
                     
                     for (i = 0; i < jav_7_numberBirds; i++){
                     
-                        $('<form>', {id:"speciesForm_"+i , class:"jav_7_speciesForm"}).appendTo('#jav_7_speciesList');
+                        $('<div>', {id:"speciesForm_"+i , class:"jav_7_speciesForm"}).appendTo('#jav_7_speciesList');
                     }
                     
                    $(document).ready(function(){
@@ -613,7 +617,7 @@
                     
                     for (i = 0; i < jav_8_numberBirds; i++){
                     
-                        $('<form>', {id:"speciesForm_"+i , class:"jav_8_speciesForm"}).appendTo('#jav_8_speciesList');
+                        $('<div>', {id:"speciesForm_"+i , class:"jav_8_speciesForm"}).appendTo('#jav_8_speciesList');
                     }
                     
                    $(document).ready(function(){
@@ -632,7 +636,7 @@
                     
                     for (i = 0; i < cs_1_numberBirds; i++){
                     
-                        $('<form>', {id:"speciesForm_"+i , class:"cs_1_speciesForm"}).appendTo('#cs_1_speciesList');
+                        $('<div>', {id:"speciesForm_"+i , class:"cs_1_speciesForm"}).appendTo('#cs_1_speciesList');
                     }
                     
                    $(document).ready(function(){
@@ -651,7 +655,7 @@
                     
                     for (i = 0; i < cs_2_numberBirds; i++){
                     
-                        $('<form>', {id:"speciesForm_"+i , class:"cs_2_speciesForm"}).appendTo('#cs_2_speciesList');
+                        $('<div>', {id:"speciesForm_"+i , class:"cs_2_speciesForm"}).appendTo('#cs_2_speciesList');
                     }
                     
                    $(document).ready(function(){
@@ -670,7 +674,7 @@
                     
                     for (i = 0; i < cs_3_numberBirds; i++){
                     
-                        $('<form>', {id:"speciesForm_"+i , class:"cs_3_speciesForm"}).appendTo('#cs_3_speciesList');
+                        $('<div>', {id:"speciesForm_"+i , class:"cs_3_speciesForm"}).appendTo('#cs_3_speciesList');
                     }
                     
                    $(document).ready(function(){
@@ -689,7 +693,7 @@
                     
                     for (i = 0; i < cs_4_numberBirds; i++){
                     
-                        $('<form>', {id:"speciesForm_"+i , class:"cs_4_speciesForm"}).appendTo('#cs_4_speciesList');
+                        $('<div>', {id:"speciesForm_"+i , class:"cs_4_speciesForm"}).appendTo('#cs_4_speciesList');
                     }
                     
                    $(document).ready(function(){
@@ -708,7 +712,7 @@
                     
                     for (i = 0; i < cs_5_numberBirds; i++){
                     
-                        $('<form>', {id:"speciesForm_"+i , class:"cs_5_speciesForm"}).appendTo('#cs_5_speciesList');
+                        $('<div>', {id:"speciesForm_"+i , class:"cs_5_speciesForm"}).appendTo('#cs_5_speciesList');
                     }
                     
                    $(document).ready(function(){
@@ -727,7 +731,7 @@
                     
                     for (i = 0; i < cs_6_numberBirds; i++){
                     
-                        $('<form>', {id:"speciesForm_"+i , class:"cs_6_speciesForm"}).appendTo('#cs_6_speciesList');
+                        $('<div>', {id:"speciesForm_"+i , class:"cs_6_speciesForm"}).appendTo('#cs_6_speciesList');
                     }
                     
                    $(document).ready(function(){
@@ -746,7 +750,7 @@
                     
                     for (i = 0; i < cs_7_numberBirds; i++){
                     
-                        $('<form>', {id:"speciesForm_"+i , class:"cs_7_speciesForm"}).appendTo('#cs_7_speciesList');
+                        $('<div>', {id:"speciesForm_"+i , class:"cs_7_speciesForm"}).appendTo('#cs_7_speciesList');
                     }
                     
                    $(document).ready(function(){
@@ -765,7 +769,7 @@
                     
                     for (i = 0; i < met_1_numberBirds; i++){
                     
-                        $('<form>', {id:"speciesForm_"+i , class:"met_1_speciesForm"}).appendTo('#met_1_speciesList');
+                        $('<div>', {id:"speciesForm_"+i , class:"met_1_speciesForm"}).appendTo('#met_1_speciesList');
                     }
                     
                    $(document).ready(function(){
@@ -784,7 +788,7 @@
                     
                     for (i = 0; i < met_2_numberBirds; i++){
                     
-                        $('<form>', {id:"speciesForm_"+i , class:"met_2_speciesForm"}).appendTo('#met_2_speciesList');
+                        $('<div>', {id:"speciesForm_"+i , class:"met_2_speciesForm"}).appendTo('#met_2_speciesList');
                     }
                     
                    $(document).ready(function(){
@@ -803,7 +807,7 @@
                     
                     for (i = 0; i < met_3_numberBirds; i++){
                     
-                        $('<form>', {id:"speciesForm_"+i , class:"met_3_speciesForm"}).appendTo('#met_3_speciesList');
+                        $('<div>', {id:"speciesForm_"+i , class:"met_3_speciesForm"}).appendTo('#met_3_speciesList');
                     }
                     
                    $(document).ready(function(){
@@ -822,7 +826,7 @@
                     
                     for (i = 0; i < met_4_numberBirds; i++){
                     
-                        $('<form>', {id:"speciesForm_"+i , class:"met_4_speciesForm"}).appendTo('#met_4_speciesList');
+                        $('<div>', {id:"speciesForm_"+i , class:"met_4_speciesForm"}).appendTo('#met_4_speciesList');
                     }
                     
                    $(document).ready(function(){
@@ -841,7 +845,7 @@
                     
                     for (i = 0; i < met_5_numberBirds; i++){
                     
-                        $('<form>', {id:"speciesForm_"+i , class:"met_5_speciesForm"}).appendTo('#met_5_speciesList');
+                        $('<div>', {id:"speciesForm_"+i , class:"met_5_speciesForm"}).appendTo('#met_5_speciesList');
                     }
                     
                    $(document).ready(function(){
@@ -860,7 +864,7 @@
                     
                     for (i = 0; i < met_6_numberBirds; i++){
                     
-                        $('<form>', {id:"speciesForm_"+i , class:"met_6_speciesForm"}).appendTo('#met_6_speciesList');
+                        $('<div>', {id:"speciesForm_"+i , class:"met_6_speciesForm"}).appendTo('#met_6_speciesList');
                     }
                     
                    $(document).ready(function(){
@@ -879,7 +883,7 @@
                     
                     for (i = 0; i < met_7_numberBirds; i++){
                     
-                        $('<form>', {id:"speciesForm_"+i , class:"met_7_speciesForm"}).appendTo('#met_7_speciesList');
+                        $('<div>', {id:"speciesForm_"+i , class:"met_7_speciesForm"}).appendTo('#met_7_speciesList');
                     }
                     
                    $(document).ready(function(){
@@ -898,7 +902,7 @@
                     
                     for (i = 0; i < rmb_1_numberBirds; i++){
                     
-                        $('<form>', {id:"speciesForm_"+i , class:"rmb_1_speciesForm"}).appendTo('#rmb_1_speciesList');
+                        $('<div>', {id:"speciesForm_"+i , class:"rmb_1_speciesForm"}).appendTo('#rmb_1_speciesList');
                     }
                     
                    $(document).ready(function(){
@@ -917,7 +921,7 @@
                     
                     for (i = 0; i < wfc_ft_1_numberBirds; i++){
                     
-                        $('<form>', {id:"speciesForm_"+i , class:"wfc_ft_1_speciesForm"}).appendTo('#wfc_ft_1_speciesList');
+                        $('<div>', {id:"speciesForm_"+i , class:"wfc_ft_1_speciesForm"}).appendTo('#wfc_ft_1_speciesList');
                     }
                     
                    $(document).ready(function(){
@@ -936,7 +940,7 @@
                     
                     for (i = 0; i < wfc_ft_2_numberBirds; i++){
                     
-                        $('<form>', {id:"speciesForm_"+i , class:"wfc_ft_2_speciesForm"}).appendTo('#wfc_ft_2_speciesList');
+                        $('<div>', {id:"speciesForm_"+i , class:"wfc_ft_2_speciesForm"}).appendTo('#wfc_ft_2_speciesList');
                     }
                     
                    $(document).ready(function(){
@@ -955,7 +959,7 @@
                     
                     for (i = 0; i < wfc_ft_3_numberBirds; i++){
                     
-                        $('<form>', {id:"speciesForm_"+i , class:"wfc_ft_3_speciesForm"}).appendTo('#wfc_ft_3_speciesList');
+                        $('<div>', {id:"speciesForm_"+i , class:"wfc_ft_3_speciesForm"}).appendTo('#wfc_ft_3_speciesList');
                     }
                     
                    $(document).ready(function(){
@@ -974,7 +978,7 @@
                     
                     for (i = 0; i < wfc_ft_4_numberBirds; i++){
                     
-                        $('<form>', {id:"speciesForm_"+i , class:"wfc_ft_4_speciesForm"}).appendTo('#wfc_ft_4_speciesList');
+                        $('<div>', {id:"speciesForm_"+i , class:"wfc_ft_4_speciesForm"}).appendTo('#wfc_ft_4_speciesList');
                     }
                     
                    $(document).ready(function(){
@@ -993,7 +997,7 @@
                     
                     for (i = 0; i < wfc_gs_1_numberBirds; i++){
                     
-                        $('<form>', {id:"speciesForm_"+i , class:"wfc_gs_1_speciesForm"}).appendTo('#wfc_gs_1_speciesList');
+                        $('<div>', {id:"speciesForm_"+i , class:"wfc_gs_1_speciesForm"}).appendTo('#wfc_gs_1_speciesList');
                     }
                     
                    $(document).ready(function(){
@@ -1012,7 +1016,7 @@
                     
                     for (i = 0; i < wfc_gs_2_numberBirds; i++){
                     
-                        $('<form>', {id:"speciesForm_"+i , class:"wfc_gs_2_speciesForm"}).appendTo('#wfc_gs_2_speciesList');
+                        $('<div>', {id:"speciesForm_"+i , class:"wfc_gs_2_speciesForm"}).appendTo('#wfc_gs_2_speciesList');
                     }
                     
                    $(document).ready(function(){
@@ -1031,7 +1035,7 @@
                     
                     for (i = 0; i < wfc_gs_3_numberBirds; i++){
                     
-                        $('<form>', {id:"speciesForm_"+i , class:"wfc_gs_3_speciesForm"}).appendTo('#wfc_gs_3_speciesList');
+                        $('<div>', {id:"speciesForm_"+i , class:"wfc_gs_3_speciesForm"}).appendTo('#wfc_gs_3_speciesList');
                     }
                     
                    $(document).ready(function(){
@@ -1050,7 +1054,7 @@
                     
                     for (i = 0; i < wfc_bp_1_numberBirds; i++){
                     
-                        $('<form>', {id:"speciesForm_"+i , class:"wfc_bp_1_speciesForm"}).appendTo('#wfc_bp_1_speciesList');
+                        $('<div>', {id:"speciesForm_"+i , class:"wfc_bp_1_speciesForm"}).appendTo('#wfc_bp_1_speciesList');
                     }
                     
                    $(document).ready(function(){
@@ -1069,7 +1073,7 @@
                     
                     for (i = 0; i < wfc_bp_2_numberBirds; i++){
                     
-                        $('<form>', {id:"speciesForm_"+i , class:"wfc_bp_2_speciesForm"}).appendTo('#wfc_bp_2_speciesList');
+                        $('<div>', {id:"speciesForm_"+i , class:"wfc_bp_2_speciesForm"}).appendTo('#wfc_bp_2_speciesList');
                     }
                     
                    $(document).ready(function(){
@@ -1088,7 +1092,7 @@
                     
                     for (i = 0; i < wfc_bp_3_numberBirds; i++){
                     
-                        $('<form>', {id:"speciesForm_"+i , class:"wfc_bp_3_speciesForm"}).appendTo('#wfc_bp_3_speciesList');
+                        $('<div>', {id:"speciesForm_"+i , class:"wfc_bp_3_speciesForm"}).appendTo('#wfc_bp_3_speciesList');
                     }
                     
                    $(document).ready(function(){
@@ -1107,7 +1111,7 @@
                     
                     for (i = 0; i < wfc_bp_4_numberBirds; i++){
                     
-                        $('<form>', {id:"speciesForm_"+i , class:"wfc_bp_4_speciesForm"}).appendTo('#wfc_bp_4_speciesList');
+                        $('<div>', {id:"speciesForm_"+i , class:"wfc_bp_4_speciesForm"}).appendTo('#wfc_bp_4_speciesList');
                     }
                     
                    $(document).ready(function(){
@@ -1126,7 +1130,7 @@
                     
                     for (i = 0; i < wfc_bp_5_numberBirds; i++){
                     
-                        $('<form>', {id:"speciesForm_"+i , class:"wfc_bp_5_speciesForm"}).appendTo('#wfc_bp_5_speciesList');
+                        $('<div>', {id:"speciesForm_"+i , class:"wfc_bp_5_speciesForm"}).appendTo('#wfc_bp_5_speciesList');
                     }
                     
                    $(document).ready(function(){
@@ -1145,7 +1149,7 @@
                     
                     for (i = 0; i < wfc_bp_6_numberBirds; i++){
                     
-                        $('<form>', {id:"speciesForm_"+i , class:"wfc_bp_6_speciesForm"}).appendTo('#wfc_bp_6_speciesList');
+                        $('<div>', {id:"speciesForm_"+i , class:"wfc_bp_6_speciesForm"}).appendTo('#wfc_bp_6_speciesList');
                     }
                     
                    $(document).ready(function(){
@@ -1164,7 +1168,7 @@
                     
                     for (i = 0; i < wfc_bp_7_numberBirds; i++){
                     
-                        $('<form>', {id:"speciesForm_"+i , class:"wfc_bp_7_speciesForm"}).appendTo('#wfc_bp_7_speciesList');
+                        $('<div>', {id:"speciesForm_"+i , class:"wfc_bp_7_speciesForm"}).appendTo('#wfc_bp_7_speciesList');
                     }
                     
                    $(document).ready(function(){
@@ -1183,7 +1187,7 @@
                     
                     for (i = 0; i < wfc_bp_8_numberBirds; i++){
                     
-                        $('<form>', {id:"speciesForm_"+i , class:"wfc_bp_8_speciesForm"}).appendTo('#wfc_bp_8_speciesList');
+                        $('<div>', {id:"speciesForm_"+i , class:"wfc_bp_8_speciesForm"}).appendTo('#wfc_bp_8_speciesList');
                     }
                     
                    $(document).ready(function(){
@@ -1202,7 +1206,7 @@
                     
                     for (i = 0; i < wfc_bp_9_numberBirds; i++){
                     
-                        $('<form>', {id:"speciesForm_"+i , class:"wfc_bp_9_speciesForm"}).appendTo('#wfc_bp_9_speciesList');
+                        $('<div>', {id:"speciesForm_"+i , class:"wfc_bp_9_speciesForm"}).appendTo('#wfc_bp_9_speciesList');
                     }
                     
                    $(document).ready(function(){
@@ -1221,7 +1225,7 @@
                     
                     for (i = 0; i < wfc_bp_10_numberBirds; i++){
                     
-                        $('<form>', {id:"speciesForm_"+i , class:"wfc_bp_10_speciesForm"}).appendTo('#wfc_bp_10_speciesList');
+                        $('<div>', {id:"speciesForm_"+i , class:"wfc_bp_10_speciesForm"}).appendTo('#wfc_bp_10_speciesList');
                     }
                     
                    $(document).ready(function(){
@@ -1240,7 +1244,7 @@
                     
                     for (i = 0; i < wfc_bp_11_numberBirds; i++){
                     
-                        $('<form>', {id:"speciesForm_"+i , class:"wfc_bp_11_speciesForm"}).appendTo('#wfc_bp_11_speciesList');
+                        $('<div>', {id:"speciesForm_"+i , class:"wfc_bp_11_speciesForm"}).appendTo('#wfc_bp_11_speciesList');
                     }
                     
                    $(document).ready(function(){
@@ -1259,7 +1263,7 @@
                     
                     for (i = 0; i < wfc_bp_12_numberBirds; i++){
                     
-                        $('<form>', {id:"speciesForm_"+i , class:"wfc_bp_12_speciesForm"}).appendTo('#wfc_bp_12_speciesList');
+                        $('<div>', {id:"speciesForm_"+i , class:"wfc_bp_12_speciesForm"}).appendTo('#wfc_bp_12_speciesList');
                     }
                     
                    $(document).ready(function(){
@@ -1278,7 +1282,7 @@
                     
                     for (i = 0; i < wfc_bp_13_numberBirds; i++){
                     
-                        $('<form>', {id:"speciesForm_"+i , class:"wfc_bp_13_speciesForm"}).appendTo('#wfc_bp_13_speciesList');
+                        $('<div>', {id:"speciesForm_"+i , class:"wfc_bp_13_speciesForm"}).appendTo('#wfc_bp_13_speciesList');
                     }
                     
                    $(document).ready(function(){
@@ -1297,7 +1301,7 @@
                     
                     for (i = 0; i < wfc_bp_14_numberBirds; i++){
                     
-                        $('<form>', {id:"speciesForm_"+i , class:"wfc_bp_14_speciesForm"}).appendTo('#wfc_bp_14_speciesList');
+                        $('<div>', {id:"speciesForm_"+i , class:"wfc_bp_14_speciesForm"}).appendTo('#wfc_bp_14_speciesList');
                     }
                     
                    $(document).ready(function(){
@@ -1316,7 +1320,7 @@
                     
                     for (i = 0; i < wfc_bp_15_numberBirds; i++){
                     
-                        $('<form>', {id:"speciesForm_"+i , class:"wfc_bp_15_speciesForm"}).appendTo('#wfc_bp_15_speciesList');
+                        $('<div>', {id:"speciesForm_"+i , class:"wfc_bp_15_speciesForm"}).appendTo('#wfc_bp_15_speciesList');
                     }
                     
                    $(document).ready(function(){
@@ -1335,7 +1339,7 @@
                     
                     for (i = 0; i < wfc_bp_16_numberBirds; i++){
                     
-                        $('<form>', {id:"speciesForm_"+i , class:"wfc_bp_16_speciesForm"}).appendTo('#wfc_bp_16_speciesList');
+                        $('<div>', {id:"speciesForm_"+i , class:"wfc_bp_16_speciesForm"}).appendTo('#wfc_bp_16_speciesList');
                     }
                     
                    $(document).ready(function(){
@@ -1354,7 +1358,7 @@
                     
                     for (i = 0; i < wfc_bp_17_numberBirds; i++){
                     
-                        $('<form>', {id:"speciesForm_"+i , class:"wfc_bp_17_speciesForm"}).appendTo('#wfc_bp_17_speciesList');
+                        $('<div>', {id:"speciesForm_"+i , class:"wfc_bp_17_speciesForm"}).appendTo('#wfc_bp_17_speciesList');
                     }
                     
                    $(document).ready(function(){
@@ -1373,7 +1377,7 @@
                     
                     for (i = 0; i < wfc_bp_18_numberBirds; i++){
                     
-                        $('<form>', {id:"speciesForm_"+i , class:"wfc_bp_18_speciesForm"}).appendTo('#wfc_bp_18_speciesList');
+                        $('<div>', {id:"speciesForm_"+i , class:"wfc_bp_18_speciesForm"}).appendTo('#wfc_bp_18_speciesList');
                     }
                     
                    $(document).ready(function(){

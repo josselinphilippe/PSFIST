@@ -68,7 +68,7 @@
                 padding-top: 15px;
                 padding-left: 15px;
                 margin-left: 20px;
-                width: 320px
+                width: 1000px
             }
             
             .numberSelect{
@@ -76,17 +76,19 @@
                 margin-left: 5px;
             }
             
-            #secondaryTextA{
+            .secondaryTextA{
                 font-size: 13px;
                 color: #737373;
                 margin-left: 5px;
             }
             
-            #secondaryTextB{
+            .secondaryTextB{
                 font-size: 14px;
                 color: #737373;
                 margin-left: 5px;
             }
+
+            
             
             
         </style>
@@ -105,16 +107,16 @@
     <form>
     
         Volunteer Name</br>
-        <input type="text" id="volunteer_name" class="textField"></input></p>
+        <input type="text" name="volunteer_name" id="volunteer_name" class="textField"></input></p>
     
         Survey Date</br>
-            <input type="text" id="date" class="textField"></input></p>
+            <input type="text" name="date" id="date" class="textField"></input></p>
         
         Survey Start Time</br>
-            <input type="text" id="time" class="textField"></input></p>
+            <input type="text" name="time" id="time" class="textField"></input></p>
     
         Survey Duration (minutes)</br>
-            <select id="duration">
+            <select name="duration" id="duration">
                 <option value=""></option>
                 <option value="5">5</option>
                 <option value="10">10</option>
@@ -143,7 +145,7 @@
             </select></p>
 
         Weather</br>
-        <div id="secondaryTextA">Choose the best option</div>
+        <div name="weather" class="secondaryTextA">Choose the best option</div>
             <select id="weatherSelect">
                 <option value=""></option>
                 <option value="sunny">Sunny</option>
@@ -156,7 +158,7 @@
 
         Route Name</br>
 
-            <select id="routeSelect" onchange="siteDetails()">
+            <select name="route" id="routeSelect" onchange="siteDetails()">
                 <option value="" class="routeOption"></option>
                 <option value="brooklyn public library" class="routeOption" id="bpl">Brooklyn Public Library</option>
                 <option value="bryant park" class="routeOption">Bryant Park</option>
@@ -178,14 +180,14 @@
         Patrol Notes</br>
         <input type="text" id="patrolNotes" class="textField"></input></p>
 
-        <button onclick="logData()">Submit</button></p>
+        <input type="submit"></submit></p>
 
     </form>
 
 
 
 
-        <div id="results"></div>
+        
 
 
 
@@ -210,54 +212,54 @@
                     }
                     
                     if (document.getElementById("routeSelect").value === "brooklyn public library"){
-                    document.getElementById("sites").innerHTML =  "<div id=secondaryTextB>Brooklyn Public Library 1: Number of Birds Found<select id=bpl_1_numberSelect class=numberSelect onchange=bpl_1_Details()></select></div></br><div class=details id=bpl_1_speciesList></div>";
+                    document.getElementById("sites").innerHTML =  "<div class=secondaryTextB>Brooklyn Public Library 1: Number of Birds Found<select name=numberBirds id=bpl_1_numberSelect class=numberSelect onchange=bpl_1_Details()></select></div></br><div class=details id=bpl_1_speciesList></div>";
                         
                        //document.getElementById("results").innerHTML = document.getElementById("routeSelect").value;
                     }
                     
                     if (document.getElementById("routeSelect").value === "bryant park"){ 
-                    document.getElementById("sites").innerHTML =  "<div id=secondaryTextB>Bryant Park 1: Number of Birds Found<select id=bp_1_numberSelect class=numberSelect onchange=bp_1_Details()></select></div></br><div class=details id=bp_1_speciesList></div></br><div id=secondaryTextB>Bryant Park 2: Number of Birds Found<select id=bp_2_numberSelect class=numberSelect onchange=bp_2_Details()></select></div></br><div class=details id=bp_2_speciesList></div></br><div id=secondaryTextB>Bryant Park 3: Number of Birds Found<select id=bp_3_numberSelect class=numberSelect onchange=bp_3_Details()></select></div></br><div class=details id=bp_3_speciesList></div></br><div id=secondaryTextB>Bryant Park 4: Number of Birds Found<select id=bp_4_numberSelect class=numberSelect onchange=bp_4_Details()></select></div></br><div class=details id=bp_4_speciesList></div>";   
+                    document.getElementById("sites").innerHTML =  "<div class=secondaryTextB>Bryant Park 1: Number of Birds Found<select id=bp_1_numberSelect class=numberSelect onchange=bp_1_Details()></select></div></br><div class=details id=bp_1_speciesList></div></br><div class=secondaryTextB>Bryant Park 2: Number of Birds Found<select id=bp_2_numberSelect class=numberSelect onchange=bp_2_Details()></select></div></br><div class=details id=bp_2_speciesList></div></br><div class=secondaryTextB>Bryant Park 3: Number of Birds Found<select id=bp_3_numberSelect class=numberSelect onchange=bp_3_Details()></select></div></br><div class=details id=bp_3_speciesList></div></br><div class=secondaryTextB>Bryant Park 4: Number of Birds Found<select id=bp_4_numberSelect class=numberSelect onchange=bp_4_Details()></select></div></br><div class=details id=bp_4_speciesList></div>";   
                     }
                     
                     if (document.getElementById("routeSelect").value === "columbia university - lerner"){ 
-                    document.getElementById("sites").innerHTML =  "<div id=secondaryTextB>Columbia University - Lerner 1: Number of Birds Found<select id=cul_1_numberSelect class=numberSelect onchange=cul_1_Details()></select></div></br><div class=details id=cul_1_speciesList></div>";
+                    document.getElementById("sites").innerHTML =  "<div class=secondaryTextB>Columbia University - Lerner 1: Number of Birds Found<select id=cul_1_numberSelect class=numberSelect onchange=cul_1_Details()></select></div></br><div class=details id=cul_1_speciesList></div>";
                     }
                     
                     if (document.getElementById("routeSelect").value === "columbia university - northwest corner"){ 
-                    document.getElementById("sites").innerHTML =  "<div id=secondaryTextB>Columbia University - Northwest Corner 1: Number of Birds Found<select id=cunwc_1_numberSelect class=numberSelect onchange=cunwc_1_Details()></select></div></br><div class=details id=cunwc_1_speciesList></div>";
+                    document.getElementById("sites").innerHTML =  "<div class=secondaryTextB>Columbia University - Northwest Corner 1: Number of Birds Found<select id=cunwc_1_numberSelect class=numberSelect onchange=cunwc_1_Details()></select></div></br><div class=details id=cunwc_1_speciesList></div>";
                     }
                     
                     if (document.getElementById("routeSelect").value === "ford foundation building"){ 
-                    document.getElementById("sites").innerHTML =  "<div id=secondaryTextB>Ford Foundation Building 1: Number of Birds Found<select id=ffb_1_numberSelect class=numberSelect onchange=ffb_1_Details()></select></div></br><div class=details id=ffb_1_speciesList></div></br><div id=secondaryTextB>Ford Foundation Building 2: Number of Birds Found<select id=ffb_2_numberSelect class=numberSelect onchange=ffb_2_Details()></select></div></br><div class=details id=ffb_2_speciesList></div></br><div id=secondaryTextB>Ford Foundation Building 3: Number of Birds Found<select id=ffb_3_numberSelect class=numberSelect onchange=ffb_3_Details()></select></div></br><div class=details id=ffb_3_speciesList></div>";
+                    document.getElementById("sites").innerHTML =  "<div class=secondaryTextB>Ford Foundation Building 1: Number of Birds Found<select id=ffb_1_numberSelect class=numberSelect onchange=ffb_1_Details()></select></div></br><div class=details id=ffb_1_speciesList></div></br><div class=secondaryTextB>Ford Foundation Building 2: Number of Birds Found<select id=ffb_2_numberSelect class=numberSelect onchange=ffb_2_Details()></select></div></br><div class=details id=ffb_2_speciesList></div></br><div class=secondaryTextB>Ford Foundation Building 3: Number of Birds Found<select id=ffb_3_numberSelect class=numberSelect onchange=ffb_3_Details()></select></div></br><div class=details id=ffb_3_speciesList></div>";
                     }
                     
 
                     if (document.getElementById("routeSelect").value === "javits"){ 
-                    document.getElementById("sites").innerHTML =  "<div id=secondaryTextB>Javits 1: Number of Birds Found<select id=jav_1_numberSelect class=numberSelect onchange=jav_1_Details()></select></div></br><div class=details id=jav_1_speciesList></div></br><div id=secondaryTextB>Javits 2: Number of Birds Found<select id=jav_2_numberSelect class=numberSelect onchange=jav_2_Details()></select></div></br><div class=details id=jav_2_speciesList></div></br><div id=secondaryTextB>Javits 3: Number of Birds Found<select id=jav_3_numberSelect class=numberSelect onchange=jav_3_Details()></select></div></br><div class=details id=jav_3_speciesList></div></br><div id=secondaryTextB>Javits 4: Number of Birds Found<select id=jav_4_numberSelect class=numberSelect onchange=jav_4_Details()></select></div></br><div class=details id=jav_4_speciesList></div></br><div id=secondaryTextB>Javits 5: Number of Birds Found<select id=jav_5_numberSelect class=numberSelect onchange=jav_5_Details()></select></div></br><div class=details id=jav_5_speciesList></div></br><div id=secondaryTextB>Javits 6: Number of Birds Found<select id=jav_6_numberSelect class=numberSelect onchange=jav_6_Details()></select></div></br><div class=details id=jav_6_speciesList></div></br><div id=secondaryTextB>Javits 7: Number of Birds Found<select id=jav_7_numberSelect class=numberSelect onchange=jav_7_Details()></select></div></br><div class=details id=jav_7_speciesList></div></br><div id=secondaryTextB>Javits 8: Number of Birds Found<select id=jav_8_numberSelect class=numberSelect onchange=jav_8_Details()></select></div></br><div class=details id=jav_8_speciesList></div>";
+                    document.getElementById("sites").innerHTML =  "<div class=secondaryTextB>Javits 1: Number of Birds Found<select id=jav_1_numberSelect class=numberSelect onchange=jav_1_Details()></select></div></br><div class=details id=jav_1_speciesList></div></br><div class=secondaryTextB>Javits 2: Number of Birds Found<select id=jav_2_numberSelect class=numberSelect onchange=jav_2_Details()></select></div></br><div class=details id=jav_2_speciesList></div></br><div class=secondaryTextB>Javits 3: Number of Birds Found<select id=jav_3_numberSelect class=numberSelect onchange=jav_3_Details()></select></div></br><div class=details id=jav_3_speciesList></div></br><div class=secondaryTextB>Javits 4: Number of Birds Found<select id=jav_4_numberSelect class=numberSelect onchange=jav_4_Details()></select></div></br><div class=details id=jav_4_speciesList></div></br><div class=secondaryTextB>Javits 5: Number of Birds Found<select id=jav_5_numberSelect class=numberSelect onchange=jav_5_Details()></select></div></br><div class=details id=jav_5_speciesList></div></br><div class=secondaryTextB>Javits 6: Number of Birds Found<select id=jav_6_numberSelect class=numberSelect onchange=jav_6_Details()></select></div></br><div class=details id=jav_6_speciesList></div></br><div class=secondaryTextB>Javits 7: Number of Birds Found<select id=jav_7_numberSelect class=numberSelect onchange=jav_7_Details()></select></div></br><div class=details id=jav_7_speciesList></div></br><div class=secondaryTextB>Javits 8: Number of Birds Found<select id=jav_8_numberSelect class=numberSelect onchange=jav_8_Details()></select></div></br><div class=details id=jav_8_speciesList></div>";
                     }
                     
                     if (document.getElementById("routeSelect").value === "lic - court square"){ 
-                    document.getElementById("sites").innerHTML =  "<div id=secondaryTextB>Court Square 1: Number of Birds Found<select id=cs_1_numberSelect class=numberSelect onchange=cs_1_Details()></select></div></br><div class=details id=cs_1_speciesList></div></br><div id=secondaryTextB>Court Square 2: Number of Birds Found<select id=cs_2_numberSelect class=numberSelect onchange=cs_2_Details()></select></div></br><div class=details id=cs_2_speciesList></div></br><div id=secondaryTextB>Court Square 3: Number of Birds Found<select id=cs_3_numberSelect class=numberSelect onchange=cs_3_Details()></select></div></br><div class=details id=cs_3_speciesList></div></br><div id=secondaryTextB>Court Square 4: Number of Birds Found<select id=cs_4_numberSelect class=numberSelect onchange=cs_4_Details()></select></div></br><div class=details id=cs_4_speciesList></div></br><div id=secondaryTextB>Court Square 5: Number of Birds Found<select id=cs_5_numberSelect class=numberSelect onchange=cs_5_Details()></select></div></br><div class=details id=cs_5_speciesList></div></br><div id=secondaryTextB>Court Square 6: Number of Birds Found<select id=cs_6_numberSelect class=numberSelect onchange=cs_6_Details()></select></div></br><div class=details id=cs_6_speciesList></div></br><div id=secondaryTextB>Court Square 7: Number of Birds Found<select id=cs_7_numberSelect class=numberSelect onchange=cs_7_Details()></select></div></br><div class=details id=cs_7_speciesList></div>";
+                    document.getElementById("sites").innerHTML =  "<div class=secondaryTextB>Court Square 1: Number of Birds Found<select id=cs_1_numberSelect class=numberSelect onchange=cs_1_Details()></select></div></br><div class=details id=cs_1_speciesList></div></br><div class=secondaryTextB>Court Square 2: Number of Birds Found<select id=cs_2_numberSelect class=numberSelect onchange=cs_2_Details()></select></div></br><div class=details id=cs_2_speciesList></div></br><div class=secondaryTextB>Court Square 3: Number of Birds Found<select id=cs_3_numberSelect class=numberSelect onchange=cs_3_Details()></select></div></br><div class=details id=cs_3_speciesList></div></br><div class=secondaryTextB>Court Square 4: Number of Birds Found<select id=cs_4_numberSelect class=numberSelect onchange=cs_4_Details()></select></div></br><div class=details id=cs_4_speciesList></div></br><div class=secondaryTextB>Court Square 5: Number of Birds Found<select id=cs_5_numberSelect class=numberSelect onchange=cs_5_Details()></select></div></br><div class=details id=cs_5_speciesList></div></br><div class=secondaryTextB>Court Square 6: Number of Birds Found<select id=cs_6_numberSelect class=numberSelect onchange=cs_6_Details()></select></div></br><div class=details id=cs_6_speciesList></div></br><div class=secondaryTextB>Court Square 7: Number of Birds Found<select id=cs_7_numberSelect class=numberSelect onchange=cs_7_Details()></select></div></br><div class=details id=cs_7_speciesList></div>";
                     }
                     
                     if (document.getElementById("routeSelect").value === "metropolitan museum of art (met)"){ 
-                    document.getElementById("sites").innerHTML =  "<div id=secondaryTextB>Met 1: Number of Birds Found<select id=met_1_numberSelect class=numberSelect onchange=met_1_Details()></select></div></br><div class=details id=met_1_speciesList></div></br><div id=secondaryTextB>Met 2: Number of Birds Found<select id=met_2_numberSelect class=numberSelect onchange=met_2_Details()></select></div></br><div class=details id=met_2_speciesList></div></br><div id=secondaryTextB>Met 3: Number of Birds Found<select id=met_3_numberSelect class=numberSelect onchange=met_3_Details()></select></div></br><div class=details id=met_3_speciesList></div></br><div id=secondaryTextB>Met 4: Number of Birds Found<select id=met_4_numberSelect class=numberSelect onchange=met_4_Details()></select></div></br><div class=details id=met_4_speciesList></div></br><div id=secondaryTextB>Met 5: Number of Birds Found<select id=met_5_numberSelect class=numberSelect onchange=met_5_Details()></select></div></br><div class=details id=met_5_speciesList></div></br><div id=secondaryTextB>Met 6: Number of Birds Found<select id=met_6_numberSelect class=numberSelect onchange=met_6_Details()></select></div></br><div class=details id=met_6_speciesList></div></br><div id=secondaryTextB>Met 7: Number of Birds Found<select id=met_7_numberSelect class=numberSelect onchange=met_7_Details()></select></div></br><div class=details id=met_7_speciesList></div>";
+                    document.getElementById("sites").innerHTML =  "<div class=secondaryTextB>Met 1: Number of Birds Found<select id=met_1_numberSelect class=numberSelect onchange=met_1_Details()></select></div></br><div class=details id=met_1_speciesList></div></br><div class=secondaryTextB>Met 2: Number of Birds Found<select id=met_2_numberSelect class=numberSelect onchange=met_2_Details()></select></div></br><div class=details id=met_2_speciesList></div></br><div class=secondaryTextB>Met 3: Number of Birds Found<select id=met_3_numberSelect class=numberSelect onchange=met_3_Details()></select></div></br><div class=details id=met_3_speciesList></div></br><div class=secondaryTextB>Met 4: Number of Birds Found<select id=met_4_numberSelect class=numberSelect onchange=met_4_Details()></select></div></br><div class=details id=met_4_speciesList></div></br><div class=secondaryTextB>Met 5: Number of Birds Found<select id=met_5_numberSelect class=numberSelect onchange=met_5_Details()></select></div></br><div class=details id=met_5_speciesList></div></br><div class=secondaryTextB>Met 6: Number of Birds Found<select id=met_6_numberSelect class=numberSelect onchange=met_6_Details()></select></div></br><div class=details id=met_6_speciesList></div></br><div class=secondaryTextB>Met 7: Number of Birds Found<select id=met_7_numberSelect class=numberSelect onchange=met_7_Details()></select></div></br><div class=details id=met_7_speciesList></div>";
                     }
                     
                     if (document.getElementById("routeSelect").value === "richard meier building"){
-                    document.getElementById("sites").innerHTML =  "<div id=secondaryTextB>Richard Meier Building 1: Number of Birds Found<select id=rmb_1_numberSelect class=numberSelect onchange=rmb_1_Details()></select></div></br><div class=details id=rmb_1_speciesList></div>";
+                    document.getElementById("sites").innerHTML =  "<div class=secondaryTextB>Richard Meier Building 1: Number of Birds Found<select id=rmb_1_numberSelect class=numberSelect onchange=rmb_1_Details()></select></div></br><div class=details id=rmb_1_speciesList></div>";
                     }
                     
                     if (document.getElementById("routeSelect").value === "wfc - freedom tower"){ 
-                    document.getElementById("sites").innerHTML =  "<div id=secondaryTextB>Freedom Tower 1: Number of Birds Found<select id=wfc_ft_1_numberSelect class=numberSelect onchange=wfc_ft_1_Details()></select></div></br><div class=details id=wfc_ft_1_speciesList></div></br><div id=secondaryTextB>Freedom Tower 2: Number of Birds Found<select id=wfc_ft_2_numberSelect class=numberSelect onchange=wfc_ft_2_Details()></select></div></br><div class=details id=wfc_ft_2_speciesList></div></br><div id=secondaryTextB>Freedom Tower 3: Number of Birds Found<select id=wfc_ft_3_numberSelect class=numberSelect onchange=wfc_ft_3_Details()></select></div></br><div class=details id=wfc_ft_3_speciesList></div></br><div id=secondaryTextB>Freedom Tower 4: Number of Birds Found<select id=wfc_ft_4_numberSelect class=numberSelect onchange=wfc_ft_4_Details()></select></div></br><div class=details id=wfc_ft_4_speciesList></div>";
+                    document.getElementById("sites").innerHTML =  "<div class=secondaryTextB>Freedom Tower 1: Number of Birds Found<select id=wfc_ft_1_numberSelect class=numberSelect onchange=wfc_ft_1_Details()></select></div></br><div class=details id=wfc_ft_1_speciesList></div></br><div class=secondaryTextB>Freedom Tower 2: Number of Birds Found<select id=wfc_ft_2_numberSelect class=numberSelect onchange=wfc_ft_2_Details()></select></div></br><div class=details id=wfc_ft_2_speciesList></div></br><div class=secondaryTextB>Freedom Tower 3: Number of Birds Found<select id=wfc_ft_3_numberSelect class=numberSelect onchange=wfc_ft_3_Details()></select></div></br><div class=details id=wfc_ft_3_speciesList></div></br><div class=secondaryTextB>Freedom Tower 4: Number of Birds Found<select id=wfc_ft_4_numberSelect class=numberSelect onchange=wfc_ft_4_Details()></select></div></br><div class=details id=wfc_ft_4_speciesList></div>";
                     }
                     
                     if (document.getElementById("routeSelect").value === "wfc - goldman sachs"){ 
-                    document.getElementById("sites").innerHTML =  "<div id=secondaryTextB>Goldman Sachs 1: Number of Birds Found<select id=wfc_gs_1_numberSelect class=numberSelect onchange=wfc_gs_1_Details()></select></div></br><div class=details id=wfc_gs_1_speciesList></div></br><div id=secondaryTextB>Goldman Sachs 2: Number of Birds Found<select id=wfc_gs_2_numberSelect class=numberSelect onchange=wfc_gs_2_Details()></select></div></br><div class=details id=wfc_gs_2_speciesList></div></br><div id=secondaryTextB>Goldman Sachs 3: Number of Birds Found<select id=wfc_gs_3_numberSelect class=numberSelect onchange=wfc_gs_3_Details()></select></div></br><div class=details id=wfc_gs_3_speciesList></div>";
+                    document.getElementById("sites").innerHTML =  "<div class=secondaryTextB>Goldman Sachs 1: Number of Birds Found<select id=wfc_gs_1_numberSelect class=numberSelect onchange=wfc_gs_1_Details()></select></div></br><div class=details id=wfc_gs_1_speciesList></div></br><div class=secondaryTextB>Goldman Sachs 2: Number of Birds Found<select id=wfc_gs_2_numberSelect class=numberSelect onchange=wfc_gs_2_Details()></select></div></br><div class=details id=wfc_gs_2_speciesList></div></br><div class=secondaryTextB>Goldman Sachs 3: Number of Birds Found<select id=wfc_gs_3_numberSelect class=numberSelect onchange=wfc_gs_3_Details()></select></div></br><div class=details id=wfc_gs_3_speciesList></div>";
                     }
                     
                     if (document.getElementById("routeSelect").value === "wfc - brookfield place"){ 
-                    document.getElementById("sites").innerHTML =  "<div id=secondaryTextB>Brookfield Place 1: Number of Birds Found<select id=wfc_bp_1_numberSelect class=numberSelect onchange=wfc_bp_1_Details()></select></div></br><div class=details id=wfc_bp_1_speciesList></div></br><div id=secondaryTextB>Brookfield Place 2: Number of Birds Found<select id=wfc_bp_2_numberSelect class=numberSelect onchange=wfc_bp_2_Details()></select></div></br><div class=details id=wfc_bp_2_speciesList></div></br><div id=secondaryTextB>Brookfield Place 3: Number of Birds Found<select id=wfc_bp_3_numberSelect class=numberSelect onchange=wfc_bp_3_Details()></select></div></br><div class=details id=wfc_bp_3_speciesList></div></br><div id=secondaryTextB>Brookfield Place 4: Number of Birds Found<select id=wfc_bp_4_numberSelect class=numberSelect onchange=wfc_bp_4_Details()></select></div></br><div class=details id=wfc_bp_4_speciesList></div></br><div id=secondaryTextB>Brookfield Place 5: Number of Birds Found<select id=wfc_bp_5_numberSelect class=numberSelect onchange=wfc_bp_5_Details()></select></div></br><div class=details id=wfc_bp_5_speciesList></div></br><div id=secondaryTextB>Brookfield Place 6: Number of Birds Found<select id=wfc_bp_6_numberSelect class=numberSelect onchange=wfc_bp_6_Details()></select></div></br><div class=details id=wfc_bp_6_speciesList></div></br><div id=secondaryTextB>Brookfield Place 7: Number of Birds Found<select id=wfc_bp_7_numberSelect class=numberSelect onchange=wfc_bp_7_Details()></select></div></br><div class=details id=wfc_bp_7_speciesList></div></br><div id=secondaryTextB>Brookfield Place 8: Number of Birds Found<select id=wfc_bp_8_numberSelect class=numberSelect onchange=wfc_bp_8_Details()></select></div></br><div class=details id=wfc_bp_8_speciesList></div></br><div id=secondaryTextB>Brookfield Place 9: Number of Birds Found<select id=wfc_bp_9_numberSelect class=numberSelect onchange=wfc_bp_9_Details()></select></div></br><div class=details id=wfc_bp_9_speciesList></div></br><div id=secondaryTextB>Brookfield Place 10: Number of Birds Found<select id=wfc_bp_10_numberSelect class=numberSelect onchange=wfc_bp_10_Details()></select></div></br><div class=details id=wfc_bp_10_speciesList></div></br><div id=secondaryTextB>Brookfield Place 11: Number of Birds Found<select id=wfc_bp_11_numberSelect class=numberSelect onchange=wfc_bp_11_Details()></select></div></br><div class=details id=wfc_bp_11_speciesList></div></br><div id=secondaryTextB>Brookfield Place 12: Number of Birds Found<select id=wfc_bp_12_numberSelect class=numberSelect onchange=wfc_bp_12_Details()></select></div></br><div class=details id=wfc_bp_12_speciesList></div></br><div id=secondaryTextB>Brookfield Place 13: Number of Birds Found<select id=wfc_bp_13_numberSelect class=numberSelect onchange=wfc_bp_13_Details()></select></div></br><div class=details id=wfc_bp_13_speciesList></div></br><div id=secondaryTextB>Brookfield Place 14: Number of Birds Found<select id=wfc_bp_14_numberSelect class=numberSelect onchange=wfc_bp_14_Details()></select></div></br><div class=details id=wfc_bp_14_speciesList></div></br><div id=secondaryTextB>Brookfield Place 15: Number of Birds Found<select id=wfc_bp_15_numberSelect class=numberSelect onchange=wfc_bp_15_Details()></select></div></br><div class=details id=wfc_bp_15_speciesList></div></br><div id=secondaryTextB>Brookfield Place 16: Number of Birds Found<select id=wfc_bp_16_numberSelect class=numberSelect onchange=wfc_bp_16_Details()></select></div></br><div class=details id=wfc_bp_16_speciesList></div></br><div id=secondaryTextB>Brookfield Place 17: Number of Birds Found<select id=wfc_bp_17_numberSelect class=numberSelect onchange=wfc_bp_17_Details()></select></div></br><div class=details id=wfc_bp_17_speciesList></div></br><div id=secondaryTextB>Brookfield Place 18: Number of Birds Found<select id=wfc_bp_18_numberSelect class=numberSelect onchange=wfc_bp_18_Details()></select></div></br><div class=details id=wfc_bp_18_speciesList></div>";
+                    document.getElementById("sites").innerHTML =  "<div class=secondaryTextB>Brookfield Place 1: Number of Birds Found<select id=wfc_bp_1_numberSelect class=numberSelect onchange=wfc_bp_1_Details()></select></div></br><div class=details id=wfc_bp_1_speciesList></div></br><div class=secondaryTextB>Brookfield Place 2: Number of Birds Found<select id=wfc_bp_2_numberSelect class=numberSelect onchange=wfc_bp_2_Details()></select></div></br><div class=details id=wfc_bp_2_speciesList></div></br><div class=secondaryTextB>Brookfield Place 3: Number of Birds Found<select id=wfc_bp_3_numberSelect class=numberSelect onchange=wfc_bp_3_Details()></select></div></br><div class=details id=wfc_bp_3_speciesList></div></br><div class=secondaryTextB>Brookfield Place 4: Number of Birds Found<select id=wfc_bp_4_numberSelect class=numberSelect onchange=wfc_bp_4_Details()></select></div></br><div class=details id=wfc_bp_4_speciesList></div></br><div class=secondaryTextB>Brookfield Place 5: Number of Birds Found<select id=wfc_bp_5_numberSelect class=numberSelect onchange=wfc_bp_5_Details()></select></div></br><div class=details id=wfc_bp_5_speciesList></div></br><div class=secondaryTextB>Brookfield Place 6: Number of Birds Found<select id=wfc_bp_6_numberSelect class=numberSelect onchange=wfc_bp_6_Details()></select></div></br><div class=details id=wfc_bp_6_speciesList></div></br><div class=secondaryTextB>Brookfield Place 7: Number of Birds Found<select id=wfc_bp_7_numberSelect class=numberSelect onchange=wfc_bp_7_Details()></select></div></br><div class=details id=wfc_bp_7_speciesList></div></br><div class=secondaryTextB>Brookfield Place 8: Number of Birds Found<select id=wfc_bp_8_numberSelect class=numberSelect onchange=wfc_bp_8_Details()></select></div></br><div class=details id=wfc_bp_8_speciesList></div></br><div class=secondaryTextB>Brookfield Place 9: Number of Birds Found<select id=wfc_bp_9_numberSelect class=numberSelect onchange=wfc_bp_9_Details()></select></div></br><div class=details id=wfc_bp_9_speciesList></div></br><div class=secondaryTextB>Brookfield Place 10: Number of Birds Found<select id=wfc_bp_10_numberSelect class=numberSelect onchange=wfc_bp_10_Details()></select></div></br><div class=details id=wfc_bp_10_speciesList></div></br><div class=secondaryTextB>Brookfield Place 11: Number of Birds Found<select id=wfc_bp_11_numberSelect class=numberSelect onchange=wfc_bp_11_Details()></select></div></br><div class=details id=wfc_bp_11_speciesList></div></br><div class=secondaryTextB>Brookfield Place 12: Number of Birds Found<select id=wfc_bp_12_numberSelect class=numberSelect onchange=wfc_bp_12_Details()></select></div></br><div class=details id=wfc_bp_12_speciesList></div></br><div class=secondaryTextB>Brookfield Place 13: Number of Birds Found<select id=wfc_bp_13_numberSelect class=numberSelect onchange=wfc_bp_13_Details()></select></div></br><div class=details id=wfc_bp_13_speciesList></div></br><div class=secondaryTextB>Brookfield Place 14: Number of Birds Found<select id=wfc_bp_14_numberSelect class=numberSelect onchange=wfc_bp_14_Details()></select></div></br><div class=details id=wfc_bp_14_speciesList></div></br><div class=secondaryTextB>Brookfield Place 15: Number of Birds Found<select id=wfc_bp_15_numberSelect class=numberSelect onchange=wfc_bp_15_Details()></select></div></br><div class=details id=wfc_bp_15_speciesList></div></br><div class=secondaryTextB>Brookfield Place 16: Number of Birds Found<select id=wfc_bp_16_numberSelect class=numberSelect onchange=wfc_bp_16_Details()></select></div></br><div class=details id=wfc_bp_16_speciesList></div></br><div class=secondaryTextB>Brookfield Place 17: Number of Birds Found<select id=wfc_bp_17_numberSelect class=numberSelect onchange=wfc_bp_17_Details()></select></div></br><div class=details id=wfc_bp_17_speciesList></div></br><div class=secondaryTextB>Brookfield Place 18: Number of Birds Found<select id=wfc_bp_18_numberSelect class=numberSelect onchange=wfc_bp_18_Details()></select></div></br><div class=details id=wfc_bp_18_speciesList></div>";
                     }
                     
                     
@@ -274,15 +276,39 @@
                 
                 
                 
-
+                
+                
+                
+                
+                
+                
+                
                
          
-                var formFields = "Species <select id=speciesSelect class=select><option></option><option value='unknown'>unknown</option><option value='other'>other (describe in &#39;Notes&#39;)</option><option value='bat sp.'>bat sp.</option><option value='flycatcher sp.'>flycatcher sp.</option><option value='gull sp.'>gull sp.</option><option value='kinglet sp.'>kinglet sp.</option><option value='owl sp.'>owl sp.</option><option value='sparrow sp.'>sparrow sp.</option><option value='thrush sp.'>thrush sp.</option><option value='warbler sp.'>warbler sp.</option><option value='woodpecker sp.'>woodpecker sp.</option><option value='wren sp.'>wren sp.</option><option value='Alder Flycatcher'>Alder Flycatcher</option><option value='American Black Duck'>American Black Duck</option><option value='American Coot'>American Coot</option><option value='American Goldfinch'>American Goldfinch</option><option value='American Kestrel'>American Kestrel</option><option value='American Redstart'>American Redstart</option><option value='American Robin'>American Robin</option><option value='American Woodcock'>American Woodcock</option><option value='Baltimore Oriole'>Baltimore Oriole</option><option value='Barn Swallow'>Barn Swallow</option><option value='Bay-Breasted Warbler'>Bay-Breasted Warbler</option><option value='Belted Kingfisher'>Belted Kingfisher</option><option value='Black-and-white Warbler'>Black-and-white Warbler</option><option value='Black-billed Cuckoo'>Black-billed Cuckoo</option><option value='Black-capped Chickadee'>Black-capped Chickadee</option><option value='Blackpoll Warbler'>Blackpoll Warbler</option><option value='Black-throated Blue Warbler'>Black-throated Blue Warbler</option><option value='Black-throated Green Warbler'>Black-throated Green Warbler</option><option value='Blue Jay'>Blue Jay</option><option value='Blue-headed Vireo'>Blue-headed Vireo</option><option value='Blue-winged Warbler'>Blue-winged Warbler</option><option value='Brown Creeper'>Brown Creeper</option><option value='Brown Thrasher'>Brown Thrasher</option><option value='Brown-headed Cowbird'>Brown-headed Cowbird</option><option value='Canada Warbler'>Canada Warbler</option><option value='Cape May Warbler'>Cape May Warbler</option><option value='Cedar Waxwing'>Cedar Waxwing</option><option value='Chestnut-sided Warbler'>Chestnut-sided Warbler</option><option value='Chipping Sparrow'>Chipping Sparrow</option><option value='Chuck-wills-widow'>Chuck-will's-widow</option><option value='Clapper Rail'>Clapper Rail</option><option value='Common Grackle'>Common Grackle</option><option value='Common Yellowthroat'>Common Yellowthroat</option><option value='Connecticut Warbler'>Connecticut Warbler</option><option value='Dark-eyed Junco'>Dark-eyed Junco</option><option value='Downy Woodpecker'>Downy Woodpecker</option><option value='Eastern Bluebird'>Eastern Bluebird</option><option value='Eastern Kingbird'>Eastern Kingbird</option><option value='Eastern Phoebe'>Eastern Phoebe</option><option value='Eastern Towhee'>Eastern Towhee</option><option value='Eastern Wood-pewee'>Eastern Wood-pewee</option><option value='European Starling'>European Starling</option><option value='Field Sparrow'>Field Sparrow</option><option value='Fox Sparrow'>Fox Sparrow</option><option value='Golden-crowned Kinglet'>Golden-crowned Kinglet</option><option value='Gray Catbird'>Gray Catbird</option><option value='Gray-cheeked Thrush'>Gray-cheeked Thrush</option><option value='Great Crested Flycatcher'>Great Crested Flycatcher</option><option value='Hermit Thrush'>Hermit Thrush</option><option value='Hooded Warbler'>Hooded Warbler</option><option value='House Finch'>House Finch</option><option value='House Sparrow'>House Sparrow</option><option value='House Wren'>House Wren</option><option value='Indigo Bunting'>Indigo Bunting</option><option value='Kentucky Warbler'>Kentucky Warbler</option><option value='Lazuli Bunting'>Lazuli Bunting</option><option value='Least Flycatcher'>Least Flycatcher</option><option value='Lincolns Sparrow'>Lincoln's Sparrow</option><option value='Louisiana Waterthrush'>Louisiana Waterthrush</option><option value='Magnolia Warbler'>Magnolia Warbler</option><option value='Marsh Wren'>Marsh Wren</option><option value='Mourning Dove'>Mourning Dove</option><option value='Mourning Warbler'>Mourning Warbler</option><option value='Northern Cardinal'>Northern Cardinal</option><option value='Northern Flicker'>Northern Flicker</option><option value='Northern Mockingbird'>Northern Mockingbird</option><option value='Northern Parula'>Northern Parula</option><option value='Northern Waterthrush'>Northern Waterthrush</option><option value='Olive-sided Flycatcher'>Olive-sided Flycatcher</option><option value='Orchard Oriole'>Orchard Oriole</option><option value='Osprey'>Osprey</option><option value='Ovenbird'>Ovenbird</option><option value='Palm Warbler'>Palm Warbler</option><option value='Peregrine Falcon'>Peregrine Falcon</option><option value='Pine Warbler'>Pine Warbler</option><option value='Prairie Warbler'>Prairie Warbler</option><option value='Prothonotary Warbler'>Prothonotary Warbler</option><option value='Purple Finch'>Purple Finch</option><option value='Red-headed Woodpecker'>Red-headed Woodpecker</option><option value='Red-bellied Woodpecker'>Red-bellied Woodpecker</option><option value='Red-breasted Nuthatch'>Red-breasted Nuthatch</option><option value='Red-eyed Vireo'>Red-eyed Vireo</option><option value='Red-tailed Hawk'>Red-tailed Hawk</option><option value='Rock Pigeon'>Rock Pigeon</option><option value='Rose-breasted Grosbeak'>Rose-breasted Grosbeak</option><option value='Ruby-crowned Kinglet'>Ruby-crowned Kinglet</option><option value='Ruby-throated Hummingbird'>Ruby-throated Hummingbird</option><option value='Savannah Sparrow'>Savannah Sparrow</option><option value='Scarlet Tanager'>Scarlet Tanager</option><option value='Seaside Sparrow'>Seaside Sparrow</option><option value='Song Sparrow'>Song Sparrow</option><option value='Sora'>Sora</option><option value='Swainsons Thrush'>Swainson's Thrush</option><option value='Swamp Sparrow'>Swamp Sparrow</option><option value='Tennessee Warbler'>Tennessee Warbler</option><option value='Tufted Titmouse'>Tufted Titmouse</option><option value='Veery'>Veery</option><option value='Virginia Rail'>Virginia Rail</option><option value='White-breasted Nuthatch'>White-breasted Nuthatch</option><option value='White-crowned Sparrow'>White-crowned Sparrow</option><option value='White-eyed Vireo'>White-eyed Vireo</option><option value='White-throated Sparrow'>White-throated Sparrow</option><option value='Willow Flycatcher'>Willow Flycatcher</option><option value='Wilsons Warbler'>Wilson's Warbler</option><option value='Winter Wren'>Winter Wren</option><option value='Wood Thrush'>Wood Thrush</option><option value='Worm-eating Warbler'>Worm-eating Warbler</option><option value='Yellow Warbler'>Yellow Warbler</option><option value='Yellow-bellied Flycatcher'>Yellow-bellied Flycatcher</option><option value='Yellow-bellied Sapsucker'>Yellow-bellied Sapsucker</option><option value='Yellow-billed Cuckoo'>Yellow-billed Cuckoo</option><option value='Yellow-breasted Chat'>Yellow-breasted Chat</option><option value='Yellow-rumped Warbler'>Yellow-rumped Warbler</option><option value='Yellow-throated Vireo'>Yellow-throated Vireo</option></select></br>Dead or Injured <input type=radio name=deadInjuredRadio id=deadInjuredRadio class=radio value='dead' checked>Dead<input type=radio name=deadInjuredRadio id=deadInjuredRadio class=radio value='injured'>Injured</br>Sex <input type=radio name=sexRadio id=sexRadio class=radio value='male'>Male<input type=radio name=sexRadio id=sexRadio class=radio value='female'>Female<input type=radio name=sexRadio id=sexRadio class=radio value='unknown' checked>Unknown</br>Maturity <input type=radio name=maturityRadio id=maturityRadio class=radio value='adult'>Adult<input type=radio name=maturityRadio id=maturityRadio class=radio value='juvenile'>Juvenile<input type=radio name=maturityRadio id=maturityRadio class=radio value='unknown' checked>Unknown</br>Notes <input type=text></input></p>"
+                var formFields = "Species <select name=species id=speciesSelect class=select><option></option><option value='unknown'>unknown</option><option value='other'>other (describe in &#39;Notes&#39;)</option><option value='bat sp.'>bat sp.</option><option value='flycatcher sp.'>flycatcher sp.</option><option value='gull sp.'>gull sp.</option><option value='kinglet sp.'>kinglet sp.</option><option value='owl sp.'>owl sp.</option><option value='sparrow sp.'>sparrow sp.</option><option value='thrush sp.'>thrush sp.</option><option value='warbler sp.'>warbler sp.</option><option value='woodpecker sp.'>woodpecker sp.</option><option value='wren sp.'>wren sp.</option><option value='Alder Flycatcher'>Alder Flycatcher</option><option value='American Black Duck'>American Black Duck</option><option value='American Coot'>American Coot</option><option value='American Goldfinch'>American Goldfinch</option><option value='American Kestrel'>American Kestrel</option><option value='American Redstart'>American Redstart</option><option value='American Robin'>American Robin</option><option value='American Woodcock'>American Woodcock</option><option value='Baltimore Oriole'>Baltimore Oriole</option><option value='Barn Swallow'>Barn Swallow</option><option value='Bay-Breasted Warbler'>Bay-Breasted Warbler</option><option value='Belted Kingfisher'>Belted Kingfisher</option><option value='Black-and-white Warbler'>Black-and-white Warbler</option><option value='Black-billed Cuckoo'>Black-billed Cuckoo</option><option value='Black-capped Chickadee'>Black-capped Chickadee</option><option value='Blackpoll Warbler'>Blackpoll Warbler</option><option value='Black-throated Blue Warbler'>Black-throated Blue Warbler</option><option value='Black-throated Green Warbler'>Black-throated Green Warbler</option><option value='Blue Jay'>Blue Jay</option><option value='Blue-headed Vireo'>Blue-headed Vireo</option><option value='Blue-winged Warbler'>Blue-winged Warbler</option><option value='Brown Creeper'>Brown Creeper</option><option value='Brown Thrasher'>Brown Thrasher</option><option value='Brown-headed Cowbird'>Brown-headed Cowbird</option><option value='Canada Warbler'>Canada Warbler</option><option value='Cape May Warbler'>Cape May Warbler</option><option value='Cedar Waxwing'>Cedar Waxwing</option><option value='Chestnut-sided Warbler'>Chestnut-sided Warbler</option><option value='Chipping Sparrow'>Chipping Sparrow</option><option value='Chuck-wills-widow'>Chuck-will's-widow</option><option value='Clapper Rail'>Clapper Rail</option><option value='Common Grackle'>Common Grackle</option><option value='Common Yellowthroat'>Common Yellowthroat</option><option value='Connecticut Warbler'>Connecticut Warbler</option><option value='Dark-eyed Junco'>Dark-eyed Junco</option><option value='Downy Woodpecker'>Downy Woodpecker</option><option value='Eastern Bluebird'>Eastern Bluebird</option><option value='Eastern Kingbird'>Eastern Kingbird</option><option value='Eastern Phoebe'>Eastern Phoebe</option><option value='Eastern Towhee'>Eastern Towhee</option><option value='Eastern Wood-pewee'>Eastern Wood-pewee</option><option value='European Starling'>European Starling</option><option value='Field Sparrow'>Field Sparrow</option><option value='Fox Sparrow'>Fox Sparrow</option><option value='Golden-crowned Kinglet'>Golden-crowned Kinglet</option><option value='Gray Catbird'>Gray Catbird</option><option value='Gray-cheeked Thrush'>Gray-cheeked Thrush</option><option value='Great Crested Flycatcher'>Great Crested Flycatcher</option><option value='Hermit Thrush'>Hermit Thrush</option><option value='Hooded Warbler'>Hooded Warbler</option><option value='House Finch'>House Finch</option><option value='House Sparrow'>House Sparrow</option><option value='House Wren'>House Wren</option><option value='Indigo Bunting'>Indigo Bunting</option><option value='Kentucky Warbler'>Kentucky Warbler</option><option value='Lazuli Bunting'>Lazuli Bunting</option><option value='Least Flycatcher'>Least Flycatcher</option><option value='Lincolns Sparrow'>Lincoln's Sparrow</option><option value='Louisiana Waterthrush'>Louisiana Waterthrush</option><option value='Magnolia Warbler'>Magnolia Warbler</option><option value='Marsh Wren'>Marsh Wren</option><option value='Mourning Dove'>Mourning Dove</option><option value='Mourning Warbler'>Mourning Warbler</option><option value='Northern Cardinal'>Northern Cardinal</option><option value='Northern Flicker'>Northern Flicker</option><option value='Northern Mockingbird'>Northern Mockingbird</option><option value='Northern Parula'>Northern Parula</option><option value='Northern Waterthrush'>Northern Waterthrush</option><option value='Olive-sided Flycatcher'>Olive-sided Flycatcher</option><option value='Orchard Oriole'>Orchard Oriole</option><option value='Osprey'>Osprey</option><option value='Ovenbird'>Ovenbird</option><option value='Palm Warbler'>Palm Warbler</option><option value='Peregrine Falcon'>Peregrine Falcon</option><option value='Pine Warbler'>Pine Warbler</option><option value='Prairie Warbler'>Prairie Warbler</option><option value='Prothonotary Warbler'>Prothonotary Warbler</option><option value='Purple Finch'>Purple Finch</option><option value='Red-headed Woodpecker'>Red-headed Woodpecker</option><option value='Red-bellied Woodpecker'>Red-bellied Woodpecker</option><option value='Red-breasted Nuthatch'>Red-breasted Nuthatch</option><option value='Red-eyed Vireo'>Red-eyed Vireo</option><option value='Red-tailed Hawk'>Red-tailed Hawk</option><option value='Rock Pigeon'>Rock Pigeon</option><option value='Rose-breasted Grosbeak'>Rose-breasted Grosbeak</option><option value='Ruby-crowned Kinglet'>Ruby-crowned Kinglet</option><option value='Ruby-throated Hummingbird'>Ruby-throated Hummingbird</option><option value='Savannah Sparrow'>Savannah Sparrow</option><option value='Scarlet Tanager'>Scarlet Tanager</option><option value='Seaside Sparrow'>Seaside Sparrow</option><option value='Song Sparrow'>Song Sparrow</option><option value='Sora'>Sora</option><option value='Swainsons Thrush'>Swainson's Thrush</option><option value='Swamp Sparrow'>Swamp Sparrow</option><option value='Tennessee Warbler'>Tennessee Warbler</option><option value='Tufted Titmouse'>Tufted Titmouse</option><option value='Veery'>Veery</option><option value='Virginia Rail'>Virginia Rail</option><option value='White-breasted Nuthatch'>White-breasted Nuthatch</option><option value='White-crowned Sparrow'>White-crowned Sparrow</option><option value='White-eyed Vireo'>White-eyed Vireo</option><option value='White-throated Sparrow'>White-throated Sparrow</option><option value='Willow Flycatcher'>Willow Flycatcher</option><option value='Wilsons Warbler'>Wilson's Warbler</option><option value='Winter Wren'>Winter Wren</option><option value='Wood Thrush'>Wood Thrush</option><option value='Worm-eating Warbler'>Worm-eating Warbler</option><option value='Yellow Warbler'>Yellow Warbler</option><option value='Yellow-bellied Flycatcher'>Yellow-bellied Flycatcher</option><option value='Yellow-bellied Sapsucker'>Yellow-bellied Sapsucker</option><option value='Yellow-billed Cuckoo'>Yellow-billed Cuckoo</option><option value='Yellow-breasted Chat'>Yellow-breasted Chat</option><option value='Yellow-rumped Warbler'>Yellow-rumped Warbler</option><option value='Yellow-throated Vireo'>Yellow-throated Vireo</option></select></br>Dead or Injured <input type=radio name=deadInjuredRadio id=deadInjuredRadio class=radio value='dead' checked>Dead<input type=radio name=deadInjuredRadio id=deadInjuredRadio class=radio value='injured'>Injured</br>Sex <input type=radio name=sexRadio id=sexRadio class=radio value='male'>Male<input type=radio name=sexRadio id=sexRadio class=radio value='female'>Female<input type=radio name=sexRadio id=sexRadio class=radio value='unknown' checked>Unknown</br>Maturity <input type=radio name=maturityRadio id=maturityRadio class=radio value='adult'>Adult<input type=radio name=maturityRadio id=maturityRadio class=radio value='juvenile'>Juvenile<input type=radio name=maturityRadio id=maturityRadio class=radio value='unknown' checked>Unknown</br>Notes <input type=text></input></p>"
                 
                 
                 
                 
-  
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                var speciesList = "<option></option><option value='unknown'>unknown</option><option value='other'>other (describe in &#39;Notes&#39;)</option><option value='bat sp.'>bat sp.</option><option value='flycatcher sp.'>flycatcher sp.</option><option value='gull sp.'>gull sp.</option><option value='kinglet sp.'>kinglet sp.</option><option value='owl sp.'>owl sp.</option>";
+                
+
+                
                 
                 function bpl_1_Details(){
                     
@@ -290,7 +316,93 @@
                     document.getElementById("bpl_1_speciesList").innerHTML="";
                     
                     var bpl_1_numberBirds = document.getElementById("bpl_1_numberSelect").value;
-                    //var html=''
+                    var routeName = "brooklyn_public_library_1_";
+                    
+                    
+                    for (i = 0; i < bpl_1_numberBirds; i++){
+                        
+                        
+                        $('<div>' , {id:"detailsDiv"+i}).appendTo('#bpl_1_speciesList');
+                        
+                        
+                        
+                            $('<div>Species<select name="'+routeName+'species_'+i+'" id="'+routeName+'species_'+i+'" class="speciesSelect""></select></div>').appendTo('#detailsDiv'+i);
+                        
+                            $('<div><input type=radio name="'+routeName+'deadInjured_'+i+'" id="'+routeName+'deadInjured_'+i+'" class="deadInjuredRadio" value="dead" checked>Dead<input type=radio name="'+routeName+'deadInjured_'+i+'" id="'+routeName+'deadInjured_'+i+'" class="deadInjuredRadio" value="injured">Injured</div>').appendTo('#detailsDiv'+i);
+                        
+                           
+                           /* 
+                            $('<select>', {name:routeName+"species_"+i , id:routeName+"species_"+i , class:"speciesSelect"}).appendTo('#detailsDiv'+i));
+                        
+                            $('<input>', {type:"radio" , name:routeName+"deadInjured_"+i , id:routeName+"deadInjured_"+i , class:"deadInjuredRadio" ,  value:"dead"}).appendTo('#detailsDiv'+i);
+                            $('<input>', {type:"radio" , name:routeName+"deadInjured_"+i , id:routeName+"deadInjured_"+i , class:"deadInjuredRadio" , value:"injured"}).appendTo('#detailsDiv'+i);
+                        
+                            $('<input>', {type:"radio" , name:routeName+"sex_"+i , id:routeName+"sex_"+i , class:"sexRadio" , value:"male"}).appendTo('#detailsDiv'+i);
+                            $('<input>', {type:"radio" , name:routeName+"sex_"+i , id:routeName+"sex_"+i , class:"sexRadio" , value:"female"}).appendTo('#detailsDiv'+i);
+                            $('<input>', {type:"radio" , name:routeName+"sex_"+i , id:routeName+"sex_"+i , class:"sexRadio" , value:"unknown"}).appendTo('#detailsDiv'+i);
+                        
+                            $('<input>', {type:"radio" , name:routeName+"maturity_"+i , id:routeName+"maturity_"+i , class:"maturityRadio" , value:"adult"}).appendTo('#detailsDiv'+i);
+                            $('<input>', {type:"radio" , name:routeName+"maturity_"+i , id:routeName+"maturity_"+i , class:"maturityRadio" , value:"juvenile"}).appendTo('#detailsDiv'+i);
+                            $('<input>', {type:"radio" , name:routeName+"maturity_"+i , id:routeName+"maturity_"+i , class:"maturityRadio" , value:"unknown"}).appendTo('#detailsDiv'+i);
+                        
+                            $('<input>', {type:"text" , name:routeName+"notes_"+i , id:routeName+"notes_"+i , class:"speciesNotes"}).appendTo('#detailsDiv'+i);*/
+                            
+                        
+
+                        }
+                    
+                   $(document).ready(function(){
+                        $('.speciesSelect').append(speciesList)
+                        });
+                    
+                }
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+              
+       /*         
+                
+                
+                function bpl_1_Details(){
+                    
+                    //CLEARS DIV ONCHANGE
+                    document.getElementById("bpl_1_speciesList").innerHTML="";
+                    
+                    var bpl_1_numberBirds = document.getElementById("bpl_1_numberSelect").value;
+
                     
                     for (i = 0; i < bpl_1_numberBirds; i++){
                     
@@ -309,7 +421,7 @@
                     document.getElementById("bp_1_speciesList").innerHTML="";
                     
                     var bp_1_numberBirds = document.getElementById("bp_1_numberSelect").value;
-                    //var html=''
+
                     
                     for (i = 0; i < bp_1_numberBirds; i++){
                     
@@ -328,7 +440,7 @@
                     document.getElementById("bp_2_speciesList").innerHTML="";
                     
                     var bp_2_numberBirds = document.getElementById("bp_2_numberSelect").value;
-                    //var html=''
+
                     
                     for (i = 0; i < bp_2_numberBirds; i++){
                     
@@ -347,7 +459,7 @@
                     document.getElementById("bp_3_speciesList").innerHTML="";
                     
                     var bp_3_numberBirds = document.getElementById("bp_3_numberSelect").value;
-                    //var html=''
+
                     
                     for (i = 0; i < bp_3_numberBirds; i++){
                     
@@ -366,7 +478,7 @@
                     document.getElementById("bp_4_speciesList").innerHTML="";
                     
                     var bp_4_numberBirds = document.getElementById("bp_4_numberSelect").value;
-                    //var html=''
+
                     
                     for (i = 0; i < bp_4_numberBirds; i++){
                     
@@ -1385,13 +1497,14 @@
                         });   
                 }
                 
+                */
                 
-               /* function logData(){
-                    console.log(document.getElementById("routeSelect").value);
-                    console.log(document.getElementById("speciesSelect").value);
-                    document.getElementById("results").innerHTML = document.getElementById("routeSelect").value;
-                    document.getElementById("results").innerHTML = document.getElementById("speciesSelect").value;
-                } */
+                
+                
+                
+               $("form :input").change(function() {
+    console.log($(this).closest('form').serialize());
+  });
 
             </script>
 

@@ -67,7 +67,8 @@
                 margin-bottom: 35px;
                 margin-left: 25px;
                 padding-top: 22px;
-                padding-bottom: 0px;    
+                padding-bottom: 0px;
+                border-radius: 3px;
                 width: 750px;
             }
             
@@ -86,8 +87,14 @@
             .detailsDiv{
                 margin-bottom: 35px;
                 margin-left: 25px;
+                padding-top: 5px;
+                padding-bottom: 5px;
+                padding-left: 5px;
+                padding-right: 5px;
+                width: 394px;
                 border: solid;
                 border-color: #FFEEE3;
+                background-color: #FFFFFE;
             }
 
             #submit_button{
@@ -220,59 +227,59 @@
                     
                     if (document.getElementById("routeSelect").value === "brooklyn public library"){
                         
-                    document.getElementById("sites").innerHTML =  "<fieldset><legend>Brooklyn Public Library 1: Number of Birds Found<select name='"+routeName+"_1_numberBirds' id=bpl_1_numberSelect class=numberSelect onchange=bpl_1_Details()></select></legend><div class=details id=bpl_1_speciesList></div></fieldset>";
+                    document.getElementById("sites").innerHTML =  "<fieldset><legend>Brooklyn Public Library 1: <strong>Number of Birds Found</strong><select name='"+routeName+"_0_numberBirds' id=bpl_1_numberSelect class=numberSelect onchange=bpl_1_Details()></select></legend><div class=details id=bpl_1_speciesList></div></fieldset>";
                     }
                     
                     if (document.getElementById("routeSelect").value === "bryant park"){ 
-                    document.getElementById("sites").innerHTML =  "<div class=secondaryTextB>Bryant Park 1: Number of Birds Found<select name='"+routeName+"_1_numberBirds' id=bp_1_numberSelect class=numberSelect onchange=bp_1_Details()></select></div></br><div class=details id=bp_1_speciesList></div></br><div class=secondaryTextB>Bryant Park 2: Number of Birds Found<select name='"+routeName+"_2_numberBirds' id=bp_2_numberSelect class=numberSelect onchange=bp_2_Details()></select></div></br><div class=details id=bp_2_speciesList></div></br><div class=secondaryTextB>Bryant Park 3: Number of Birds Found<select name='"+routeName+"_3_numberBirds' id=bp_3_numberSelect class=numberSelect onchange=bp_3_Details()></select></div></br><div class=details id=bp_3_speciesList></div></br><div class=secondaryTextB>Bryant Park 4: Number of Birds Found<select name='"+routeName+"_4_numberBirds' id=bp_4_numberSelect class=numberSelect onchange=bp_4_Details()></select></div></br><div class=details id=bp_4_speciesList></div>";   
+                    document.getElementById("sites").innerHTML =  "<fieldset><legend>Bryant Park 1: <strong>Number of Birds Found</strong><select name='"+routeName+"_0_numberBirds' id=bp_1_numberSelect class=numberSelect onchange=bp_1_Details()></select></legend><div class=details id=bp_1_speciesList></div></fieldset><fieldset><legend>Bryant Park 2: <strong>Number of Birds Found</strong><select name='"+routeName+"_1_numberBirds' id=bp_2_numberSelect class=numberSelect onchange=bp_2_Details()></select></legend><div class=details id=bp_2_speciesList></div></fieldset><fieldset><legend>Bryant Park 3: <strong>Number of Birds Found</strong><select name='"+routeName+"_2_numberBirds' id=bp_3_numberSelect class=numberSelect onchange=bp_3_Details()></select></legend><div class=details id=bp_3_speciesList></div></fieldset><fieldset><legend>Bryant Park 4: <strong>Number of Birds Found</strong><select name='"+routeName+"_3_numberBirds' id=bp_4_numberSelect class=numberSelect onchange=bp_4_Details()></select></legend><div class=details id=bp_4_speciesList></div></fieldset>";   
                     }
                     
                     if (document.getElementById("routeSelect").value === "columbia university - lerner"){ 
-                    document.getElementById("sites").innerHTML =  "<div class=secondaryTextB>Columbia University - Lerner 1: Number of Birds Found<select name='"+routeName+"_1_numberBirds' id=cul_1_numberSelect class=numberSelect onchange=cul_1_Details()></select></div></br><div class=details id=cul_1_speciesList></div>";
+                    document.getElementById("sites").innerHTML =  "<fieldset><legend>Columbia University - Lerner 1: <strong>Number of Birds Found</strong><select name='"+routeName+"_0_numberBirds' id=cul_1_numberSelect class=numberSelect onchange=cul_1_Details()></select></legend><div class=details id=cul_1_speciesList></div></fieldset>";
                     }
                     
                     if (document.getElementById("routeSelect").value === "columbia university - northwest corner"){ 
-                    document.getElementById("sites").innerHTML =  "<div class=secondaryTextB>Columbia University - Northwest Corner 1: Number of Birds Found<select name='"+routeName+"_1_numberBirds' id=cunwc_1_numberSelect class=numberSelect onchange=cunwc_1_Details()></select></div></br><div class=details id=cunwc_1_speciesList></div>";
+                    document.getElementById("sites").innerHTML =  "<fieldset><legend>Columbia University - Northwest Corner 1: <strong>Number of Birds Found</strong><select name='"+routeName+"_0_numberBirds' id=cunwc_1_numberSelect class=numberSelect onchange=cunwc_1_Details()></select></legend><div class=details id=cunwc_1_speciesList></div></fieldset>";
                     }
                     
                     if (document.getElementById("routeSelect").value === "ford foundation building"){ 
-                    document.getElementById("sites").innerHTML =  "<div class=secondaryTextB>Ford Foundation Building 1: Number of Birds Found<select name='"+routeName+"_1_numberBirds' id=ffb_1_numberSelect class=numberSelect onchange=ffb_1_Details()></select></div></br><div class=details id=ffb_1_speciesList></div></br><div class=secondaryTextB>Ford Foundation Building 2: Number of Birds Found<select name='"+routeName+"_2_numberBirds' id=ffb_2_numberSelect class=numberSelect onchange=ffb_2_Details()></select></div></br><div class=details id=ffb_2_speciesList></div></br><div class=secondaryTextB>Ford Foundation Building 3: Number of Birds Found<select name='"+routeName+"_3_numberBirds' id=ffb_3_numberSelect class=numberSelect onchange=ffb_3_Details()></select></div></br><div class=details id=ffb_3_speciesList></div>";
+                    document.getElementById("sites").innerHTML =  "<fieldset><legend>Ford Foundation Building 1: <strong>Number of Birds Found</strong><select name='"+routeName+"_0_numberBirds' id=ffb_1_numberSelect class=numberSelect onchange=ffb_1_Details()></select></legend><div class=details id=ffb_1_speciesList></div></fieldset><fieldset><legend>Ford Foundation Building 2: <strong>Number of Birds Found</strong><select name='"+routeName+"_1_numberBirds' id=ffb_2_numberSelect class=numberSelect onchange=ffb_2_Details()></select></legend><div class=details id=ffb_2_speciesList></div></fieldset><fieldset><legend>Ford Foundation Building 3: <strong>Number of Birds Found</strong><select name='"+routeName+"_2_numberBirds' id=ffb_3_numberSelect class=numberSelect onchange=ffb_3_Details()></select></legend><div class=details id=ffb_3_speciesList></div></fieldset>";
                     }
                     
 
                     if (document.getElementById("routeSelect").value === "javits"){ 
-                    document.getElementById("sites").innerHTML =  "<div class=secondaryTextB>Javits 1: Number of Birds Found<select name='"+routeName+"_1_numberBirds' id=jav_1_numberSelect class=numberSelect onchange=jav_1_Details()></select></div></br><div class=details id=jav_1_speciesList></div></br><div class=secondaryTextB>Javits 2: Number of Birds Found<select name='"+routeName+"_2_numberBirds' id=jav_2_numberSelect class=numberSelect onchange=jav_2_Details()></select></div></br><div class=details id=jav_2_speciesList></div></br><div class=secondaryTextB>Javits 3: Number of Birds Found<select name='"+routeName+"_3_numberBirds' id=jav_3_numberSelect class=numberSelect onchange=jav_3_Details()></select></div></br><div class=details id=jav_3_speciesList></div></br><div class=secondaryTextB>Javits 4: Number of Birds Found<select name='"+routeName+"_4_numberBirds' id=jav_4_numberSelect class=numberSelect onchange=jav_4_Details()></select></div></br><div class=details id=jav_4_speciesList></div></br><div class=secondaryTextB>Javits 5: Number of Birds Found<select name='"+routeName+"_5_numberBirds' id=jav_5_numberSelect class=numberSelect onchange=jav_5_Details()></select></div></br><div class=details id=jav_5_speciesList></div></br><div class=secondaryTextB>Javits 6: Number of Birds Found<select name='"+routeName+"_6_numberBirds' id=jav_6_numberSelect class=numberSelect onchange=jav_6_Details()></select></div></br><div class=details id=jav_6_speciesList></div></br><div class=secondaryTextB>Javits 7: Number of Birds Found<select name='"+routeName+"_7_numberBirds' id=jav_7_numberSelect class=numberSelect onchange=jav_7_Details()></select></div></br><div class=details id=jav_7_speciesList></div></br><div class=secondaryTextB>Javits 8: Number of Birds Found<select name='"+routeName+"_8_numberBirds' id=jav_8_numberSelect class=numberSelect onchange=jav_8_Details()></select></div></br><div class=details id=jav_8_speciesList></div>";
+                    document.getElementById("sites").innerHTML =  "<fieldset><legend>Javits 1: <strong>Number of Birds Found</strong><select name='"+routeName+"_0_numberBirds' id=jav_1_numberSelect class=numberSelect onchange=jav_1_Details()></select></legend><div class=details id=jav_1_speciesList></div></fieldset><fieldset><legend>Javits 2: <strong>Number of Birds Found</strong><select name='"+routeName+"_1_numberBirds' id=jav_2_numberSelect class=numberSelect onchange=jav_2_Details()></select></legend><div class=details id=jav_2_speciesList></div></fieldset><fieldset><legend>Javits 3: <strong>Number of Birds Found</strong><select name='"+routeName+"_2_numberBirds' id=jav_3_numberSelect class=numberSelect onchange=jav_3_Details()></select></legend><div class=details id=jav_3_speciesList></div></fieldset><fieldset><legend>Javits 4: <strong>Number of Birds Found</strong><select name='"+routeName+"_3_numberBirds' id=jav_4_numberSelect class=numberSelect onchange=jav_4_Details()></select></legend><div class=details id=jav_4_speciesList></div></fieldset><fieldset><legend>Javits 5: <strong>Number of Birds Found</strong><select name='"+routeName+"_4_numberBirds' id=jav_5_numberSelect class=numberSelect onchange=jav_5_Details()></select></legend><div class=details id=jav_5_speciesList></div></fieldset><fieldset><legend>Javits 6: <strong>Number of Birds Found</strong><select name='"+routeName+"_5_numberBirds' id=jav_6_numberSelect class=numberSelect onchange=jav_6_Details()></select></legend><div class=details id=jav_6_speciesList></div></fieldset><fieldset><legend>Javits 7: <strong>Number of Birds Found</strong><select name='"+routeName+"_6_numberBirds' id=jav_7_numberSelect class=numberSelect onchange=jav_7_Details()></select></legend><div class=details id=jav_7_speciesList></div></fieldset><fieldset><legend>Javits 8: <strong>Number of Birds Found</strong><select name='"+routeName+"_7_numberBirds' id=jav_8_numberSelect class=numberSelect onchange=jav_8_Details()></select></legend><div class=details id=jav_8_speciesList></div>";
                     }
                     
                     if (document.getElementById("routeSelect").value === "lic - court square"){ 
-                    document.getElementById("sites").innerHTML =  "<div class=secondaryTextB>Court Square 1: Number of Birds Found<select name='"+routeName+"_1_numberBirds' id=cs_1_numberSelect class=numberSelect onchange=cs_1_Details()></select></div></br><div class=details id=cs_1_speciesList></div></br><div class=secondaryTextB>Court Square 2: Number of Birds Found<select name='"+routeName+"_2_numberBirds' id=cs_2_numberSelect class=numberSelect onchange=cs_2_Details()></select></div></br><div class=details id=cs_2_speciesList></div></br><div class=secondaryTextB>Court Square 3: Number of Birds Found<select name='"+routeName+"_3_numberBirds' id=cs_3_numberSelect class=numberSelect onchange=cs_3_Details()></select></div></br><div class=details id=cs_3_speciesList></div></br><div class=secondaryTextB>Court Square 4: Number of Birds Found<select name='"+routeName+"_4_numberBirds' id=cs_4_numberSelect class=numberSelect onchange=cs_4_Details()></select></div></br><div class=details id=cs_4_speciesList></div></br><div class=secondaryTextB>Court Square 5: Number of Birds Found<select name='"+routeName+"_5_numberBirds' id=cs_5_numberSelect class=numberSelect onchange=cs_5_Details()></select></div></br><div class=details id=cs_5_speciesList></div></br><div class=secondaryTextB>Court Square 6: Number of Birds Found<select name='"+routeName+"_6_numberBirds' id=cs_6_numberSelect class=numberSelect onchange=cs_6_Details()></select></div></br><div class=details id=cs_6_speciesList></div></br><div class=secondaryTextB>Court Square 7: Number of Birds Found<select name='"+routeName+"_7_numberBirds' id=cs_7_numberSelect class=numberSelect onchange=cs_7_Details()></select></div></br><div class=details id=cs_7_speciesList></div>";
+                    document.getElementById("sites").innerHTML =  "<fieldset><legend>Court Square 1: <strong>Number of Birds Found</strong><select name='"+routeName+"_0_numberBirds' id=cs_1_numberSelect class=numberSelect onchange=cs_1_Details()></select></legend><div class=details id=cs_1_speciesList></div></fieldset><fieldset><legend>Court Square 2: <strong>Number of Birds Found</strong><select name='"+routeName+"_1_numberBirds' id=cs_2_numberSelect class=numberSelect onchange=cs_2_Details()></select></legend><div class=details id=cs_2_speciesList></div></fieldset><fieldset><legend>Court Square 3: <strong>Number of Birds Found</strong><select name='"+routeName+"_2_numberBirds' id=cs_3_numberSelect class=numberSelect onchange=cs_3_Details()></select></legend><div class=details id=cs_3_speciesList></div></fieldset><fieldset><legend>Court Square 4: <strong>Number of Birds Found</strong><select name='"+routeName+"_3_numberBirds' id=cs_4_numberSelect class=numberSelect onchange=cs_4_Details()></select></legend><div class=details id=cs_4_speciesList></div></fieldset><fieldset><legend>Court Square 5: <strong>Number of Birds Found</strong><select name='"+routeName+"_4_numberBirds' id=cs_5_numberSelect class=numberSelect onchange=cs_5_Details()></select></legend><div class=details id=cs_5_speciesList></div></fieldset><fieldset><legend>Court Square 6: <strong>Number of Birds Found</strong><select name='"+routeName+"_5_numberBirds' id=cs_6_numberSelect class=numberSelect onchange=cs_6_Details()></select></legend><div class=details id=cs_6_speciesList></div></fieldset><fieldset><legend>Court Square 7: <strong>Number of Birds Found</strong><select name='"+routeName+"_6_numberBirds' id=cs_7_numberSelect class=numberSelect onchange=cs_7_Details()></select></legend><div class=details id=cs_7_speciesList></div>";
                     }
                     
                     if (document.getElementById("routeSelect").value === "metropolitan museum of art (met)"){ 
-                    document.getElementById("sites").innerHTML =  "<div class=secondaryTextB>Met 1: Number of Birds Found<select name='"+routeName+"_1_numberBirds' id=met_1_numberSelect class=numberSelect onchange=met_1_Details()></select></div></br><div class=details id=met_1_speciesList></div></br><div class=secondaryTextB>Met 2: Number of Birds Found<select name='"+routeName+"_2_numberBirds' id=met_2_numberSelect class=numberSelect onchange=met_2_Details()></select></div></br><div class=details id=met_2_speciesList></div></br><div class=secondaryTextB>Met 3: Number of Birds Found<select name='"+routeName+"_3_numberBirds' id=met_3_numberSelect class=numberSelect onchange=met_3_Details()></select></div></br><div class=details id=met_3_speciesList></div></br><div class=secondaryTextB>Met 4: Number of Birds Found<select name='"+routeName+"_4_numberBirds' id=met_4_numberSelect class=numberSelect onchange=met_4_Details()></select></div></br><div class=details id=met_4_speciesList></div></br><div class=secondaryTextB>Met 5: Number of Birds Found<select name='"+routeName+"_5_numberBirds' id=met_5_numberSelect class=numberSelect onchange=met_5_Details()></select></div></br><div class=details id=met_5_speciesList></div></br><div class=secondaryTextB>Met 6: Number of Birds Found<select name='"+routeName+"_6_numberBirds' id=met_6_numberSelect class=numberSelect onchange=met_6_Details()></select></div></br><div class=details id=met_6_speciesList></div></br><div class=secondaryTextB>Met 7: Number of Birds Found<select name='"+routeName+"_7_numberBirds' id=met_7_numberSelect class=numberSelect onchange=met_7_Details()></select></div></br><div class=details id=met_7_speciesList></div>";
+                    document.getElementById("sites").innerHTML =  "<fieldset><legend>Met 1: <strong>Number of Birds Found</strong><select name='"+routeName+"_0_numberBirds' id=met_1_numberSelect class=numberSelect onchange=met_1_Details()></select></legend><div class=details id=met_1_speciesList></div></fieldset><fieldset><legend>Met 2: <strong>Number of Birds Found</strong><select name='"+routeName+"_1_numberBirds' id=met_2_numberSelect class=numberSelect onchange=met_2_Details()></select></legend><div class=details id=met_2_speciesList></div></fieldset><fieldset><legend>Met 3: <strong>Number of Birds Found</strong><select name='"+routeName+"_2_numberBirds' id=met_3_numberSelect class=numberSelect onchange=met_3_Details()></select></legend><div class=details id=met_3_speciesList></div></fieldset><fieldset><legend>Met 4: <strong>Number of Birds Found</strong><select name='"+routeName+"_3_numberBirds' id=met_4_numberSelect class=numberSelect onchange=met_4_Details()></select></legend><div class=details id=met_4_speciesList></div></fieldset><fieldset><legend>Met 5: <strong>Number of Birds Found</strong><select name='"+routeName+"_4_numberBirds' id=met_5_numberSelect class=numberSelect onchange=met_5_Details()></select></legend><div class=details id=met_5_speciesList></div></fieldset><fieldset><legend>Met 6: <strong>Number of Birds Found</strong><select name='"+routeName+"_5_numberBirds' id=met_6_numberSelect class=numberSelect onchange=met_6_Details()></select></legend><div class=details id=met_6_speciesList></div></fieldset><fieldset><legend>Met 7: <strong>Number of Birds Found</strong><select name='"+routeName+"_6_numberBirds' id=met_7_numberSelect class=numberSelect onchange=met_7_Details()></select></legend><div class=details id=met_7_speciesList></div>";
                     }
                     
                     if (document.getElementById("routeSelect").value === "richard meier building"){
-                    document.getElementById("sites").innerHTML =  "<div class=secondaryTextB>Richard Meier Building 1: Number of Birds Found<select name='"+routeName+"_1_numberBirds' id=rmb_1_numberSelect class=numberSelect onchange=rmb_1_Details()></select></div></br><div class=details id=rmb_1_speciesList></div>";
+                    document.getElementById("sites").innerHTML =  "<fieldset><legend>Richard Meier Building 1: <strong>Number of Birds Found</strong><select name='"+routeName+"_0_numberBirds' id=rmb_1_numberSelect class=numberSelect onchange=rmb_1_Details()></select></legend><div class=details id=rmb_1_speciesList></div>";
                     }
                     
                     if (document.getElementById("routeSelect").value === "wfc - freedom tower"){ 
-                    document.getElementById("sites").innerHTML =  "<div class=secondaryTextB>Freedom Tower 1: Number of Birds Found<select name='"+routeName+"_1_numberBirds' id=wfc_ft_1_numberSelect class=numberSelect onchange=wfc_ft_1_Details()></select></div></br><div class=details id=wfc_ft_1_speciesList></div></br><div class=secondaryTextB>Freedom Tower 2: Number of Birds Found<select name='"+routeName+"_2_numberBirds' id=wfc_ft_2_numberSelect class=numberSelect onchange=wfc_ft_2_Details()></select></div></br><div class=details id=wfc_ft_2_speciesList></div></br><div class=secondaryTextB>Freedom Tower 3: Number of Birds Found<select name='"+routeName+"_3_numberBirds' id=wfc_ft_3_numberSelect class=numberSelect onchange=wfc_ft_3_Details()></select></div></br><div class=details id=wfc_ft_3_speciesList></div></br><div class=secondaryTextB>Freedom Tower 4: Number of Birds Found<select name='"+routeName+"_4_numberBirds' id=wfc_ft_4_numberSelect class=numberSelect onchange=wfc_ft_4_Details()></select></div></br><div class=details id=wfc_ft_4_speciesList></div>";
+                    document.getElementById("sites").innerHTML =  "<fieldset><legend>Freedom Tower 1: <strong>Number of Birds Found</strong><select name='"+routeName+"_0_numberBirds' id=wfc_ft_1_numberSelect class=numberSelect onchange=wfc_ft_1_Details()></select></legend><div class=details id=wfc_ft_1_speciesList></div></fieldset><fieldset><legend>Freedom Tower 2: <strong>Number of Birds Found</strong><select name='"+routeName+"_1_numberBirds' id=wfc_ft_2_numberSelect class=numberSelect onchange=wfc_ft_2_Details()></select></legend><div class=details id=wfc_ft_2_speciesList></div></fieldset><fieldset><legend>Freedom Tower 3: <strong>Number of Birds Found</strong><select name='"+routeName+"_2_numberBirds' id=wfc_ft_3_numberSelect class=numberSelect onchange=wfc_ft_3_Details()></select></legend><div class=details id=wfc_ft_3_speciesList></div></fieldset><fieldset><legend>Freedom Tower 4: <strong>Number of Birds Found</strong><select name='"+routeName+"_3_numberBirds' id=wfc_ft_4_numberSelect class=numberSelect onchange=wfc_ft_4_Details()></select></legend><div class=details id=wfc_ft_4_speciesList></div>";
                     }
                     
                     if (document.getElementById("routeSelect").value === "wfc - goldman sachs"){ 
-                    document.getElementById("sites").innerHTML =  "<div class=secondaryTextB>Goldman Sachs 1: Number of Birds Found<select name='"+routeName+"_1_numberBirds' id=wfc_gs_1_numberSelect class=numberSelect onchange=wfc_gs_1_Details()></select></div></br><div class=details id=wfc_gs_1_speciesList></div></br><div class=secondaryTextB>Goldman Sachs 2: Number of Birds Found<select name='"+routeName+"_2_numberBirds' id=wfc_gs_2_numberSelect class=numberSelect onchange=wfc_gs_2_Details()></select></div></br><div class=details id=wfc_gs_2_speciesList></div></br><div class=secondaryTextB>Goldman Sachs 3: Number of Birds Found<select name='"+routeName+"_3_numberBirds' id=wfc_gs_3_numberSelect class=numberSelect onchange=wfc_gs_3_Details()></select></div></br><div class=details id=wfc_gs_3_speciesList></div>";
+                    document.getElementById("sites").innerHTML =  "<fieldset><legend>Goldman Sachs 1: <strong>Number of Birds Found</strong><select name='"+routeName+"_0_numberBirds' id=wfc_gs_1_numberSelect class=numberSelect onchange=wfc_gs_1_Details()></select></legend><div class=details id=wfc_gs_1_speciesList></div></fieldset><fieldset><legend>Goldman Sachs 2: <strong>Number of Birds Found</strong><select name='"+routeName+"_1_numberBirds' id=wfc_gs_2_numberSelect class=numberSelect onchange=wfc_gs_2_Details()></select></legend><div class=details id=wfc_gs_2_speciesList></div></fieldset><fieldset><legend>Goldman Sachs 3: <strong>Number of Birds Found</strong><select name='"+routeName+"_2_numberBirds' id=wfc_gs_3_numberSelect class=numberSelect onchange=wfc_gs_3_Details()></select></legend><div class=details id=wfc_gs_3_speciesList></div>";
                     }
                     
                     if (document.getElementById("routeSelect").value === "wfc - brookfield place"){ 
-                    document.getElementById("sites").innerHTML =  "<div class=secondaryTextB>Brookfield Place 1: Number of Birds Found<select name='"+routeName+"_1_numberBirds' id=wfc_bp_1_numberSelect class=numberSelect onchange=wfc_bp_1_Details()></select></div></br><div class=details id=wfc_bp_1_speciesList></div></br><div class=secondaryTextB>Brookfield Place 2: Number of Birds Found<select name='"+routeName+"_2_numberBirds' id=wfc_bp_2_numberSelect class=numberSelect onchange=wfc_bp_2_Details()></select></div></br><div class=details id=wfc_bp_2_speciesList></div></br><div class=secondaryTextB>Brookfield Place 3: Number of Birds Found<select name='"+routeName+"_3_numberBirds' id=wfc_bp_3_numberSelect class=numberSelect onchange=wfc_bp_3_Details()></select></div></br><div class=details id=wfc_bp_3_speciesList></div></br><div class=secondaryTextB>Brookfield Place 4: Number of Birds Found<select name='"+routeName+"_4_numberBirds' id=wfc_bp_4_numberSelect class=numberSelect onchange=wfc_bp_4_Details()></select></div></br><div class=details id=wfc_bp_4_speciesList></div></br><div class=secondaryTextB>Brookfield Place 5: Number of Birds Found<select name='"+routeName+"_5_numberBirds' id=wfc_bp_5_numberSelect class=numberSelect onchange=wfc_bp_5_Details()></select></div></br><div class=details id=wfc_bp_5_speciesList></div></br><div class=secondaryTextB>Brookfield Place 6: Number of Birds Found<select name='"+routeName+"_6_numberBirds' id=wfc_bp_6_numberSelect class=numberSelect onchange=wfc_bp_6_Details()></select></div></br><div class=details id=wfc_bp_6_speciesList></div></br><div class=secondaryTextB>Brookfield Place 7: Number of Birds Found<select name='"+routeName+"_7_numberBirds' id=wfc_bp_7_numberSelect class=numberSelect onchange=wfc_bp_7_Details()></select></div></br><div class=details id=wfc_bp_7_speciesList></div></br><div class=secondaryTextB>Brookfield Place 8: Number of Birds Found<select name='"+routeName+"_8_numberBirds' id=wfc_bp_8_numberSelect class=numberSelect onchange=wfc_bp_8_Details()></select></div></br><div class=details id=wfc_bp_8_speciesList></div></br><div class=secondaryTextB>Brookfield Place 9: Number of Birds Found<select name='"+routeName+"_9_numberBirds' id=wfc_bp_9_numberSelect class=numberSelect onchange=wfc_bp_9_Details()></select></div></br><div class=details id=wfc_bp_9_speciesList></div></br><div class=secondaryTextB>Brookfield Place 10: Number of Birds Found<select name='"+routeName+"_10_numberBirds' id=wfc_bp_10_numberSelect class=numberSelect onchange=wfc_bp_10_Details()></select></div></br><div class=details id=wfc_bp_10_speciesList></div></br><div class=secondaryTextB>Brookfield Place 11: Number of Birds Found<select name='"+routeName+"_11_numberBirds' id=wfc_bp_11_numberSelect class=numberSelect onchange=wfc_bp_11_Details()></select></div></br><div class=details id=wfc_bp_11_speciesList></div></br><div class=secondaryTextB>Brookfield Place 12: Number of Birds Found<select name='"+routeName+"_12_numberBirds' id=wfc_bp_12_numberSelect class=numberSelect onchange=wfc_bp_12_Details()></select></div></br><div class=details id=wfc_bp_12_speciesList></div></br><div class=secondaryTextB>Brookfield Place 13: Number of Birds Found<select name='"+routeName+"_13_numberBirds' id=wfc_bp_13_numberSelect class=numberSelect onchange=wfc_bp_13_Details()></select></div></br><div class=details id=wfc_bp_13_speciesList></div></br><div class=secondaryTextB>Brookfield Place 14: Number of Birds Found<select name='"+routeName+"_14_numberBirds' id=wfc_bp_14_numberSelect class=numberSelect onchange=wfc_bp_14_Details()></select></div></br><div class=details id=wfc_bp_14_speciesList></div></br><div class=secondaryTextB>Brookfield Place 15: Number of Birds Found<select name='"+routeName+"_15_numberBirds' id=wfc_bp_15_numberSelect class=numberSelect onchange=wfc_bp_15_Details()></select></div></br><div class=details id=wfc_bp_15_speciesList></div></br><div class=secondaryTextB>Brookfield Place 16: Number of Birds Found<select name='"+routeName+"_16_numberBirds' id=wfc_bp_16_numberSelect class=numberSelect onchange=wfc_bp_16_Details()></select></div></br><div class=details id=wfc_bp_16_speciesList></div></br><div class=secondaryTextB>Brookfield Place 17: Number of Birds Found<select name='"+routeName+"_17_numberBirds' id=wfc_bp_17_numberSelect class=numberSelect onchange=wfc_bp_17_Details()></select></div></br><div class=details id=wfc_bp_17_speciesList></div></br><div class=secondaryTextB>Brookfield Place 18: Number of Birds Found<select name='"+routeName+"_18_numberBirds' id=wfc_bp_18_numberSelect class=numberSelect onchange=wfc_bp_18_Details()></select></div></br><div class=details id=wfc_bp_18_speciesList></div>";
+                    document.getElementById("sites").innerHTML =  "<fieldset><legend>Brookfield Place 1: <strong>Number of Birds Found</strong><select name='"+routeName+"_0_numberBirds' id=wfc_bp_1_numberSelect class=numberSelect onchange=wfc_bp_1_Details()></select></legend><div class=details id=wfc_bp_1_speciesList></div></fieldset><fieldset><legend>Brookfield Place 2: <strong>Number of Birds Found</strong><select name='"+routeName+"_1_numberBirds' id=wfc_bp_2_numberSelect class=numberSelect onchange=wfc_bp_2_Details()></select></legend><div class=details id=wfc_bp_2_speciesList></div></fieldset><fieldset><legend>Brookfield Place 3: <strong>Number of Birds Found</strong><select name='"+routeName+"_2_numberBirds' id=wfc_bp_3_numberSelect class=numberSelect onchange=wfc_bp_3_Details()></select></legend><div class=details id=wfc_bp_3_speciesList></div></fieldset><fieldset><legend>Brookfield Place 4: <strong>Number of Birds Found</strong><select name='"+routeName+"_3_numberBirds' id=wfc_bp_4_numberSelect class=numberSelect onchange=wfc_bp_4_Details()></select></legend><div class=details id=wfc_bp_4_speciesList></div></fieldset><fieldset><legend>Brookfield Place 5: <strong>Number of Birds Found</strong><select name='"+routeName+"_4_numberBirds' id=wfc_bp_5_numberSelect class=numberSelect onchange=wfc_bp_5_Details()></select></legend><div class=details id=wfc_bp_5_speciesList></div></fieldset><fieldset><legend>Brookfield Place 6: <strong>Number of Birds Found</strong><select name='"+routeName+"_5_numberBirds' id=wfc_bp_6_numberSelect class=numberSelect onchange=wfc_bp_6_Details()></select></legend><div class=details id=wfc_bp_6_speciesList></div></fieldset><fieldset><legend>Brookfield Place 7: <strong>Number of Birds Found</strong><select name='"+routeName+"_6_numberBirds' id=wfc_bp_7_numberSelect class=numberSelect onchange=wfc_bp_7_Details()></select></legend><div class=details id=wfc_bp_7_speciesList></div></fieldset><fieldset><legend>Brookfield Place 8: <strong>Number of Birds Found</strong><select name='"+routeName+"_7_numberBirds' id=wfc_bp_8_numberSelect class=numberSelect onchange=wfc_bp_8_Details()></select></legend><div class=details id=wfc_bp_8_speciesList></div></fieldset><fieldset><legend>Brookfield Place 9: <strong>Number of Birds Found</strong><select name='"+routeName+"_8_numberBirds' id=wfc_bp_9_numberSelect class=numberSelect onchange=wfc_bp_9_Details()></select></legend><div class=details id=wfc_bp_9_speciesList></div></fieldset><fieldset><legend>Brookfield Place 10: <strong>Number of Birds Found</strong><select name='"+routeName+"_9_numberBirds' id=wfc_bp_10_numberSelect class=numberSelect onchange=wfc_bp_10_Details()></select></legend><div class=details id=wfc_bp_10_speciesList></div></fieldset><fieldset><legend>Brookfield Place 11: <strong>Number of Birds Found</strong><select name='"+routeName+"_10_numberBirds' id=wfc_bp_11_numberSelect class=numberSelect onchange=wfc_bp_11_Details()></select></legend><div class=details id=wfc_bp_11_speciesList></div></fieldset><fieldset><legend>Brookfield Place 12: <strong>Number of Birds Found</strong><select name='"+routeName+"_11_numberBirds' id=wfc_bp_12_numberSelect class=numberSelect onchange=wfc_bp_12_Details()></select></legend><div class=details id=wfc_bp_12_speciesList></div></fieldset><fieldset><legend>Brookfield Place 13: <strong>Number of Birds Found</strong><select name='"+routeName+"_12_numberBirds' id=wfc_bp_13_numberSelect class=numberSelect onchange=wfc_bp_13_Details()></select></legend><div class=details id=wfc_bp_13_speciesList></div></fieldset><fieldset><legend>Brookfield Place 14: <strong>Number of Birds Found</strong><select name='"+routeName+"_13_numberBirds' id=wfc_bp_14_numberSelect class=numberSelect onchange=wfc_bp_14_Details()></select></legend><div class=details id=wfc_bp_14_speciesList></div></fieldset><fieldset><legend>Brookfield Place 15: <strong>Number of Birds Found</strong><select name='"+routeName+"_14_numberBirds' id=wfc_bp_15_numberSelect class=numberSelect onchange=wfc_bp_15_Details()></select></legend><div class=details id=wfc_bp_15_speciesList></div></fieldset><fieldset><legend>Brookfield Place 16: <strong>Number of Birds Found</strong><select name='"+routeName+"_15_numberBirds' id=wfc_bp_16_numberSelect class=numberSelect onchange=wfc_bp_16_Details()></select></legend><div class=details id=wfc_bp_16_speciesList></div></fieldset><fieldset><legend>Brookfield Place 17: <strong>Number of Birds Found</strong><select name='"+routeName+"_16_numberBirds' id=wfc_bp_17_numberSelect class=numberSelect onchange=wfc_bp_17_Details()></select></legend><div class=details id=wfc_bp_17_speciesList></div></fieldset><fieldset><legend>Brookfield Place 18: <strong>Number of Birds Found</strong><select name='"+routeName+"_17_numberBirds' id=wfc_bp_18_numberSelect class=numberSelect onchange=wfc_bp_18_Details()></select></legend><div class=details id=wfc_bp_18_speciesList></div>";
                     }
                     
                     
                     //NUMBER LIST 
                     $(document).ready(function(){
 
-                        $('.numberSelect').append("<option value='0'>None</option><option value='1'>1</option><option value='2'>2</option><option value='3'>3</option><option value='4'>4</option><option value='5'>5</option><option value='6'>6</option><option value='7'>7</option><option value='8'>8</option><option value='9'>9</option><option value='10'>10</option><option value='11'>11</option><option value='12'>12</option><option value='13'>13</option><option value='14'>14</option><option value='15'>15</option><option value='16'>16</option><option value='17'>17</option><option value='18'>18</option><option value='19'>19</option><option value='20'>20</option>")
+                        $('.numberSelect').append("<option value='none'>None</option><option value='1'>1</option><option value='2'>2</option><option value='3'>3</option><option value='4'>4</option><option value='5'>5</option><option value='6'>6</option><option value='7'>7</option><option value='8'>8</option><option value='9'>9</option><option value='10'>10</option><option value='11'>11</option><option value='12'>12</option><option value='13'>13</option><option value='14'>14</option><option value='15'>15</option><option value='16'>16</option><option value='17'>17</option><option value='18'>18</option><option value='19'>19</option><option value='20'>20</option>")
                     });
                     
                 }
@@ -294,7 +301,7 @@
                     document.getElementById("bpl_1_speciesList").innerHTML="";
                     
                     var bpl_1_numberBirds = document.getElementById("bpl_1_numberSelect").value;
-                    var siteName = "brooklyn_public_library_1_";
+                    var siteName = "brooklyn_public_library_0_";
                     
                     
                     for (i = 0; i < bpl_1_numberBirds; i++){
@@ -315,7 +322,7 @@
                     document.getElementById("bp_1_speciesList").innerHTML="";
                     
                     var bp_1_numberBirds = document.getElementById("bp_1_numberSelect").value;
-                    var siteName = "bryant_park_1_";
+                    var siteName = "bryant_park_0_";
 
                     
                     for (i = 0; i < bp_1_numberBirds; i++){
@@ -336,7 +343,7 @@
                     document.getElementById("bp_2_speciesList").innerHTML="";
                     
                     var bp_2_numberBirds = document.getElementById("bp_2_numberSelect").value;
-                    var siteName = "bryant_park_2_";
+                    var siteName = "bryant_park_1_";
 
                     
                     for (i = 0; i < bp_2_numberBirds; i++){
@@ -357,7 +364,7 @@
                     document.getElementById("bp_3_speciesList").innerHTML="";
                     
                     var bp_3_numberBirds = document.getElementById("bp_3_numberSelect").value;
-                    var siteName = "bryant_park_3_";
+                    var siteName = "bryant_park_2_";
 
                     
                     for (i = 0; i < bp_3_numberBirds; i++){
@@ -378,7 +385,7 @@
                     document.getElementById("bp_4_speciesList").innerHTML="";
                     
                     var bp_4_numberBirds = document.getElementById("bp_4_numberSelect").value;
-                    var siteName = "bryant_park_4_";
+                    var siteName = "bryant_park_3_";
 
                     
                     for (i = 0; i < bp_4_numberBirds; i++){
@@ -399,7 +406,7 @@
                     document.getElementById("cul_1_speciesList").innerHTML="";
                     
                     var cul_1_numberBirds = document.getElementById("cul_1_numberSelect").value;
-                    var siteName = "columbia_university_lerner_1_";
+                    var siteName = "columbia_university_lerner_0_";
                     
                     for (i = 0; i < cul_1_numberBirds; i++){
                     
@@ -419,7 +426,7 @@
                     document.getElementById("cunwc_1_speciesList").innerHTML="";
                     
                     var cunwc_1_numberBirds = document.getElementById("cunwc_1_numberSelect").value;
-                    var siteName = "columbia_university_northwest_corner_1_";
+                    var siteName = "columbia_university_northwest_corner_0_";
                     
                     for (i = 0; i < cunwc_1_numberBirds; i++){
                     
@@ -439,7 +446,7 @@
                     document.getElementById("ffb_1_speciesList").innerHTML="";
                     
                     var ffb_1_numberBirds = document.getElementById("ffb_1_numberSelect").value;
-                    var siteName = "ford_foundation_building_1_";
+                    var siteName = "ford_foundation_building_0_";
                     
                     for (i = 0; i < ffb_1_numberBirds; i++){
                     
@@ -459,7 +466,7 @@
                     document.getElementById("ffb_2_speciesList").innerHTML="";
                     
                     var ffb_2_numberBirds = document.getElementById("ffb_2_numberSelect").value;
-                    var siteName = "ford_foundation_building_2_";
+                    var siteName = "ford_foundation_building_1_";
                     
                     for (i = 0; i < ffb_2_numberBirds; i++){
                     
@@ -479,7 +486,7 @@
                     document.getElementById("ffb_3_speciesList").innerHTML="";
                     
                     var ffb_3_numberBirds = document.getElementById("ffb_3_numberSelect").value;
-                    var siteName = "ford_foundation_building_3_";
+                    var siteName = "ford_foundation_building_2_";
                     
                     for (i = 0; i < ffb_3_numberBirds; i++){
                     
@@ -499,7 +506,7 @@
                     document.getElementById("jav_1_speciesList").innerHTML="";
                     
                     var jav_1_numberBirds = document.getElementById("jav_1_numberSelect").value;
-                    var siteName = "javits_1_";
+                    var siteName = "javits_0_";
                     
                     for (i = 0; i < jav_1_numberBirds; i++){
                     
@@ -519,7 +526,7 @@
                     document.getElementById("jav_2_speciesList").innerHTML="";
                     
                     var jav_2_numberBirds = document.getElementById("jav_2_numberSelect").value;
-                    var siteName = "javits_2_";
+                    var siteName = "javits_1_";
                     
                     for (i = 0; i < jav_2_numberBirds; i++){
                     
@@ -539,7 +546,7 @@
                     document.getElementById("jav_3_speciesList").innerHTML="";
                     
                     var jav_3_numberBirds = document.getElementById("jav_3_numberSelect").value;
-                    var siteName = "javits_3_";
+                    var siteName = "javits_2_";
                     
                     for (i = 0; i < jav_3_numberBirds; i++){
                     
@@ -559,7 +566,7 @@
                     document.getElementById("jav_4_speciesList").innerHTML="";
                     
                     var jav_4_numberBirds = document.getElementById("jav_4_numberSelect").value;
-                    var siteName = "javits_4_";
+                    var siteName = "javits_3_";
                     
                     for (i = 0; i < jav_4_numberBirds; i++){
                     
@@ -579,7 +586,7 @@
                     document.getElementById("jav_5_speciesList").innerHTML="";
                     
                     var jav_5_numberBirds = document.getElementById("jav_5_numberSelect").value;
-                    var siteName = "javits_5_";
+                    var siteName = "javits_4_";
                     
                     for (i = 0; i < jav_5_numberBirds; i++){
                     
@@ -599,7 +606,7 @@
                     document.getElementById("jav_6_speciesList").innerHTML="";
                     
                     var jav_6_numberBirds = document.getElementById("jav_6_numberSelect").value;
-                    var siteName = "javits_6_";
+                    var siteName = "javits_5_";
                     
                     for (i = 0; i < jav_6_numberBirds; i++){
                     
@@ -619,7 +626,7 @@
                     document.getElementById("jav_7_speciesList").innerHTML="";
                     
                     var jav_7_numberBirds = document.getElementById("jav_7_numberSelect").value;
-                    var siteName = "javits_7_";
+                    var siteName = "javits_6_";
                     
                     for (i = 0; i < jav_7_numberBirds; i++){
                     
@@ -639,7 +646,7 @@
                     document.getElementById("jav_8_speciesList").innerHTML="";
                     
                     var jav_8_numberBirds = document.getElementById("jav_8_numberSelect").value;
-                    var siteName = "javits_8_";
+                    var siteName = "javits_7_";
                     
                     for (i = 0; i < jav_8_numberBirds; i++){
                     
@@ -659,7 +666,7 @@
                     document.getElementById("cs_1_speciesList").innerHTML="";
                     
                     var cs_1_numberBirds = document.getElementById("cs_1_numberSelect").value;
-                    var siteName = "court_square_1_";
+                    var siteName = "court_square_0_";
                     
                     for (i = 0; i < cs_1_numberBirds; i++){
                     
@@ -679,7 +686,7 @@
                     document.getElementById("cs_2_speciesList").innerHTML="";
                     
                     var cs_2_numberBirds = document.getElementById("cs_2_numberSelect").value;
-                    var siteName = "court_square_2_";
+                    var siteName = "court_square_1_";
                     
                     for (i = 0; i < cs_2_numberBirds; i++){
                     
@@ -699,7 +706,7 @@
                     document.getElementById("cs_3_speciesList").innerHTML="";
                     
                     var cs_3_numberBirds = document.getElementById("cs_3_numberSelect").value;
-                    var siteName = "court_square_3_";
+                    var siteName = "court_square_2_";
                     
                     for (i = 0; i < cs_3_numberBirds; i++){
                     
@@ -719,7 +726,7 @@
                     document.getElementById("cs_4_speciesList").innerHTML="";
                     
                     var cs_4_numberBirds = document.getElementById("cs_4_numberSelect").value;
-                    var siteName = "court_square_4_";
+                    var siteName = "court_square_3_";
                     
                     for (i = 0; i < cs_4_numberBirds; i++){
                     
@@ -739,7 +746,7 @@
                     document.getElementById("cs_5_speciesList").innerHTML="";
                     
                     var cs_5_numberBirds = document.getElementById("cs_5_numberSelect").value;
-                    var siteName = "court_square_5_";
+                    var siteName = "court_square_4_";
                     
                     for (i = 0; i < cs_5_numberBirds; i++){
                     
@@ -759,7 +766,7 @@
                     document.getElementById("cs_6_speciesList").innerHTML="";
                     
                     var cs_6_numberBirds = document.getElementById("cs_6_numberSelect").value;
-                    var siteName = "court_square_6_";
+                    var siteName = "court_square_5_";
                     
                     for (i = 0; i < cs_6_numberBirds; i++){
                     
@@ -779,7 +786,7 @@
                     document.getElementById("cs_7_speciesList").innerHTML="";
                     
                     var cs_7_numberBirds = document.getElementById("cs_7_numberSelect").value;
-                    var siteName = "court_square_7_";
+                    var siteName = "court_square_6_";
                     
                     for (i = 0; i < cs_7_numberBirds; i++){
                     
@@ -799,7 +806,7 @@
                     document.getElementById("met_1_speciesList").innerHTML="";
                     
                     var met_1_numberBirds = document.getElementById("met_1_numberSelect").value;
-                    var siteName = "met_1_";
+                    var siteName = "met_0_";
                     
                     for (i = 0; i < met_1_numberBirds; i++){
                     
@@ -819,7 +826,7 @@
                     document.getElementById("met_2_speciesList").innerHTML="";
                     
                     var met_2_numberBirds = document.getElementById("met_2_numberSelect").value;
-                    var siteName = "met_2_";
+                    var siteName = "met_1_";
                     
                     for (i = 0; i < met_2_numberBirds; i++){
                     
@@ -839,7 +846,7 @@
                     document.getElementById("met_3_speciesList").innerHTML="";
                     
                     var met_3_numberBirds = document.getElementById("met_3_numberSelect").value;
-                    var siteName = "met_3_";
+                    var siteName = "met_2_";
                     
                     for (i = 0; i < met_3_numberBirds; i++){
                     
@@ -859,7 +866,7 @@
                     document.getElementById("met_4_speciesList").innerHTML="";
                     
                     var met_4_numberBirds = document.getElementById("met_4_numberSelect").value;
-                    var siteName = "met_4_";
+                    var siteName = "met_3_";
                     
                     for (i = 0; i < met_4_numberBirds; i++){
                     
@@ -879,7 +886,7 @@
                     document.getElementById("met_5_speciesList").innerHTML="";
                     
                     var met_5_numberBirds = document.getElementById("met_5_numberSelect").value;
-                    var siteName = "met_5_";
+                    var siteName = "met_4_";
                     
                     for (i = 0; i < met_5_numberBirds; i++){
                     
@@ -899,7 +906,7 @@
                     document.getElementById("met_6_speciesList").innerHTML="";
                     
                     var met_6_numberBirds = document.getElementById("met_6_numberSelect").value;
-                    var siteName = "met_6_";
+                    var siteName = "met_5_";
                     
                     for (i = 0; i < met_6_numberBirds; i++){
                     
@@ -919,7 +926,7 @@
                     document.getElementById("met_7_speciesList").innerHTML="";
                     
                     var met_7_numberBirds = document.getElementById("met_7_numberSelect").value;
-                    var siteName = "met_7_";
+                    var siteName = "met_6_";
                     
                     for (i = 0; i < met_7_numberBirds; i++){
                     
@@ -939,7 +946,7 @@
                     document.getElementById("rmb_1_speciesList").innerHTML="";
                     
                     var rmb_1_numberBirds = document.getElementById("rmb_1_numberSelect").value;
-                    var siteName = "richard_meier_building_1_";
+                    var siteName = "richard_meier_building_0_";
                     
                     for (i = 0; i < rmb_1_numberBirds; i++){
                     
@@ -959,7 +966,7 @@
                     document.getElementById("wfc_ft_1_speciesList").innerHTML="";
                     
                     var wfc_ft_1_numberBirds = document.getElementById("wfc_ft_1_numberSelect").value;
-                    var siteName = "wfc_freedom_tower_1_";
+                    var siteName = "wfc_freedom_tower_0_";
                     
                     for (i = 0; i < wfc_ft_1_numberBirds; i++){
                     
@@ -979,7 +986,7 @@
                     document.getElementById("wfc_ft_2_speciesList").innerHTML="";
                     
                     var wfc_ft_2_numberBirds = document.getElementById("wfc_ft_2_numberSelect").value;
-                    var siteName = "wfc_freedom_tower_2_";
+                    var siteName = "wfc_freedom_tower_1_";
                     
                     for (i = 0; i < wfc_ft_2_numberBirds; i++){
                     
@@ -999,7 +1006,7 @@
                     document.getElementById("wfc_ft_3_speciesList").innerHTML="";
                     
                     var wfc_ft_3_numberBirds = document.getElementById("wfc_ft_3_numberSelect").value;
-                    var siteName = "wfc_freedom_tower_3_";
+                    var siteName = "wfc_freedom_tower_2_";
                     
                     for (i = 0; i < wfc_ft_3_numberBirds; i++){
                     
@@ -1019,7 +1026,7 @@
                     document.getElementById("wfc_ft_4_speciesList").innerHTML="";
                     
                     var wfc_ft_4_numberBirds = document.getElementById("wfc_ft_4_numberSelect").value;
-                    var siteName = "wfc_freedom_tower_4_";
+                    var siteName = "wfc_freedom_tower_3_";
                     
                     for (i = 0; i < wfc_ft_4_numberBirds; i++){
                     
@@ -1039,7 +1046,7 @@
                     document.getElementById("wfc_gs_1_speciesList").innerHTML="";
                     
                     var wfc_gs_1_numberBirds = document.getElementById("wfc_gs_1_numberSelect").value;
-                    var siteName = "wfc_goldman_sachs_1_";
+                    var siteName = "wfc_goldman_sachs_0_";
                     
                     for (i = 0; i < wfc_gs_1_numberBirds; i++){
                     
@@ -1059,7 +1066,7 @@
                     document.getElementById("wfc_gs_2_speciesList").innerHTML="";
                     
                     var wfc_gs_2_numberBirds = document.getElementById("wfc_gs_2_numberSelect").value;
-                    var siteName = "wfc_goldman_sachs_2_";
+                    var siteName = "wfc_goldman_sachs_1_";
                     
                     for (i = 0; i < wfc_gs_2_numberBirds; i++){
                     
@@ -1079,7 +1086,7 @@
                     document.getElementById("wfc_gs_3_speciesList").innerHTML="";
                     
                     var wfc_gs_3_numberBirds = document.getElementById("wfc_gs_3_numberSelect").value;
-                    var siteName = "wfc_goldman_sachs_3_";
+                    var siteName = "wfc_goldman_sachs_2_";
                     
                     for (i = 0; i < wfc_gs_3_numberBirds; i++){
                     
@@ -1099,7 +1106,7 @@
                     document.getElementById("wfc_bp_1_speciesList").innerHTML="";
                     
                     var wfc_bp_1_numberBirds = document.getElementById("wfc_bp_1_numberSelect").value;
-                    var siteName = "wfc_brookfield_place_1_";
+                    var siteName = "wfc_brookfield_place_0_";
                     
                     for (i = 0; i < wfc_bp_1_numberBirds; i++){
                     
@@ -1119,7 +1126,7 @@
                     document.getElementById("wfc_bp_2_speciesList").innerHTML="";
                     
                     var wfc_bp_2_numberBirds = document.getElementById("wfc_bp_2_numberSelect").value;
-                    var siteName = "wfc_brookfield_place_2_";
+                    var siteName = "wfc_brookfield_place_1_";
                     
                     for (i = 0; i < wfc_bp_2_numberBirds; i++){
                     
@@ -1139,7 +1146,7 @@
                     document.getElementById("wfc_bp_3_speciesList").innerHTML="";
                     
                     var wfc_bp_3_numberBirds = document.getElementById("wfc_bp_3_numberSelect").value;
-                    var siteName = "wfc_brookfield_place_3_";
+                    var siteName = "wfc_brookfield_place_2_";
                     
                     for (i = 0; i < wfc_bp_3_numberBirds; i++){
                     
@@ -1159,7 +1166,7 @@
                     document.getElementById("wfc_bp_4_speciesList").innerHTML="";
                     
                     var wfc_bp_4_numberBirds = document.getElementById("wfc_bp_4_numberSelect").value;
-                    var siteName = "wfc_brookfield_place_4_";
+                    var siteName = "wfc_brookfield_place_3_";
                     
                     for (i = 0; i < wfc_bp_4_numberBirds; i++){
                     
@@ -1179,7 +1186,7 @@
                     document.getElementById("wfc_bp_5_speciesList").innerHTML="";
                     
                     var wfc_bp_5_numberBirds = document.getElementById("wfc_bp_5_numberSelect").value;
-                    var siteName = "wfc_brookfield_place_5_";
+                    var siteName = "wfc_brookfield_place_4_";
                     
                     for (i = 0; i < wfc_bp_5_numberBirds; i++){
                     
@@ -1199,7 +1206,7 @@
                     document.getElementById("wfc_bp_6_speciesList").innerHTML="";
                     
                     var wfc_bp_6_numberBirds = document.getElementById("wfc_bp_6_numberSelect").value;
-                    var siteName = "wfc_brookfield_place_6_";
+                    var siteName = "wfc_brookfield_place_5_";
                     
                     for (i = 0; i < wfc_bp_6_numberBirds; i++){
                     
@@ -1219,7 +1226,7 @@
                     document.getElementById("wfc_bp_7_speciesList").innerHTML="";
                     
                     var wfc_bp_7_numberBirds = document.getElementById("wfc_bp_7_numberSelect").value;
-                    var siteName = "wfc_brookfield_place_7_";
+                    var siteName = "wfc_brookfield_place_6_";
                     
                     for (i = 0; i < wfc_bp_7_numberBirds; i++){
                     
@@ -1239,7 +1246,7 @@
                     document.getElementById("wfc_bp_8_speciesList").innerHTML="";
                     
                     var wfc_bp_8_numberBirds = document.getElementById("wfc_bp_8_numberSelect").value;
-                    var siteName = "wfc_brookfield_place_8_";
+                    var siteName = "wfc_brookfield_place_7_";
                     
                     for (i = 0; i < wfc_bp_8_numberBirds; i++){
                     
@@ -1259,7 +1266,7 @@
                     document.getElementById("wfc_bp_9_speciesList").innerHTML="";
                     
                     var wfc_bp_9_numberBirds = document.getElementById("wfc_bp_9_numberSelect").value;
-                    var siteName = "wfc_brookfield_place_9_";
+                    var siteName = "wfc_brookfield_place_8_";
                     
                     for (i = 0; i < wfc_bp_9_numberBirds; i++){
                     
@@ -1279,7 +1286,7 @@
                     document.getElementById("wfc_bp_10_speciesList").innerHTML="";
                     
                     var wfc_bp_10_numberBirds = document.getElementById("wfc_bp_10_numberSelect").value;
-                    var siteName = "wfc_brookfield_place_10_";
+                    var siteName = "wfc_brookfield_place_9_";
                     
                     for (i = 0; i < wfc_bp_10_numberBirds; i++){
                     
@@ -1299,7 +1306,7 @@
                     document.getElementById("wfc_bp_11_speciesList").innerHTML="";
                     
                     var wfc_bp_11_numberBirds = document.getElementById("wfc_bp_11_numberSelect").value;
-                    var siteName = "wfc_brookfield_place_11_";
+                    var siteName = "wfc_brookfield_place_10_";
                     
                     for (i = 0; i < wfc_bp_11_numberBirds; i++){
                     
@@ -1319,7 +1326,7 @@
                     document.getElementById("wfc_bp_12_speciesList").innerHTML="";
                     
                     var wfc_bp_12_numberBirds = document.getElementById("wfc_bp_12_numberSelect").value;
-                    var siteName = "wfc_brookfield_place_12_";
+                    var siteName = "wfc_brookfield_place_11_";
                     
                     for (i = 0; i < wfc_bp_12_numberBirds; i++){
                     
@@ -1339,7 +1346,7 @@
                     document.getElementById("wfc_bp_13_speciesList").innerHTML="";
                     
                     var wfc_bp_13_numberBirds = document.getElementById("wfc_bp_13_numberSelect").value;
-                    var siteName = "wfc_brookfield_place_13_";
+                    var siteName = "wfc_brookfield_place_12_";
                     
                     for (i = 0; i < wfc_bp_13_numberBirds; i++){
                     
@@ -1359,7 +1366,7 @@
                     document.getElementById("wfc_bp_14_speciesList").innerHTML="";
                     
                     var wfc_bp_14_numberBirds = document.getElementById("wfc_bp_14_numberSelect").value;
-                    var siteName = "wfc_brookfield_place_14_";
+                    var siteName = "wfc_brookfield_place_13_";
                     
                     for (i = 0; i < wfc_bp_14_numberBirds; i++){
                     
@@ -1379,7 +1386,7 @@
                     document.getElementById("wfc_bp_15_speciesList").innerHTML="";
                     
                     var wfc_bp_15_numberBirds = document.getElementById("wfc_bp_15_numberSelect").value;
-                    var siteName = "wfc_brookfield_place_15_";
+                    var siteName = "wfc_brookfield_place_14_";
                     
                     for (i = 0; i < wfc_bp_15_numberBirds; i++){
                     
@@ -1399,7 +1406,7 @@
                     document.getElementById("wfc_bp_16_speciesList").innerHTML="";
                     
                     var wfc_bp_16_numberBirds = document.getElementById("wfc_bp_16_numberSelect").value;
-                    var siteName = "wfc_brookfield_place_16_";
+                    var siteName = "wfc_brookfield_place_15_";
                     
                     for (i = 0; i < wfc_bp_16_numberBirds; i++){
                     
@@ -1419,7 +1426,7 @@
                     document.getElementById("wfc_bp_17_speciesList").innerHTML="";
                     
                     var wfc_bp_17_numberBirds = document.getElementById("wfc_bp_17_numberSelect").value;
-                    var siteName = "wfc_brookfield_place_17_";
+                    var siteName = "wfc_brookfield_place_16_";
                     
                     for (i = 0; i < wfc_bp_17_numberBirds; i++){
                     
@@ -1439,7 +1446,7 @@
                     document.getElementById("wfc_bp_18_speciesList").innerHTML="";
                     
                     var wfc_bp_18_numberBirds = document.getElementById("wfc_bp_18_numberSelect").value;
-                    var siteName = "wfc_brookfield_place_18_";
+                    var siteName = "wfc_brookfield_place_17_";
                     
                     for (i = 0; i < wfc_bp_18_numberBirds; i++){
                     
@@ -1469,4 +1476,4 @@
 
 </html>
 
-<!-- Created by Darren Klein for NYC Audubon, 2015 -->
+<!-- Handmade by Darren Klein for NYC Audubon, 2015 -->

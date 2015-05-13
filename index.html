@@ -1,1478 +1,307 @@
 <!DOCTYPE html>
 <html>
 
-    <head>
-    
-        <link rel="shortcut icon" href="http://d-bird.org/nyca%20fav%20icon.ico">
-        
-        <title>PSFIST</title>
-        
-        <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
-        
-        <!--DATEPICKER-->
-        <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
-        <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
-        <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-        <script>
-		  $(function() {
-		  $( "#date" ).datepicker({maxDate: "+0D" });
-		  });
-        </script>
-        
-        <!--TIMEPICKER-->
-        <script type="text/javascript" src="jquery.timepicker.js"></script>
-        <link rel="stylesheet" type="text/css" href="jquery.timepicker.css" />
-        
-        <script>
-            
-		  $(function() {
-		  $( "#time" ).timepicker();
-		  });
-            
-        </script>
-        
-        
-        <style>
-        
-            #banner{
-                width: 504px;
-                height:129px;
-            }
-            
-            body{
-                background-color: white;
-                font-family: Arial, Helvetica, sans-serif;
-                margin-top: 9px;
-                margin-left: 50px;
-                font-size: 15px;
-            }
-            
-            #heading{
-                font-size: 22px;
-                margin-top: 12px;
-                margin-bottom:28px;
-                margin-left: 8px;
-            }
-            
-            .textField{
-                margin-left: 3px;   
-            }
-            
-            .numberSelect{
-                margin-bottom: 1px;
-                margin-left: 5px;
-            }
-            
-            fieldset{
-                margin-bottom: 35px;
-                margin-left: 25px;
-                padding-top: 22px;
-                padding-bottom: 0px;
-                border-radius: 3px;
-                width: 750px;
-            }
-            
-            .secondaryTextA{
-                font-size: 13px;
-                color: #737373;
-                margin-left: 5px;
-            }
-            
-            legend{
-                font-size: 14px;
-                color: #737373;
-                margin-left: 5px;
-            }
-            
-            .detailsDiv{
-                margin-bottom: 35px;
-                margin-left: 25px;
-                padding-top: 5px;
-                padding-bottom: 5px;
-                padding-left: 5px;
-                padding-right: 5px;
-                width: 394px;
-                border: solid;
-                border-color: #FFEEE3;
-                background-color: #FFFFFE;
-            }
+<head>
 
-            #submit_button{
-                width: 100px;
-            }
-            
-            
-        </style>
-        
-        
-    </head>
-    
-    
-    <body>
-        
-        <img src="http://d-bird.org/nyca%20banner.jpg" id="banner"></br>
-        
-        <div id="heading"><strong>P</strong>roject <strong>S</strong>afe <strong>F</strong>light <strong>I</strong>ntegrated <strong>S</strong>urvey <strong>T</strong>ool</p></div>
+<link rel="shortcut icon" href="http://d-bird.org/nyca%20fav%20icon.ico">
 
-
-    <form>
-    
-        Volunteer Name</br>
-        <input type="text" name="volunteer_name" id="volunteer_name" class="textField"></input></p>
-    
-        Survey Date</br>
-            <input type="text" name="date" id="date" class="textField"></input></p>
-        
-        Survey Start Time</br>
-            <input type="text" name="time" id="time" class="textField"></input></p>
-    
-        Survey Duration (minutes)</br>
-            <select name="duration" id="duration">
-                <option value=""></option>
-                <option value="5">5</option>
-                <option value="10">10</option>
-                <option value="15">15</option>
-                <option value="20">20</option>
-                <option value="25">25</option>
-                <option value="30">30</option>
-                <option value="35">35</option>
-                <option value="40">40</option>
-                <option value="45">45</option>
-                <option value="50">50</option>
-                <option value="55">55</option>
-                <option value="60">60</option>
-                <option value="65">65</option>
-                <option value="70">70</option>
-                <option value="75">75</option>
-                <option value="80">80</option>
-                <option value="85">85</option>
-                <option value="90">90</option>
-                <option value="95">95</option>
-                <option value="100">100</option>
-                <option value="105">105</option>
-                <option value="110">110</option>
-                <option value="115">115</option>
-                <option value="120">120</option>
-            </select></p>
-
-        Weather</br>
-        <div name="weather" class="secondaryTextA">Choose the best option</div>
-            <select id="weatherSelect">
-                <option value=""></option>
-                <option value="sunny">Sunny</option>
-                <option value="partly cloudy">Partly Cloudy</option>
-                <option value="cloudy">Cloudy</option>
-                <option value="light rain">Light Rain</option>
-                <option value="rain">Rain</option>
-                <option value="fog">Fog</option>
-            </select></p>
-
-        Route Name</br>
-
-            <select name="route" id="routeSelect" onchange="siteDetails()">
-                <option value="" class="routeOption"></option>
-                <option value="brooklyn public library" class="routeOption" id="bpl">Brooklyn Public Library</option>
-                <option value="bryant park" class="routeOption">Bryant Park</option>
-                <option value="columbia university - lerner" class="routeOption">Columbia University - Lerner</option>
-                <option value="columbia university - northwest corner" class="routeOption">Columbia University - Northwest Corner</option>
-                <option value="ford foundation building" class="routeOption">Ford Foundation Building</option>
-                <option value="javits" class="routeOption">Javits</option>
-                <option value="lic - court square" class="routeOption">LIC - Court Square</option>
-                <option value="metropolitan museum of art (met)" class="routeOption">Metropolitan Museum of Art (Met)</option>
-                <option value="richard meier building" class="routeOption">Richard Meier Building</option>
-                <option value="wfc - freedom tower" class="routeOption">WFC - Freedom Tower</option>
-                <option value="wfc - goldman sachs" class="routeOption">WFC - Goldman Sachs</option>
-                <option value="wfc - brookfield place" class="routeOption">WFC - Brookfield Place</option>
-            </select></p>
-
-        Site</p>
-        <p id="sites"></p> 
-   
-        Patrol Notes</br>
-        <input type="text" id="patrolNotes" class="textField"></input></p>
-
-        <input type="submit"></submit></p>
-
-    </form>
+<title>PSFIST</title>
+<script src="http://libs.cartocdn.com/cartodb.js/v3/cartodb.js"></script>
 
 
 
 
-        
+<style>
+
+#banner{
+width: 504px;
+height:129px;
+}
+
+body{
+background-color: white;
+font-family: Arial, Helvetica, sans-serif;
+margin-top: 9px;
+margin-left: 50px;
+font-size: 15px;
+}
+
+#heading{
+font-size: 22px;
+margin-top: 12px;
+margin-bottom:28px;
+margin-left: 8px;
+}
+
+.textField{
+margin-left: 3px;   
+}
+
+.numberSelect{
+margin-bottom: 1px;
+margin-left: 5px;
+}
+
+fieldset{
+margin-bottom: 35px;
+margin-left: 25px;
+padding-top: 22px;
+padding-bottom: 0px;
+border-radius: 3px;
+width: 750px;
+}
+
+.secondaryTextA{
+font-size: 13px;
+color: #737373;
+margin-left: 5px;
+}
+
+legend{
+font-size: 14px;
+color: #737373;
+margin-left: 5px;
+}
+
+.detailsDiv{
+margin-bottom: 35px;
+margin-left: 25px;
+padding-top: 5px;
+padding-bottom: 5px;
+padding-left: 5px;
+padding-right: 5px;
+width: 394px;
+border: solid;
+border-color: #FFEEE3;
+background-color: #FFFFFE;
+}
+
+#submit_button{
+width: 100px;
+}
 
 
+</style>
 
 
+</head>
 
 
-            <script>
+<body>
 
-                
-                //EMPTIES SPECIES DETAILS DIV ON ROUTE CHANGE
-                $(document).ready(function(){
-                    $("#routeSelect").change(function(){
-                        $(".details").empty();
-                        });     
-                    });
-                
+<img src="http://d-bird.org/nyca%20banner.jpg" id="banner"></br>
+
+<div id="heading"><strong>P</strong>roject <strong>S</strong>afe <strong>F</strong>light <strong>I</strong>ntegrated <strong>S</strong>urvey <strong>T</strong>ool</p></div>
+
+
+<form>
+
+Volunteer Name</br>
+<input type="text" name="volunteer_name" id="volunteer_name" class="textField"></input></p>
+
+Survey Date</br>
+<input type="text" name="date" id="date" class="textField"></input></p>
+
+Survey Start Time</br>
+<input type="text" name="time" id="time" class="textField"></input></p>
+
+Survey Duration (minutes)</br>
+<select name="duration" id="duration">
+<option value=""></option>
+<option value="5">5</option>
+<option value="10">10</option>
+<option value="15">15</option>
+<option value="20">20</option>
+<option value="25">25</option>
+<option value="30">30</option>
+<option value="35">35</option>
+<option value="40">40</option>
+<option value="45">45</option>
+<option value="50">50</option>
+<option value="55">55</option>
+<option value="60">60</option>
+<option value="65">65</option>
+<option value="70">70</option>
+<option value="75">75</option>
+<option value="80">80</option>
+<option value="85">85</option>
+<option value="90">90</option>
+<option value="95">95</option>
+<option value="100">100</option>
+<option value="105">105</option>
+<option value="110">110</option>
+<option value="115">115</option>
+<option value="120">120</option>
+</select></p>
+
+<!--
+Options like the survey duration can more easily be generated as an array with a loop or as dynamically generated html like above using a for loop: 
+var desiredValues =
+for (var i=5;i<26; i+5){
+                   }
+-->
                    
-                function siteDetails(){
-                    
-                    var routeName = document.getElementById("routeSelect").value;
-                    
-                    
-                    if (document.getElementById("routeSelect").value === ""){ 
-                    document.getElementById("sites").innerHTML =  "";
-                    }
-                    
-                    if (document.getElementById("routeSelect").value === "brooklyn public library"){
-                        
-                    document.getElementById("sites").innerHTML =  "<fieldset><legend>Brooklyn Public Library 1: <strong>Number of Birds Found</strong><select name='"+routeName+"_0_numberBirds' id=bpl_1_numberSelect class=numberSelect onchange=bpl_1_Details()></select></legend><div class=details id=bpl_1_speciesList></div></fieldset>";
-                    }
-                    
-                    if (document.getElementById("routeSelect").value === "bryant park"){ 
-                    document.getElementById("sites").innerHTML =  "<fieldset><legend>Bryant Park 1: <strong>Number of Birds Found</strong><select name='"+routeName+"_0_numberBirds' id=bp_1_numberSelect class=numberSelect onchange=bp_1_Details()></select></legend><div class=details id=bp_1_speciesList></div></fieldset><fieldset><legend>Bryant Park 2: <strong>Number of Birds Found</strong><select name='"+routeName+"_1_numberBirds' id=bp_2_numberSelect class=numberSelect onchange=bp_2_Details()></select></legend><div class=details id=bp_2_speciesList></div></fieldset><fieldset><legend>Bryant Park 3: <strong>Number of Birds Found</strong><select name='"+routeName+"_2_numberBirds' id=bp_3_numberSelect class=numberSelect onchange=bp_3_Details()></select></legend><div class=details id=bp_3_speciesList></div></fieldset><fieldset><legend>Bryant Park 4: <strong>Number of Birds Found</strong><select name='"+routeName+"_3_numberBirds' id=bp_4_numberSelect class=numberSelect onchange=bp_4_Details()></select></legend><div class=details id=bp_4_speciesList></div></fieldset>";   
-                    }
-                    
-                    if (document.getElementById("routeSelect").value === "columbia university - lerner"){ 
-                    document.getElementById("sites").innerHTML =  "<fieldset><legend>Columbia University - Lerner 1: <strong>Number of Birds Found</strong><select name='"+routeName+"_0_numberBirds' id=cul_1_numberSelect class=numberSelect onchange=cul_1_Details()></select></legend><div class=details id=cul_1_speciesList></div></fieldset>";
-                    }
-                    
-                    if (document.getElementById("routeSelect").value === "columbia university - northwest corner"){ 
-                    document.getElementById("sites").innerHTML =  "<fieldset><legend>Columbia University - Northwest Corner 1: <strong>Number of Birds Found</strong><select name='"+routeName+"_0_numberBirds' id=cunwc_1_numberSelect class=numberSelect onchange=cunwc_1_Details()></select></legend><div class=details id=cunwc_1_speciesList></div></fieldset>";
-                    }
-                    
-                    if (document.getElementById("routeSelect").value === "ford foundation building"){ 
-                    document.getElementById("sites").innerHTML =  "<fieldset><legend>Ford Foundation Building 1: <strong>Number of Birds Found</strong><select name='"+routeName+"_0_numberBirds' id=ffb_1_numberSelect class=numberSelect onchange=ffb_1_Details()></select></legend><div class=details id=ffb_1_speciesList></div></fieldset><fieldset><legend>Ford Foundation Building 2: <strong>Number of Birds Found</strong><select name='"+routeName+"_1_numberBirds' id=ffb_2_numberSelect class=numberSelect onchange=ffb_2_Details()></select></legend><div class=details id=ffb_2_speciesList></div></fieldset><fieldset><legend>Ford Foundation Building 3: <strong>Number of Birds Found</strong><select name='"+routeName+"_2_numberBirds' id=ffb_3_numberSelect class=numberSelect onchange=ffb_3_Details()></select></legend><div class=details id=ffb_3_speciesList></div></fieldset>";
-                    }
-                    
+                   
 
-                    if (document.getElementById("routeSelect").value === "javits"){ 
-                    document.getElementById("sites").innerHTML =  "<fieldset><legend>Javits 1: <strong>Number of Birds Found</strong><select name='"+routeName+"_0_numberBirds' id=jav_1_numberSelect class=numberSelect onchange=jav_1_Details()></select></legend><div class=details id=jav_1_speciesList></div></fieldset><fieldset><legend>Javits 2: <strong>Number of Birds Found</strong><select name='"+routeName+"_1_numberBirds' id=jav_2_numberSelect class=numberSelect onchange=jav_2_Details()></select></legend><div class=details id=jav_2_speciesList></div></fieldset><fieldset><legend>Javits 3: <strong>Number of Birds Found</strong><select name='"+routeName+"_2_numberBirds' id=jav_3_numberSelect class=numberSelect onchange=jav_3_Details()></select></legend><div class=details id=jav_3_speciesList></div></fieldset><fieldset><legend>Javits 4: <strong>Number of Birds Found</strong><select name='"+routeName+"_3_numberBirds' id=jav_4_numberSelect class=numberSelect onchange=jav_4_Details()></select></legend><div class=details id=jav_4_speciesList></div></fieldset><fieldset><legend>Javits 5: <strong>Number of Birds Found</strong><select name='"+routeName+"_4_numberBirds' id=jav_5_numberSelect class=numberSelect onchange=jav_5_Details()></select></legend><div class=details id=jav_5_speciesList></div></fieldset><fieldset><legend>Javits 6: <strong>Number of Birds Found</strong><select name='"+routeName+"_5_numberBirds' id=jav_6_numberSelect class=numberSelect onchange=jav_6_Details()></select></legend><div class=details id=jav_6_speciesList></div></fieldset><fieldset><legend>Javits 7: <strong>Number of Birds Found</strong><select name='"+routeName+"_6_numberBirds' id=jav_7_numberSelect class=numberSelect onchange=jav_7_Details()></select></legend><div class=details id=jav_7_speciesList></div></fieldset><fieldset><legend>Javits 8: <strong>Number of Birds Found</strong><select name='"+routeName+"_7_numberBirds' id=jav_8_numberSelect class=numberSelect onchange=jav_8_Details()></select></legend><div class=details id=jav_8_speciesList></div>";
-                    }
-                    
-                    if (document.getElementById("routeSelect").value === "lic - court square"){ 
-                    document.getElementById("sites").innerHTML =  "<fieldset><legend>Court Square 1: <strong>Number of Birds Found</strong><select name='"+routeName+"_0_numberBirds' id=cs_1_numberSelect class=numberSelect onchange=cs_1_Details()></select></legend><div class=details id=cs_1_speciesList></div></fieldset><fieldset><legend>Court Square 2: <strong>Number of Birds Found</strong><select name='"+routeName+"_1_numberBirds' id=cs_2_numberSelect class=numberSelect onchange=cs_2_Details()></select></legend><div class=details id=cs_2_speciesList></div></fieldset><fieldset><legend>Court Square 3: <strong>Number of Birds Found</strong><select name='"+routeName+"_2_numberBirds' id=cs_3_numberSelect class=numberSelect onchange=cs_3_Details()></select></legend><div class=details id=cs_3_speciesList></div></fieldset><fieldset><legend>Court Square 4: <strong>Number of Birds Found</strong><select name='"+routeName+"_3_numberBirds' id=cs_4_numberSelect class=numberSelect onchange=cs_4_Details()></select></legend><div class=details id=cs_4_speciesList></div></fieldset><fieldset><legend>Court Square 5: <strong>Number of Birds Found</strong><select name='"+routeName+"_4_numberBirds' id=cs_5_numberSelect class=numberSelect onchange=cs_5_Details()></select></legend><div class=details id=cs_5_speciesList></div></fieldset><fieldset><legend>Court Square 6: <strong>Number of Birds Found</strong><select name='"+routeName+"_5_numberBirds' id=cs_6_numberSelect class=numberSelect onchange=cs_6_Details()></select></legend><div class=details id=cs_6_speciesList></div></fieldset><fieldset><legend>Court Square 7: <strong>Number of Birds Found</strong><select name='"+routeName+"_6_numberBirds' id=cs_7_numberSelect class=numberSelect onchange=cs_7_Details()></select></legend><div class=details id=cs_7_speciesList></div>";
-                    }
-                    
-                    if (document.getElementById("routeSelect").value === "metropolitan museum of art (met)"){ 
-                    document.getElementById("sites").innerHTML =  "<fieldset><legend>Met 1: <strong>Number of Birds Found</strong><select name='"+routeName+"_0_numberBirds' id=met_1_numberSelect class=numberSelect onchange=met_1_Details()></select></legend><div class=details id=met_1_speciesList></div></fieldset><fieldset><legend>Met 2: <strong>Number of Birds Found</strong><select name='"+routeName+"_1_numberBirds' id=met_2_numberSelect class=numberSelect onchange=met_2_Details()></select></legend><div class=details id=met_2_speciesList></div></fieldset><fieldset><legend>Met 3: <strong>Number of Birds Found</strong><select name='"+routeName+"_2_numberBirds' id=met_3_numberSelect class=numberSelect onchange=met_3_Details()></select></legend><div class=details id=met_3_speciesList></div></fieldset><fieldset><legend>Met 4: <strong>Number of Birds Found</strong><select name='"+routeName+"_3_numberBirds' id=met_4_numberSelect class=numberSelect onchange=met_4_Details()></select></legend><div class=details id=met_4_speciesList></div></fieldset><fieldset><legend>Met 5: <strong>Number of Birds Found</strong><select name='"+routeName+"_4_numberBirds' id=met_5_numberSelect class=numberSelect onchange=met_5_Details()></select></legend><div class=details id=met_5_speciesList></div></fieldset><fieldset><legend>Met 6: <strong>Number of Birds Found</strong><select name='"+routeName+"_5_numberBirds' id=met_6_numberSelect class=numberSelect onchange=met_6_Details()></select></legend><div class=details id=met_6_speciesList></div></fieldset><fieldset><legend>Met 7: <strong>Number of Birds Found</strong><select name='"+routeName+"_6_numberBirds' id=met_7_numberSelect class=numberSelect onchange=met_7_Details()></select></legend><div class=details id=met_7_speciesList></div>";
-                    }
-                    
-                    if (document.getElementById("routeSelect").value === "richard meier building"){
-                    document.getElementById("sites").innerHTML =  "<fieldset><legend>Richard Meier Building 1: <strong>Number of Birds Found</strong><select name='"+routeName+"_0_numberBirds' id=rmb_1_numberSelect class=numberSelect onchange=rmb_1_Details()></select></legend><div class=details id=rmb_1_speciesList></div>";
-                    }
-                    
-                    if (document.getElementById("routeSelect").value === "wfc - freedom tower"){ 
-                    document.getElementById("sites").innerHTML =  "<fieldset><legend>Freedom Tower 1: <strong>Number of Birds Found</strong><select name='"+routeName+"_0_numberBirds' id=wfc_ft_1_numberSelect class=numberSelect onchange=wfc_ft_1_Details()></select></legend><div class=details id=wfc_ft_1_speciesList></div></fieldset><fieldset><legend>Freedom Tower 2: <strong>Number of Birds Found</strong><select name='"+routeName+"_1_numberBirds' id=wfc_ft_2_numberSelect class=numberSelect onchange=wfc_ft_2_Details()></select></legend><div class=details id=wfc_ft_2_speciesList></div></fieldset><fieldset><legend>Freedom Tower 3: <strong>Number of Birds Found</strong><select name='"+routeName+"_2_numberBirds' id=wfc_ft_3_numberSelect class=numberSelect onchange=wfc_ft_3_Details()></select></legend><div class=details id=wfc_ft_3_speciesList></div></fieldset><fieldset><legend>Freedom Tower 4: <strong>Number of Birds Found</strong><select name='"+routeName+"_3_numberBirds' id=wfc_ft_4_numberSelect class=numberSelect onchange=wfc_ft_4_Details()></select></legend><div class=details id=wfc_ft_4_speciesList></div>";
-                    }
-                    
-                    if (document.getElementById("routeSelect").value === "wfc - goldman sachs"){ 
-                    document.getElementById("sites").innerHTML =  "<fieldset><legend>Goldman Sachs 1: <strong>Number of Birds Found</strong><select name='"+routeName+"_0_numberBirds' id=wfc_gs_1_numberSelect class=numberSelect onchange=wfc_gs_1_Details()></select></legend><div class=details id=wfc_gs_1_speciesList></div></fieldset><fieldset><legend>Goldman Sachs 2: <strong>Number of Birds Found</strong><select name='"+routeName+"_1_numberBirds' id=wfc_gs_2_numberSelect class=numberSelect onchange=wfc_gs_2_Details()></select></legend><div class=details id=wfc_gs_2_speciesList></div></fieldset><fieldset><legend>Goldman Sachs 3: <strong>Number of Birds Found</strong><select name='"+routeName+"_2_numberBirds' id=wfc_gs_3_numberSelect class=numberSelect onchange=wfc_gs_3_Details()></select></legend><div class=details id=wfc_gs_3_speciesList></div>";
-                    }
-                    
-                    if (document.getElementById("routeSelect").value === "wfc - brookfield place"){ 
-                    document.getElementById("sites").innerHTML =  "<fieldset><legend>Brookfield Place 1: <strong>Number of Birds Found</strong><select name='"+routeName+"_0_numberBirds' id=wfc_bp_1_numberSelect class=numberSelect onchange=wfc_bp_1_Details()></select></legend><div class=details id=wfc_bp_1_speciesList></div></fieldset><fieldset><legend>Brookfield Place 2: <strong>Number of Birds Found</strong><select name='"+routeName+"_1_numberBirds' id=wfc_bp_2_numberSelect class=numberSelect onchange=wfc_bp_2_Details()></select></legend><div class=details id=wfc_bp_2_speciesList></div></fieldset><fieldset><legend>Brookfield Place 3: <strong>Number of Birds Found</strong><select name='"+routeName+"_2_numberBirds' id=wfc_bp_3_numberSelect class=numberSelect onchange=wfc_bp_3_Details()></select></legend><div class=details id=wfc_bp_3_speciesList></div></fieldset><fieldset><legend>Brookfield Place 4: <strong>Number of Birds Found</strong><select name='"+routeName+"_3_numberBirds' id=wfc_bp_4_numberSelect class=numberSelect onchange=wfc_bp_4_Details()></select></legend><div class=details id=wfc_bp_4_speciesList></div></fieldset><fieldset><legend>Brookfield Place 5: <strong>Number of Birds Found</strong><select name='"+routeName+"_4_numberBirds' id=wfc_bp_5_numberSelect class=numberSelect onchange=wfc_bp_5_Details()></select></legend><div class=details id=wfc_bp_5_speciesList></div></fieldset><fieldset><legend>Brookfield Place 6: <strong>Number of Birds Found</strong><select name='"+routeName+"_5_numberBirds' id=wfc_bp_6_numberSelect class=numberSelect onchange=wfc_bp_6_Details()></select></legend><div class=details id=wfc_bp_6_speciesList></div></fieldset><fieldset><legend>Brookfield Place 7: <strong>Number of Birds Found</strong><select name='"+routeName+"_6_numberBirds' id=wfc_bp_7_numberSelect class=numberSelect onchange=wfc_bp_7_Details()></select></legend><div class=details id=wfc_bp_7_speciesList></div></fieldset><fieldset><legend>Brookfield Place 8: <strong>Number of Birds Found</strong><select name='"+routeName+"_7_numberBirds' id=wfc_bp_8_numberSelect class=numberSelect onchange=wfc_bp_8_Details()></select></legend><div class=details id=wfc_bp_8_speciesList></div></fieldset><fieldset><legend>Brookfield Place 9: <strong>Number of Birds Found</strong><select name='"+routeName+"_8_numberBirds' id=wfc_bp_9_numberSelect class=numberSelect onchange=wfc_bp_9_Details()></select></legend><div class=details id=wfc_bp_9_speciesList></div></fieldset><fieldset><legend>Brookfield Place 10: <strong>Number of Birds Found</strong><select name='"+routeName+"_9_numberBirds' id=wfc_bp_10_numberSelect class=numberSelect onchange=wfc_bp_10_Details()></select></legend><div class=details id=wfc_bp_10_speciesList></div></fieldset><fieldset><legend>Brookfield Place 11: <strong>Number of Birds Found</strong><select name='"+routeName+"_10_numberBirds' id=wfc_bp_11_numberSelect class=numberSelect onchange=wfc_bp_11_Details()></select></legend><div class=details id=wfc_bp_11_speciesList></div></fieldset><fieldset><legend>Brookfield Place 12: <strong>Number of Birds Found</strong><select name='"+routeName+"_11_numberBirds' id=wfc_bp_12_numberSelect class=numberSelect onchange=wfc_bp_12_Details()></select></legend><div class=details id=wfc_bp_12_speciesList></div></fieldset><fieldset><legend>Brookfield Place 13: <strong>Number of Birds Found</strong><select name='"+routeName+"_12_numberBirds' id=wfc_bp_13_numberSelect class=numberSelect onchange=wfc_bp_13_Details()></select></legend><div class=details id=wfc_bp_13_speciesList></div></fieldset><fieldset><legend>Brookfield Place 14: <strong>Number of Birds Found</strong><select name='"+routeName+"_13_numberBirds' id=wfc_bp_14_numberSelect class=numberSelect onchange=wfc_bp_14_Details()></select></legend><div class=details id=wfc_bp_14_speciesList></div></fieldset><fieldset><legend>Brookfield Place 15: <strong>Number of Birds Found</strong><select name='"+routeName+"_14_numberBirds' id=wfc_bp_15_numberSelect class=numberSelect onchange=wfc_bp_15_Details()></select></legend><div class=details id=wfc_bp_15_speciesList></div></fieldset><fieldset><legend>Brookfield Place 16: <strong>Number of Birds Found</strong><select name='"+routeName+"_15_numberBirds' id=wfc_bp_16_numberSelect class=numberSelect onchange=wfc_bp_16_Details()></select></legend><div class=details id=wfc_bp_16_speciesList></div></fieldset><fieldset><legend>Brookfield Place 17: <strong>Number of Birds Found</strong><select name='"+routeName+"_16_numberBirds' id=wfc_bp_17_numberSelect class=numberSelect onchange=wfc_bp_17_Details()></select></legend><div class=details id=wfc_bp_17_speciesList></div></fieldset><fieldset><legend>Brookfield Place 18: <strong>Number of Birds Found</strong><select name='"+routeName+"_17_numberBirds' id=wfc_bp_18_numberSelect class=numberSelect onchange=wfc_bp_18_Details()></select></legend><div class=details id=wfc_bp_18_speciesList></div>";
-                    }
-                    
-                    
-                    //NUMBER LIST 
-                    $(document).ready(function(){
+Weather</br>
+<div name="weather" class="secondaryTextA">Choose the best option</div>
+<select id="weatherSelect">
+<option value=""></option>
+<option value="sunny">Sunny</option>
+<option value="partly cloudy">Partly Cloudy</option>
+<option value="cloudy">Cloudy</option>
+<option value="light rain">Light Rain</option>
+<option value="rain">Rain</option>
+<option value="fog">Fog</option>
+</select></p>
 
-                        $('.numberSelect').append("<option value='none'>None</option><option value='1'>1</option><option value='2'>2</option><option value='3'>3</option><option value='4'>4</option><option value='5'>5</option><option value='6'>6</option><option value='7'>7</option><option value='8'>8</option><option value='9'>9</option><option value='10'>10</option><option value='11'>11</option><option value='12'>12</option><option value='13'>13</option><option value='14'>14</option><option value='15'>15</option><option value='16'>16</option><option value='17'>17</option><option value='18'>18</option><option value='19'>19</option><option value='20'>20</option>")
-                    });
-                    
-                }
-                
-                
-                
-                
-   
-                
-                
-                var speciesList = "<option></option><option value='unknown'>unknown</option><option value='other'>other (describe in &#39;Notes&#39;)</option><option value='bat sp.'>bat sp.</option><option value='flycatcher sp.'>flycatcher sp.</option><option value='gull sp.'>gull sp.</option><option value='kinglet sp.'>kinglet sp.</option><option value='owl sp.'>owl sp.</option><option value='sparrow sp.'>sparrow sp.</option><option value='thrush sp.'>thrush sp.</option><option value='warbler sp.'>warbler sp.</option><option value='woodpecker sp.'>woodpecker sp.</option><option value='wren sp.'>wren sp.</option><option value='Alder Flycatcher'>Alder Flycatcher</option><option value='American Black Duck'>American Black Duck</option><option value='American Coot'>American Coot</option><option value='American Goldfinch'>American Goldfinch</option><option value='American Kestrel'>American Kestrel</option><option value='American Redstart'>American Redstart</option><option value='American Robin'>American Robin</option><option value='American Woodcock'>American Woodcock</option><option value='Baltimore Oriole'>Baltimore Oriole</option><option value='Barn Swallow'>Barn Swallow</option><option value='Bay-Breasted Warbler'>Bay-Breasted Warbler</option><option value='Belted Kingfisher'>Belted Kingfisher</option><option value='Black-and-white Warbler'>Black-and-white Warbler</option><option value='Black-billed Cuckoo'>Black-billed Cuckoo</option><option value='Black-capped Chickadee'>Black-capped Chickadee</option><option value='Blackpoll Warbler'>Blackpoll Warbler</option><option value='Black-throated Blue Warbler'>Black-throated Blue Warbler</option><option value='Black-throated Green Warbler'>Black-throated Green Warbler</option><option value='Blue Jay'>Blue Jay</option><option value='Blue-headed Vireo'>Blue-headed Vireo</option><option value='Blue-winged Warbler'>Blue-winged Warbler</option><option value='Brown Creeper'>Brown Creeper</option><option value='Brown Thrasher'>Brown Thrasher</option><option value='Brown-headed Cowbird'>Brown-headed Cowbird</option><option value='Canada Warbler'>Canada Warbler</option><option value='Cape May Warbler'>Cape May Warbler</option><option value='Cedar Waxwing'>Cedar Waxwing</option><option value='Chestnut-sided Warbler'>Chestnut-sided Warbler</option><option value='Chipping Sparrow'>Chipping Sparrow</option><option value='Chuck-wills-widow'>Chuck-will's-widow</option><option value='Clapper Rail'>Clapper Rail</option><option value='Common Grackle'>Common Grackle</option><option value='Common Yellowthroat'>Common Yellowthroat</option><option value='Connecticut Warbler'>Connecticut Warbler</option><option value='Dark-eyed Junco'>Dark-eyed Junco</option><option value='Downy Woodpecker'>Downy Woodpecker</option><option value='Eastern Bluebird'>Eastern Bluebird</option><option value='Eastern Kingbird'>Eastern Kingbird</option><option value='Eastern Phoebe'>Eastern Phoebe</option><option value='Eastern Towhee'>Eastern Towhee</option><option value='Eastern Wood-pewee'>Eastern Wood-pewee</option><option value='European Starling'>European Starling</option><option value='Field Sparrow'>Field Sparrow</option><option value='Fox Sparrow'>Fox Sparrow</option><option value='Golden-crowned Kinglet'>Golden-crowned Kinglet</option><option value='Gray Catbird'>Gray Catbird</option><option value='Gray-cheeked Thrush'>Gray-cheeked Thrush</option><option value='Great Crested Flycatcher'>Great Crested Flycatcher</option><option value='Hermit Thrush'>Hermit Thrush</option><option value='Hooded Warbler'>Hooded Warbler</option><option value='House Finch'>House Finch</option><option value='House Sparrow'>House Sparrow</option><option value='House Wren'>House Wren</option><option value='Indigo Bunting'>Indigo Bunting</option><option value='Kentucky Warbler'>Kentucky Warbler</option><option value='Lazuli Bunting'>Lazuli Bunting</option><option value='Least Flycatcher'>Least Flycatcher</option><option value='Lincolns Sparrow'>Lincoln's Sparrow</option><option value='Louisiana Waterthrush'>Louisiana Waterthrush</option><option value='Magnolia Warbler'>Magnolia Warbler</option><option value='Marsh Wren'>Marsh Wren</option><option value='Mourning Dove'>Mourning Dove</option><option value='Mourning Warbler'>Mourning Warbler</option><option value='Northern Cardinal'>Northern Cardinal</option><option value='Northern Flicker'>Northern Flicker</option><option value='Northern Mockingbird'>Northern Mockingbird</option><option value='Northern Parula'>Northern Parula</option><option value='Northern Waterthrush'>Northern Waterthrush</option><option value='Olive-sided Flycatcher'>Olive-sided Flycatcher</option><option value='Orchard Oriole'>Orchard Oriole</option><option value='Osprey'>Osprey</option><option value='Ovenbird'>Ovenbird</option><option value='Palm Warbler'>Palm Warbler</option><option value='Peregrine Falcon'>Peregrine Falcon</option><option value='Pine Warbler'>Pine Warbler</option><option value='Prairie Warbler'>Prairie Warbler</option><option value='Prothonotary Warbler'>Prothonotary Warbler</option><option value='Purple Finch'>Purple Finch</option><option value='Red-headed Woodpecker'>Red-headed Woodpecker</option><option value='Red-bellied Woodpecker'>Red-bellied Woodpecker</option><option value='Red-breasted Nuthatch'>Red-breasted Nuthatch</option><option value='Red-eyed Vireo'>Red-eyed Vireo</option><option value='Red-tailed Hawk'>Red-tailed Hawk</option><option value='Rock Pigeon'>Rock Pigeon</option><option value='Rose-breasted Grosbeak'>Rose-breasted Grosbeak</option><option value='Ruby-crowned Kinglet'>Ruby-crowned Kinglet</option><option value='Ruby-throated Hummingbird'>Ruby-throated Hummingbird</option><option value='Savannah Sparrow'>Savannah Sparrow</option><option value='Scarlet Tanager'>Scarlet Tanager</option><option value='Seaside Sparrow'>Seaside Sparrow</option><option value='Song Sparrow'>Song Sparrow</option><option value='Sora'>Sora</option><option value='Swainsons Thrush'>Swainson's Thrush</option><option value='Swamp Sparrow'>Swamp Sparrow</option><option value='Tennessee Warbler'>Tennessee Warbler</option><option value='Tufted Titmouse'>Tufted Titmouse</option><option value='Veery'>Veery</option><option value='Virginia Rail'>Virginia Rail</option><option value='White-breasted Nuthatch'>White-breasted Nuthatch</option><option value='White-crowned Sparrow'>White-crowned Sparrow</option><option value='White-eyed Vireo'>White-eyed Vireo</option><option value='White-throated Sparrow'>White-throated Sparrow</option><option value='Willow Flycatcher'>Willow Flycatcher</option><option value='Wilsons Warbler'>Wilson's Warbler</option><option value='Winter Wren'>Winter Wren</option><option value='Wood Thrush'>Wood Thrush</option><option value='Worm-eating Warbler'>Worm-eating Warbler</option><option value='Yellow Warbler'>Yellow Warbler</option><option value='Yellow-bellied Flycatcher'>Yellow-bellied Flycatcher</option><option value='Yellow-bellied Sapsucker'>Yellow-bellied Sapsucker</option><option value='Yellow-billed Cuckoo'>Yellow-billed Cuckoo</option><option value='Yellow-breasted Chat'>Yellow-breasted Chat</option><option value='Yellow-rumped Warbler'>Yellow-rumped Warbler</option><option value='Yellow-throated Vireo'>Yellow-throated Vireo</option>";
-                
+Route Name</br>
 
-                
-                
-                function bpl_1_Details(){
-                    
-                    //CLEARS DIV ONCHANGE
-                    document.getElementById("bpl_1_speciesList").innerHTML="";
-                    
-                    var bpl_1_numberBirds = document.getElementById("bpl_1_numberSelect").value;
-                    var siteName = "brooklyn_public_library_0_";
-                    
-                    
-                    for (i = 0; i < bpl_1_numberBirds; i++){
-                        
-                        $('<div id="detailsDiv'+i+'" class="detailsDiv"><div>Species<select name="'+siteName+'species_'+i+'" id="'+siteName+'species_'+i+'" class="'+siteName+'speciesSelect""></select></div><div><input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="dead" checked>Dead<input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="injured">Injured</div><div><input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="male">Male<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="female">Female<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="unknown" checked>Unknown</div><div><input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="adult">Adult<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="juvenile">Juvenile<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="unknown" checked>Unknown</div><div><input type=text name="'+siteName+'notes_'+i+'" id="'+siteName+'notes_'+i+'" class="speciesNotes"></div></div>').appendTo('#bpl_1_speciesList');
-                        
-                        }
-                    
-                   $(document).ready(function(){
-                        $('.'+siteName+'speciesSelect').append(speciesList)
-                        });
-                }
-                
-                
-                function bp_1_Details(){
-                    
-                    //CLEARS DIV ONCHANGE
-                    document.getElementById("bp_1_speciesList").innerHTML="";
-                    
-                    var bp_1_numberBirds = document.getElementById("bp_1_numberSelect").value;
-                    var siteName = "bryant_park_0_";
+<select class="routes" name="route" id="routeSelect">
+<option value="" class="routeOption"></option>
+<option data-zones="1" value="brooklyn public library" class="routeOption" id="bpl">Brooklyn Public Library</option>
+<option data-zones="4" value="bryant park" class="routeOption">Bryant Park</option>
+<option data-zones="1" value="columbia university - lerner" class="routeOption">Columbia University - Lerner</option>
+<option data-zones="1" value="columbia university - northwest corner" class="routeOption">Columbia University - Northwest Corner</option>
+<option data-zones="3" value="ford foundation building" class="routeOption">Ford Foundation Building</option>
+<option data-zones="8" value="javits"  class="routeOption">Javits</option>
+<option data-zones="" value="lic - court square" class="routeOption">LIC - Court Square</option>
+<option data-zones="" value="metropolitan museum of art (met)" class="routeOption">Metropolitan Museum of Art (Met)</option>
+<option data-zones="" value="richard meier building" class="routeOption">Richard Meier Building</option>
+<option data-zones="" value="wfc - freedom tower" class="routeOption">WFC - Freedom Tower</option>
+<option data-zones="" value="wfc - goldman sachs" class="routeOption">WFC - Goldman Sachs</option>
+<option data-zones="" value="wfc - brookfield place" class="routeOption">WFC - Brookfield Place</option>
+</select>
 
-                    
-                    for (i = 0; i < bp_1_numberBirds; i++){
-                    
-                        $('<div id="detailsDiv'+i+'" class="detailsDiv"><div>Species<select name="'+siteName+'species_'+i+'" id="'+siteName+'species_'+i+'" class="'+siteName+'speciesSelect""></select></div><div><input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="dead" checked>Dead<input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="injured">Injured</div><div><input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="male">Male<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="female">Female<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="unknown" checked>Unknown</div><div><input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="adult">Adult<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="juvenile">Juvenile<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="unknown" checked>Unknown</div><div><input type=text name="'+siteName+'notes_'+i+'" id="'+siteName+'notes_'+i+'" class="speciesNotes"></div></div>').appendTo('#bp_1_speciesList');
-                        
-                        }
-                    
-                   $(document).ready(function(){
-                        $('.'+siteName+'speciesSelect').append(speciesList)
-                        });   
-                }
-                
+<div class="patrol-sites">
 
-                function bp_2_Details(){
-                    
-                    //CLEARS DIV ONCHANGE
-                    document.getElementById("bp_2_speciesList").innerHTML="";
-                    
-                    var bp_2_numberBirds = document.getElementById("bp_2_numberSelect").value;
-                    var siteName = "bryant_park_1_";
 
-                    
-                    for (i = 0; i < bp_2_numberBirds; i++){
-                    
-                        $('<div id="detailsDiv'+i+'" class="detailsDiv"><div>Species<select name="'+siteName+'species_'+i+'" id="'+siteName+'species_'+i+'" class="'+siteName+'speciesSelect""></select></div><div><input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="dead" checked>Dead<input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="injured">Injured</div><div><input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="male">Male<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="female">Female<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="unknown" checked>Unknown</div><div><input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="adult">Adult<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="juvenile">Juvenile<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="unknown" checked>Unknown</div><div><input type=text name="'+siteName+'notes_'+i+'" id="'+siteName+'notes_'+i+'" class="speciesNotes"></div></div>').appendTo('#bp_2_speciesList');
-                        
-                        }
-                    
-                   $(document).ready(function(){
-                        $('.'+siteName+'speciesSelect').append(speciesList)
-                        });   
-                }
-                
-                
-                function bp_3_Details(){
-                    
-                    //CLEARS DIV ONCHANGE
-                    document.getElementById("bp_3_speciesList").innerHTML="";
-                    
-                    var bp_3_numberBirds = document.getElementById("bp_3_numberSelect").value;
-                    var siteName = "bryant_park_2_";
 
-                    
-                    for (i = 0; i < bp_3_numberBirds; i++){
-                    
-                        $('<div id="detailsDiv'+i+'" class="detailsDiv"><div>Species<select name="'+siteName+'species_'+i+'" id="'+siteName+'species_'+i+'" class="'+siteName+'speciesSelect""></select></div><div><input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="dead" checked>Dead<input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="injured">Injured</div><div><input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="male">Male<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="female">Female<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="unknown" checked>Unknown</div><div><input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="adult">Adult<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="juvenile">Juvenile<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="unknown" checked>Unknown</div><div><input type=text name="'+siteName+'notes_'+i+'" id="'+siteName+'notes_'+i+'" class="speciesNotes"></div></div>').appendTo('#bp_3_speciesList');
-                        
-                        }
-                    
-                   $(document).ready(function(){
-                        $('.'+siteName+'speciesSelect').append(speciesList)
-                        });   
-                }
-                
-                
-                function bp_4_Details(){
-                    
-                    //CLEARS DIV ONCHANGE
-                    document.getElementById("bp_4_speciesList").innerHTML="";
-                    
-                    var bp_4_numberBirds = document.getElementById("bp_4_numberSelect").value;
-                    var siteName = "bryant_park_3_";
+</div>
 
-                    
-                    for (i = 0; i < bp_4_numberBirds; i++){
-                    
-                        $('<div id="detailsDiv'+i+'" class="detailsDiv"><div>Species<select name="'+siteName+'species_'+i+'" id="'+siteName+'species_'+i+'" class="'+siteName+'speciesSelect""></select></div><div><input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="dead" checked>Dead<input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="injured">Injured</div><div><input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="male">Male<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="female">Female<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="unknown" checked>Unknown</div><div><input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="adult">Adult<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="juvenile">Juvenile<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="unknown" checked>Unknown</div><div><input type=text name="'+siteName+'notes_'+i+'" id="'+siteName+'notes_'+i+'" class="speciesNotes"></div></div>').appendTo('#bp_4_speciesList');
-                        
-                        }
-                    
-                   $(document).ready(function(){
-                        $('.'+siteName+'speciesSelect').append(speciesList)
-                        });   
-                }
-                
-                
-                function cul_1_Details(){
-                    
-                    //CLEARS DIV ONCHANGE
-                    document.getElementById("cul_1_speciesList").innerHTML="";
-                    
-                    var cul_1_numberBirds = document.getElementById("cul_1_numberSelect").value;
-                    var siteName = "columbia_university_lerner_0_";
-                    
-                    for (i = 0; i < cul_1_numberBirds; i++){
-                    
-                        $('<div id="detailsDiv'+i+'" class="detailsDiv"><div>Species<select name="'+siteName+'species_'+i+'" id="'+siteName+'species_'+i+'" class="'+siteName+'speciesSelect""></select></div><div><input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="dead" checked>Dead<input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="injured">Injured</div><div><input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="male">Male<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="female">Female<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="unknown" checked>Unknown</div><div><input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="adult">Adult<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="juvenile">Juvenile<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="unknown" checked>Unknown</div><div><input type=text name="'+siteName+'notes_'+i+'" id="'+siteName+'notes_'+i+'" class="speciesNotes"></div></div>').appendTo('#cul_1_speciesList');
-                        
-                        }
-                    
-                   $(document).ready(function(){
-                        $('.'+siteName+'speciesSelect').append(speciesList)
-                        });   
-                }
-                
-                
-                function cunwc_1_Details(){
-                    
-                    //CLEARS DIV ONCHANGE
-                    document.getElementById("cunwc_1_speciesList").innerHTML="";
-                    
-                    var cunwc_1_numberBirds = document.getElementById("cunwc_1_numberSelect").value;
-                    var siteName = "columbia_university_northwest_corner_0_";
-                    
-                    for (i = 0; i < cunwc_1_numberBirds; i++){
-                    
-                        $('<div id="detailsDiv'+i+'" class="detailsDiv"><div>Species<select name="'+siteName+'species_'+i+'" id="'+siteName+'species_'+i+'" class="'+siteName+'speciesSelect""></select></div><div><input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="dead" checked>Dead<input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="injured">Injured</div><div><input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="male">Male<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="female">Female<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="unknown" checked>Unknown</div><div><input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="adult">Adult<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="juvenile">Juvenile<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="unknown" checked>Unknown</div><div><input type=text name="'+siteName+'notes_'+i+'" id="'+siteName+'notes_'+i+'" class="speciesNotes"></div></div>').appendTo('#cunwc_1_speciesList');
-                        
-                        }
-                    
-                   $(document).ready(function(){
-                        $('.'+siteName+'speciesSelect').append(speciesList)
-                        });  
-                }
-                
-                
-                function ffb_1_Details(){
-                    
-                    //CLEARS DIV ONCHANGE
-                    document.getElementById("ffb_1_speciesList").innerHTML="";
-                    
-                    var ffb_1_numberBirds = document.getElementById("ffb_1_numberSelect").value;
-                    var siteName = "ford_foundation_building_0_";
-                    
-                    for (i = 0; i < ffb_1_numberBirds; i++){
-                    
-                        $('<div id="detailsDiv'+i+'" class="detailsDiv"><div>Species<select name="'+siteName+'species_'+i+'" id="'+siteName+'species_'+i+'" class="'+siteName+'speciesSelect""></select></div><div><input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="dead" checked>Dead<input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="injured">Injured</div><div><input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="male">Male<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="female">Female<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="unknown" checked>Unknown</div><div><input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="adult">Adult<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="juvenile">Juvenile<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="unknown" checked>Unknown</div><div><input type=text name="'+siteName+'notes_'+i+'" id="'+siteName+'notes_'+i+'" class="speciesNotes"></div></div>').appendTo('#ffb_1_speciesList');
-                        
-                        }
-                    
-                   $(document).ready(function(){
-                        $('.'+siteName+'speciesSelect').append(speciesList)
-                        });   
-                }
-                
-                
-                function ffb_2_Details(){
-                    
-                    //CLEARS DIV ONCHANGE
-                    document.getElementById("ffb_2_speciesList").innerHTML="";
-                    
-                    var ffb_2_numberBirds = document.getElementById("ffb_2_numberSelect").value;
-                    var siteName = "ford_foundation_building_1_";
-                    
-                    for (i = 0; i < ffb_2_numberBirds; i++){
-                    
-                        $('<div id="detailsDiv'+i+'" class="detailsDiv"><div>Species<select name="'+siteName+'species_'+i+'" id="'+siteName+'species_'+i+'" class="'+siteName+'speciesSelect""></select></div><div><input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="dead" checked>Dead<input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="injured">Injured</div><div><input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="male">Male<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="female">Female<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="unknown" checked>Unknown</div><div><input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="adult">Adult<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="juvenile">Juvenile<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="unknown" checked>Unknown</div><div><input type=text name="'+siteName+'notes_'+i+'" id="'+siteName+'notes_'+i+'" class="speciesNotes"></div></div>').appendTo('#ffb_2_speciesList');
-                        
-                        }
-                    
-                   $(document).ready(function(){
-                        $('.'+siteName+'speciesSelect').append(speciesList)
-                        });   
-                }
-                
-                
-                function ffb_3_Details(){
-                    
-                    //CLEARS DIV ONCHANGE
-                    document.getElementById("ffb_3_speciesList").innerHTML="";
-                    
-                    var ffb_3_numberBirds = document.getElementById("ffb_3_numberSelect").value;
-                    var siteName = "ford_foundation_building_2_";
-                    
-                    for (i = 0; i < ffb_3_numberBirds; i++){
-                    
-                        $('<div id="detailsDiv'+i+'" class="detailsDiv"><div>Species<select name="'+siteName+'species_'+i+'" id="'+siteName+'species_'+i+'" class="'+siteName+'speciesSelect""></select></div><div><input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="dead" checked>Dead<input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="injured">Injured</div><div><input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="male">Male<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="female">Female<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="unknown" checked>Unknown</div><div><input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="adult">Adult<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="juvenile">Juvenile<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="unknown" checked>Unknown</div><div><input type=text name="'+siteName+'notes_'+i+'" id="'+siteName+'notes_'+i+'" class="speciesNotes"></div></div>').appendTo('#ffb_3_speciesList');
-                        
-                        }
-                    
-                   $(document).ready(function(){
-                        $('.'+siteName+'speciesSelect').append(speciesList)
-                        });  
-                }
-                
-                
-                function jav_1_Details(){
-                    
-                    //CLEARS DIV ONCHANGE
-                    document.getElementById("jav_1_speciesList").innerHTML="";
-                    
-                    var jav_1_numberBirds = document.getElementById("jav_1_numberSelect").value;
-                    var siteName = "javits_0_";
-                    
-                    for (i = 0; i < jav_1_numberBirds; i++){
-                    
-                        $('<div id="detailsDiv'+i+'" class="detailsDiv"><div>Species<select name="'+siteName+'species_'+i+'" id="'+siteName+'species_'+i+'" class="'+siteName+'speciesSelect""></select></div><div><input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="dead" checked>Dead<input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="injured">Injured</div><div><input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="male">Male<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="female">Female<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="unknown" checked>Unknown</div><div><input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="adult">Adult<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="juvenile">Juvenile<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="unknown" checked>Unknown</div><div><input type=text name="'+siteName+'notes_'+i+'" id="'+siteName+'notes_'+i+'" class="speciesNotes"></div></div>').appendTo('#jav_1_speciesList');
-                        
-                        }
-                    
-                   $(document).ready(function(){
-                        $('.'+siteName+'speciesSelect').append(speciesList)
-                        });   
-                }
-                
-                
-                function jav_2_Details(){
-                    
-                    //CLEARS DIV ONCHANGE
-                    document.getElementById("jav_2_speciesList").innerHTML="";
-                    
-                    var jav_2_numberBirds = document.getElementById("jav_2_numberSelect").value;
-                    var siteName = "javits_1_";
-                    
-                    for (i = 0; i < jav_2_numberBirds; i++){
-                    
-                        $('<div id="detailsDiv'+i+'" class="detailsDiv"><div>Species<select name="'+siteName+'species_'+i+'" id="'+siteName+'species_'+i+'" class="'+siteName+'speciesSelect""></select></div><div><input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="dead" checked>Dead<input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="injured">Injured</div><div><input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="male">Male<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="female">Female<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="unknown" checked>Unknown</div><div><input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="adult">Adult<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="juvenile">Juvenile<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="unknown" checked>Unknown</div><div><input type=text name="'+siteName+'notes_'+i+'" id="'+siteName+'notes_'+i+'" class="speciesNotes"></div></div>').appendTo('#jav_2_speciesList');
-                        
-                        }
-                    
-                   $(document).ready(function(){
-                        $('.'+siteName+'speciesSelect').append(speciesList)
-                        });   
-                }
-                
-                
-                function jav_3_Details(){
-                    
-                    //CLEARS DIV ONCHANGE
-                    document.getElementById("jav_3_speciesList").innerHTML="";
-                    
-                    var jav_3_numberBirds = document.getElementById("jav_3_numberSelect").value;
-                    var siteName = "javits_2_";
-                    
-                    for (i = 0; i < jav_3_numberBirds; i++){
-                    
-                        $('<div id="detailsDiv'+i+'" class="detailsDiv"><div>Species<select name="'+siteName+'species_'+i+'" id="'+siteName+'species_'+i+'" class="'+siteName+'speciesSelect""></select></div><div><input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="dead" checked>Dead<input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="injured">Injured</div><div><input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="male">Male<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="female">Female<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="unknown" checked>Unknown</div><div><input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="adult">Adult<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="juvenile">Juvenile<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="unknown" checked>Unknown</div><div><input type=text name="'+siteName+'notes_'+i+'" id="'+siteName+'notes_'+i+'" class="speciesNotes"></div></div>').appendTo('#jav_3_speciesList');
-                        
-                        }
-                    
-                   $(document).ready(function(){
-                        $('.'+siteName+'speciesSelect').append(speciesList)
-                        });   
-                }
-                
 
-                function jav_4_Details(){
-                    
-                    //CLEARS DIV ONCHANGE
-                    document.getElementById("jav_4_speciesList").innerHTML="";
-                    
-                    var jav_4_numberBirds = document.getElementById("jav_4_numberSelect").value;
-                    var siteName = "javits_3_";
-                    
-                    for (i = 0; i < jav_4_numberBirds; i++){
-                    
-                        $('<div id="detailsDiv'+i+'" class="detailsDiv"><div>Species<select name="'+siteName+'species_'+i+'" id="'+siteName+'species_'+i+'" class="'+siteName+'speciesSelect""></select></div><div><input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="dead" checked>Dead<input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="injured">Injured</div><div><input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="male">Male<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="female">Female<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="unknown" checked>Unknown</div><div><input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="adult">Adult<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="juvenile">Juvenile<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="unknown" checked>Unknown</div><div><input type=text name="'+siteName+'notes_'+i+'" id="'+siteName+'notes_'+i+'" class="speciesNotes"></div></div>').appendTo('#jav_4_speciesList');
-                        
-                        }
-                    
-                   $(document).ready(function(){
-                        $('.'+siteName+'speciesSelect').append(speciesList)
-                        });   
-                }
-                
-                
-                function jav_5_Details(){
-                    
-                    //CLEARS DIV ONCHANGE
-                    document.getElementById("jav_5_speciesList").innerHTML="";
-                    
-                    var jav_5_numberBirds = document.getElementById("jav_5_numberSelect").value;
-                    var siteName = "javits_4_";
-                    
-                    for (i = 0; i < jav_5_numberBirds; i++){
-                    
-                        $('<div id="detailsDiv'+i+'" class="detailsDiv"><div>Species<select name="'+siteName+'species_'+i+'" id="'+siteName+'species_'+i+'" class="'+siteName+'speciesSelect""></select></div><div><input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="dead" checked>Dead<input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="injured">Injured</div><div><input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="male">Male<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="female">Female<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="unknown" checked>Unknown</div><div><input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="adult">Adult<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="juvenile">Juvenile<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="unknown" checked>Unknown</div><div><input type=text name="'+siteName+'notes_'+i+'" id="'+siteName+'notes_'+i+'" class="speciesNotes"></div></div>').appendTo('#jav_5_speciesList');
-                        
-                        }
-                    
-                   $(document).ready(function(){
-                        $('.'+siteName+'speciesSelect').append(speciesList)
-                        });   
-                }
-                
-                
-                function jav_6_Details(){
-                    
-                    //CLEARS DIV ONCHANGE
-                    document.getElementById("jav_6_speciesList").innerHTML="";
-                    
-                    var jav_6_numberBirds = document.getElementById("jav_6_numberSelect").value;
-                    var siteName = "javits_5_";
-                    
-                    for (i = 0; i < jav_6_numberBirds; i++){
-                    
-                        $('<div id="detailsDiv'+i+'" class="detailsDiv"><div>Species<select name="'+siteName+'species_'+i+'" id="'+siteName+'species_'+i+'" class="'+siteName+'speciesSelect""></select></div><div><input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="dead" checked>Dead<input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="injured">Injured</div><div><input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="male">Male<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="female">Female<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="unknown" checked>Unknown</div><div><input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="adult">Adult<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="juvenile">Juvenile<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="unknown" checked>Unknown</div><div><input type=text name="'+siteName+'notes_'+i+'" id="'+siteName+'notes_'+i+'" class="speciesNotes"></div></div>').appendTo('#jav_6_speciesList');
-                        
-                        }
-                    
-                   $(document).ready(function(){
-                        $('.'+siteName+'speciesSelect').append(speciesList)
-                        });  
-                }
-                
-                
-                function jav_7_Details(){
-                    
-                    //CLEARS DIV ONCHANGE
-                    document.getElementById("jav_7_speciesList").innerHTML="";
-                    
-                    var jav_7_numberBirds = document.getElementById("jav_7_numberSelect").value;
-                    var siteName = "javits_6_";
-                    
-                    for (i = 0; i < jav_7_numberBirds; i++){
-                    
-                        $('<div id="detailsDiv'+i+'" class="detailsDiv"><div>Species<select name="'+siteName+'species_'+i+'" id="'+siteName+'species_'+i+'" class="'+siteName+'speciesSelect""></select></div><div><input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="dead" checked>Dead<input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="injured">Injured</div><div><input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="male">Male<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="female">Female<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="unknown" checked>Unknown</div><div><input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="adult">Adult<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="juvenile">Juvenile<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="unknown" checked>Unknown</div><div><input type=text name="'+siteName+'notes_'+i+'" id="'+siteName+'notes_'+i+'" class="speciesNotes"></div></div>').appendTo('#jav_7_speciesList');
-                        
-                        }
-                    
-                   $(document).ready(function(){
-                        $('.'+siteName+'speciesSelect').append(speciesList)
-                        });   
-                }
-                
-                
-                function jav_8_Details(){
-                    
-                    //CLEARS DIV ONCHANGE
-                    document.getElementById("jav_8_speciesList").innerHTML="";
-                    
-                    var jav_8_numberBirds = document.getElementById("jav_8_numberSelect").value;
-                    var siteName = "javits_7_";
-                    
-                    for (i = 0; i < jav_8_numberBirds; i++){
-                    
-                        $('<div id="detailsDiv'+i+'" class="detailsDiv"><div>Species<select name="'+siteName+'species_'+i+'" id="'+siteName+'species_'+i+'" class="'+siteName+'speciesSelect""></select></div><div><input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="dead" checked>Dead<input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="injured">Injured</div><div><input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="male">Male<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="female">Female<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="unknown" checked>Unknown</div><div><input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="adult">Adult<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="juvenile">Juvenile<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="unknown" checked>Unknown</div><div><input type=text name="'+siteName+'notes_'+i+'" id="'+siteName+'notes_'+i+'" class="speciesNotes"></div></div>').appendTo('#jav_8_speciesList');
-                        
-                        }
-                    
-                   $(document).ready(function(){
-                        $('.'+siteName+'speciesSelect').append(speciesList)
-                        });  
-                }
-                
-                
-                function cs_1_Details(){
-                    
-                    //CLEARS DIV ONCHANGE
-                    document.getElementById("cs_1_speciesList").innerHTML="";
-                    
-                    var cs_1_numberBirds = document.getElementById("cs_1_numberSelect").value;
-                    var siteName = "court_square_0_";
-                    
-                    for (i = 0; i < cs_1_numberBirds; i++){
-                    
-                        $('<div id="detailsDiv'+i+'" class="detailsDiv"><div>Species<select name="'+siteName+'species_'+i+'" id="'+siteName+'species_'+i+'" class="'+siteName+'speciesSelect""></select></div><div><input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="dead" checked>Dead<input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="injured">Injured</div><div><input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="male">Male<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="female">Female<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="unknown" checked>Unknown</div><div><input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="adult">Adult<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="juvenile">Juvenile<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="unknown" checked>Unknown</div><div><input type=text name="'+siteName+'notes_'+i+'" id="'+siteName+'notes_'+i+'" class="speciesNotes"></div></div>').appendTo('#cs_1_speciesList');
-                        
-                        }
-                    
-                   $(document).ready(function(){
-                        $('.'+siteName+'speciesSelect').append(speciesList)
-                        });   
-                }
-                
-                
-                function cs_2_Details(){
-                    
-                    //CLEARS DIV ONCHANGE
-                    document.getElementById("cs_2_speciesList").innerHTML="";
-                    
-                    var cs_2_numberBirds = document.getElementById("cs_2_numberSelect").value;
-                    var siteName = "court_square_1_";
-                    
-                    for (i = 0; i < cs_2_numberBirds; i++){
-                    
-                        $('<div id="detailsDiv'+i+'" class="detailsDiv"><div>Species<select name="'+siteName+'species_'+i+'" id="'+siteName+'species_'+i+'" class="'+siteName+'speciesSelect""></select></div><div><input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="dead" checked>Dead<input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="injured">Injured</div><div><input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="male">Male<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="female">Female<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="unknown" checked>Unknown</div><div><input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="adult">Adult<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="juvenile">Juvenile<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="unknown" checked>Unknown</div><div><input type=text name="'+siteName+'notes_'+i+'" id="'+siteName+'notes_'+i+'" class="speciesNotes"></div></div>').appendTo('#cs_2_speciesList');
-                        
-                        }
-                    
-                   $(document).ready(function(){
-                        $('.'+siteName+'speciesSelect').append(speciesList)
-                        });   
-                }
-                
-                
-                function cs_3_Details(){
-                    
-                    //CLEARS DIV ONCHANGE
-                    document.getElementById("cs_3_speciesList").innerHTML="";
-                    
-                    var cs_3_numberBirds = document.getElementById("cs_3_numberSelect").value;
-                    var siteName = "court_square_2_";
-                    
-                    for (i = 0; i < cs_3_numberBirds; i++){
-                    
-                        $('<div id="detailsDiv'+i+'" class="detailsDiv"><div>Species<select name="'+siteName+'species_'+i+'" id="'+siteName+'species_'+i+'" class="'+siteName+'speciesSelect""></select></div><div><input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="dead" checked>Dead<input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="injured">Injured</div><div><input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="male">Male<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="female">Female<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="unknown" checked>Unknown</div><div><input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="adult">Adult<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="juvenile">Juvenile<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="unknown" checked>Unknown</div><div><input type=text name="'+siteName+'notes_'+i+'" id="'+siteName+'notes_'+i+'" class="speciesNotes"></div></div>').appendTo('#cs_3_speciesList');
-                        
-                        }
-                    
-                   $(document).ready(function(){
-                        $('.'+siteName+'speciesSelect').append(speciesList)
-                        });   
-                }
-                
-                
-                function cs_4_Details(){
-                    
-                    //CLEARS DIV ONCHANGE
-                    document.getElementById("cs_4_speciesList").innerHTML="";
-                    
-                    var cs_4_numberBirds = document.getElementById("cs_4_numberSelect").value;
-                    var siteName = "court_square_3_";
-                    
-                    for (i = 0; i < cs_4_numberBirds; i++){
-                    
-                        $('<div id="detailsDiv'+i+'" class="detailsDiv"><div>Species<select name="'+siteName+'species_'+i+'" id="'+siteName+'species_'+i+'" class="'+siteName+'speciesSelect""></select></div><div><input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="dead" checked>Dead<input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="injured">Injured</div><div><input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="male">Male<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="female">Female<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="unknown" checked>Unknown</div><div><input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="adult">Adult<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="juvenile">Juvenile<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="unknown" checked>Unknown</div><div><input type=text name="'+siteName+'notes_'+i+'" id="'+siteName+'notes_'+i+'" class="speciesNotes"></div></div>').appendTo('#cs_4_speciesList');
-                        
-                        }
-                    
-                   $(document).ready(function(){
-                        $('.'+siteName+'speciesSelect').append(speciesList)
-                        }); 
-                }
-                
-                
-                function cs_5_Details(){
-                    
-                    //CLEARS DIV ONCHANGE
-                    document.getElementById("cs_5_speciesList").innerHTML="";
-                    
-                    var cs_5_numberBirds = document.getElementById("cs_5_numberSelect").value;
-                    var siteName = "court_square_4_";
-                    
-                    for (i = 0; i < cs_5_numberBirds; i++){
-                    
-                        $('<div id="detailsDiv'+i+'" class="detailsDiv"><div>Species<select name="'+siteName+'species_'+i+'" id="'+siteName+'species_'+i+'" class="'+siteName+'speciesSelect""></select></div><div><input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="dead" checked>Dead<input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="injured">Injured</div><div><input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="male">Male<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="female">Female<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="unknown" checked>Unknown</div><div><input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="adult">Adult<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="juvenile">Juvenile<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="unknown" checked>Unknown</div><div><input type=text name="'+siteName+'notes_'+i+'" id="'+siteName+'notes_'+i+'" class="speciesNotes"></div></div>').appendTo('#cs_5_speciesList');
-                        
-                        }
-                    
-                   $(document).ready(function(){
-                        $('.'+siteName+'speciesSelect').append(speciesList)
-                        });   
-                }
-                
-                
-                function cs_6_Details(){
-                    
-                    //CLEARS DIV ONCHANGE
-                    document.getElementById("cs_6_speciesList").innerHTML="";
-                    
-                    var cs_6_numberBirds = document.getElementById("cs_6_numberSelect").value;
-                    var siteName = "court_square_5_";
-                    
-                    for (i = 0; i < cs_6_numberBirds; i++){
-                    
-                        $('<div id="detailsDiv'+i+'" class="detailsDiv"><div>Species<select name="'+siteName+'species_'+i+'" id="'+siteName+'species_'+i+'" class="'+siteName+'speciesSelect""></select></div><div><input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="dead" checked>Dead<input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="injured">Injured</div><div><input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="male">Male<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="female">Female<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="unknown" checked>Unknown</div><div><input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="adult">Adult<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="juvenile">Juvenile<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="unknown" checked>Unknown</div><div><input type=text name="'+siteName+'notes_'+i+'" id="'+siteName+'notes_'+i+'" class="speciesNotes"></div></div>').appendTo('#cs_6_speciesList');
-                        
-                        }
-                    
-                   $(document).ready(function(){
-                        $('.'+siteName+'speciesSelect').append(speciesList)
-                        });   
-                }
-                
-                
-                function cs_7_Details(){
-                    
-                    //CLEARS DIV ONCHANGE
-                    document.getElementById("cs_7_speciesList").innerHTML="";
-                    
-                    var cs_7_numberBirds = document.getElementById("cs_7_numberSelect").value;
-                    var siteName = "court_square_6_";
-                    
-                    for (i = 0; i < cs_7_numberBirds; i++){
-                    
-                        $('<div id="detailsDiv'+i+'" class="detailsDiv"><div>Species<select name="'+siteName+'species_'+i+'" id="'+siteName+'species_'+i+'" class="'+siteName+'speciesSelect""></select></div><div><input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="dead" checked>Dead<input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="injured">Injured</div><div><input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="male">Male<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="female">Female<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="unknown" checked>Unknown</div><div><input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="adult">Adult<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="juvenile">Juvenile<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="unknown" checked>Unknown</div><div><input type=text name="'+siteName+'notes_'+i+'" id="'+siteName+'notes_'+i+'" class="speciesNotes"></div></div>').appendTo('#cs_7_speciesList');
-                        
-                        }
-                    
-                   $(document).ready(function(){
-                        $('.'+siteName+'speciesSelect').append(speciesList)
-                        });   
-                }
-                
-                
-                function met_1_Details(){
-                    
-                    //CLEARS DIV ONCHANGE
-                    document.getElementById("met_1_speciesList").innerHTML="";
-                    
-                    var met_1_numberBirds = document.getElementById("met_1_numberSelect").value;
-                    var siteName = "met_0_";
-                    
-                    for (i = 0; i < met_1_numberBirds; i++){
-                    
-                        $('<div id="detailsDiv'+i+'" class="detailsDiv"><div>Species<select name="'+siteName+'species_'+i+'" id="'+siteName+'species_'+i+'" class="'+siteName+'speciesSelect""></select></div><div><input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="dead" checked>Dead<input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="injured">Injured</div><div><input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="male">Male<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="female">Female<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="unknown" checked>Unknown</div><div><input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="adult">Adult<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="juvenile">Juvenile<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="unknown" checked>Unknown</div><div><input type=text name="'+siteName+'notes_'+i+'" id="'+siteName+'notes_'+i+'" class="speciesNotes"></div></div>').appendTo('#met_1_speciesList');
-                        
-                        }
-                    
-                   $(document).ready(function(){
-                        $('.'+siteName+'speciesSelect').append(speciesList)
-                        });   
-                }
-                
-                
-                function met_2_Details(){
-                    
-                    //CLEARS DIV ONCHANGE
-                    document.getElementById("met_2_speciesList").innerHTML="";
-                    
-                    var met_2_numberBirds = document.getElementById("met_2_numberSelect").value;
-                    var siteName = "met_1_";
-                    
-                    for (i = 0; i < met_2_numberBirds; i++){
-                    
-                        $('<div id="detailsDiv'+i+'" class="detailsDiv"><div>Species<select name="'+siteName+'species_'+i+'" id="'+siteName+'species_'+i+'" class="'+siteName+'speciesSelect""></select></div><div><input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="dead" checked>Dead<input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="injured">Injured</div><div><input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="male">Male<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="female">Female<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="unknown" checked>Unknown</div><div><input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="adult">Adult<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="juvenile">Juvenile<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="unknown" checked>Unknown</div><div><input type=text name="'+siteName+'notes_'+i+'" id="'+siteName+'notes_'+i+'" class="speciesNotes"></div></div>').appendTo('#met_2_speciesList');
-                        
-                        }
-                    
-                   $(document).ready(function(){
-                        $('.'+siteName+'speciesSelect').append(speciesList)
-                        });  
-                }
-                
-                
-                function met_3_Details(){
-                    
-                    //CLEARS DIV ONCHANGE
-                    document.getElementById("met_3_speciesList").innerHTML="";
-                    
-                    var met_3_numberBirds = document.getElementById("met_3_numberSelect").value;
-                    var siteName = "met_2_";
-                    
-                    for (i = 0; i < met_3_numberBirds; i++){
-                    
-                        $('<div id="detailsDiv'+i+'" class="detailsDiv"><div>Species<select name="'+siteName+'species_'+i+'" id="'+siteName+'species_'+i+'" class="'+siteName+'speciesSelect""></select></div><div><input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="dead" checked>Dead<input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="injured">Injured</div><div><input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="male">Male<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="female">Female<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="unknown" checked>Unknown</div><div><input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="adult">Adult<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="juvenile">Juvenile<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="unknown" checked>Unknown</div><div><input type=text name="'+siteName+'notes_'+i+'" id="'+siteName+'notes_'+i+'" class="speciesNotes"></div></div>').appendTo('#met_3_speciesList');
-                        
-                        }
-                    
-                   $(document).ready(function(){
-                        $('.'+siteName+'speciesSelect').append(speciesList)
-                        });   
-                }
-                
-                
-                function met_4_Details(){
-                    
-                    //CLEARS DIV ONCHANGE
-                    document.getElementById("met_4_speciesList").innerHTML="";
-                    
-                    var met_4_numberBirds = document.getElementById("met_4_numberSelect").value;
-                    var siteName = "met_3_";
-                    
-                    for (i = 0; i < met_4_numberBirds; i++){
-                    
-                        $('<div id="detailsDiv'+i+'" class="detailsDiv"><div>Species<select name="'+siteName+'species_'+i+'" id="'+siteName+'species_'+i+'" class="'+siteName+'speciesSelect""></select></div><div><input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="dead" checked>Dead<input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="injured">Injured</div><div><input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="male">Male<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="female">Female<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="unknown" checked>Unknown</div><div><input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="adult">Adult<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="juvenile">Juvenile<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="unknown" checked>Unknown</div><div><input type=text name="'+siteName+'notes_'+i+'" id="'+siteName+'notes_'+i+'" class="speciesNotes"></div></div>').appendTo('#met_4_speciesList');
-                        
-                        }
-                    
-                   $(document).ready(function(){
-                        $('.'+siteName+'speciesSelect').append(speciesList)
-                        });   
-                }
-                
-                
-                function met_5_Details(){
-                    
-                    //CLEARS DIV ONCHANGE
-                    document.getElementById("met_5_speciesList").innerHTML="";
-                    
-                    var met_5_numberBirds = document.getElementById("met_5_numberSelect").value;
-                    var siteName = "met_4_";
-                    
-                    for (i = 0; i < met_5_numberBirds; i++){
-                    
-                        $('<div id="detailsDiv'+i+'" class="detailsDiv"><div>Species<select name="'+siteName+'species_'+i+'" id="'+siteName+'species_'+i+'" class="'+siteName+'speciesSelect""></select></div><div><input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="dead" checked>Dead<input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="injured">Injured</div><div><input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="male">Male<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="female">Female<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="unknown" checked>Unknown</div><div><input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="adult">Adult<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="juvenile">Juvenile<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="unknown" checked>Unknown</div><div><input type=text name="'+siteName+'notes_'+i+'" id="'+siteName+'notes_'+i+'" class="speciesNotes"></div></div>').appendTo('#met_5_speciesList');
-                        
-                        }
-                    
-                   $(document).ready(function(){
-                        $('.'+siteName+'speciesSelect').append(speciesList)
-                        });   
-                }
-                
-                
-                function met_6_Details(){
-                    
-                    //CLEARS DIV ONCHANGE
-                    document.getElementById("met_6_speciesList").innerHTML="";
-                    
-                    var met_6_numberBirds = document.getElementById("met_6_numberSelect").value;
-                    var siteName = "met_5_";
-                    
-                    for (i = 0; i < met_6_numberBirds; i++){
-                    
-                        $('<div id="detailsDiv'+i+'" class="detailsDiv"><div>Species<select name="'+siteName+'species_'+i+'" id="'+siteName+'species_'+i+'" class="'+siteName+'speciesSelect""></select></div><div><input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="dead" checked>Dead<input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="injured">Injured</div><div><input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="male">Male<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="female">Female<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="unknown" checked>Unknown</div><div><input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="adult">Adult<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="juvenile">Juvenile<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="unknown" checked>Unknown</div><div><input type=text name="'+siteName+'notes_'+i+'" id="'+siteName+'notes_'+i+'" class="speciesNotes"></div></div>').appendTo('#met_6_speciesList');
-                        
-                        }
-                    
-                   $(document).ready(function(){
-                        $('.'+siteName+'speciesSelect').append(speciesList)
-                        });   
-                }
-                
-                
-                function met_7_Details(){
-                    
-                    //CLEARS DIV ONCHANGE
-                    document.getElementById("met_7_speciesList").innerHTML="";
-                    
-                    var met_7_numberBirds = document.getElementById("met_7_numberSelect").value;
-                    var siteName = "met_6_";
-                    
-                    for (i = 0; i < met_7_numberBirds; i++){
-                    
-                        $('<div id="detailsDiv'+i+'" class="detailsDiv"><div>Species<select name="'+siteName+'species_'+i+'" id="'+siteName+'species_'+i+'" class="'+siteName+'speciesSelect""></select></div><div><input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="dead" checked>Dead<input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="injured">Injured</div><div><input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="male">Male<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="female">Female<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="unknown" checked>Unknown</div><div><input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="adult">Adult<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="juvenile">Juvenile<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="unknown" checked>Unknown</div><div><input type=text name="'+siteName+'notes_'+i+'" id="'+siteName+'notes_'+i+'" class="speciesNotes"></div></div>').appendTo('#met_7_speciesList');
-                        
-                        }
-                    
-                   $(document).ready(function(){
-                        $('.'+siteName+'speciesSelect').append(speciesList)
-                        }); 
-                }
-                
-                
-                function rmb_1_Details(){
-                    
-                    //CLEARS DIV ONCHANGE
-                    document.getElementById("rmb_1_speciesList").innerHTML="";
-                    
-                    var rmb_1_numberBirds = document.getElementById("rmb_1_numberSelect").value;
-                    var siteName = "richard_meier_building_0_";
-                    
-                    for (i = 0; i < rmb_1_numberBirds; i++){
-                    
-                        $('<div id="detailsDiv'+i+'" class="detailsDiv"><div>Species<select name="'+siteName+'species_'+i+'" id="'+siteName+'species_'+i+'" class="'+siteName+'speciesSelect""></select></div><div><input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="dead" checked>Dead<input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="injured">Injured</div><div><input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="male">Male<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="female">Female<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="unknown" checked>Unknown</div><div><input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="adult">Adult<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="juvenile">Juvenile<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="unknown" checked>Unknown</div><div><input type=text name="'+siteName+'notes_'+i+'" id="'+siteName+'notes_'+i+'" class="speciesNotes"></div></div>').appendTo('#rmb_1_speciesList');
-                        
-                        }
-                    
-                   $(document).ready(function(){
-                        $('.'+siteName+'speciesSelect').append(speciesList)
-                        });   
-                }
-                
-                
-                function wfc_ft_1_Details(){
-                    
-                    //CLEARS DIV ONCHANGE
-                    document.getElementById("wfc_ft_1_speciesList").innerHTML="";
-                    
-                    var wfc_ft_1_numberBirds = document.getElementById("wfc_ft_1_numberSelect").value;
-                    var siteName = "wfc_freedom_tower_0_";
-                    
-                    for (i = 0; i < wfc_ft_1_numberBirds; i++){
-                    
-                        $('<div id="detailsDiv'+i+'" class="detailsDiv"><div>Species<select name="'+siteName+'species_'+i+'" id="'+siteName+'species_'+i+'" class="'+siteName+'speciesSelect""></select></div><div><input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="dead" checked>Dead<input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="injured">Injured</div><div><input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="male">Male<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="female">Female<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="unknown" checked>Unknown</div><div><input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="adult">Adult<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="juvenile">Juvenile<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="unknown" checked>Unknown</div><div><input type=text name="'+siteName+'notes_'+i+'" id="'+siteName+'notes_'+i+'" class="speciesNotes"></div></div>').appendTo('#wfc_ft_1_speciesList');
-                        
-                        }
-                    
-                   $(document).ready(function(){
-                        $('.'+siteName+'speciesSelect').append(speciesList)
-                        });   
-                }
-                
-                
-                function wfc_ft_2_Details(){
-                    
-                    //CLEARS DIV ONCHANGE
-                    document.getElementById("wfc_ft_2_speciesList").innerHTML="";
-                    
-                    var wfc_ft_2_numberBirds = document.getElementById("wfc_ft_2_numberSelect").value;
-                    var siteName = "wfc_freedom_tower_1_";
-                    
-                    for (i = 0; i < wfc_ft_2_numberBirds; i++){
-                    
-                        $('<div id="detailsDiv'+i+'" class="detailsDiv"><div>Species<select name="'+siteName+'species_'+i+'" id="'+siteName+'species_'+i+'" class="'+siteName+'speciesSelect""></select></div><div><input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="dead" checked>Dead<input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="injured">Injured</div><div><input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="male">Male<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="female">Female<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="unknown" checked>Unknown</div><div><input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="adult">Adult<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="juvenile">Juvenile<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="unknown" checked>Unknown</div><div><input type=text name="'+siteName+'notes_'+i+'" id="'+siteName+'notes_'+i+'" class="speciesNotes"></div></div>').appendTo('#wfc_ft_2_speciesList');
-                        
-                        }
-                    
-                   $(document).ready(function(){
-                        $('.'+siteName+'speciesSelect').append(speciesList)
-                        });   
-                }
-                
-                
-                function wfc_ft_3_Details(){
-                    
-                    //CLEARS DIV ONCHANGE
-                    document.getElementById("wfc_ft_3_speciesList").innerHTML="";
-                    
-                    var wfc_ft_3_numberBirds = document.getElementById("wfc_ft_3_numberSelect").value;
-                    var siteName = "wfc_freedom_tower_2_";
-                    
-                    for (i = 0; i < wfc_ft_3_numberBirds; i++){
-                    
-                        $('<div id="detailsDiv'+i+'" class="detailsDiv"><div>Species<select name="'+siteName+'species_'+i+'" id="'+siteName+'species_'+i+'" class="'+siteName+'speciesSelect""></select></div><div><input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="dead" checked>Dead<input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="injured">Injured</div><div><input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="male">Male<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="female">Female<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="unknown" checked>Unknown</div><div><input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="adult">Adult<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="juvenile">Juvenile<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="unknown" checked>Unknown</div><div><input type=text name="'+siteName+'notes_'+i+'" id="'+siteName+'notes_'+i+'" class="speciesNotes"></div></div>').appendTo('#wfc_ft_3_speciesList');
-                        
-                        }
-                    
-                   $(document).ready(function(){
-                        $('.'+siteName+'speciesSelect').append(speciesList)
-                        });  
-                }
-                
-                
-                function wfc_ft_4_Details(){
-                    
-                    //CLEARS DIV ONCHANGE
-                    document.getElementById("wfc_ft_4_speciesList").innerHTML="";
-                    
-                    var wfc_ft_4_numberBirds = document.getElementById("wfc_ft_4_numberSelect").value;
-                    var siteName = "wfc_freedom_tower_3_";
-                    
-                    for (i = 0; i < wfc_ft_4_numberBirds; i++){
-                    
-                        $('<div id="detailsDiv'+i+'" class="detailsDiv"><div>Species<select name="'+siteName+'species_'+i+'" id="'+siteName+'species_'+i+'" class="'+siteName+'speciesSelect""></select></div><div><input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="dead" checked>Dead<input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="injured">Injured</div><div><input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="male">Male<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="female">Female<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="unknown" checked>Unknown</div><div><input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="adult">Adult<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="juvenile">Juvenile<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="unknown" checked>Unknown</div><div><input type=text name="'+siteName+'notes_'+i+'" id="'+siteName+'notes_'+i+'" class="speciesNotes"></div></div>').appendTo('#wfc_ft_4_speciesList');
-                        
-                        }
-                    
-                   $(document).ready(function(){
-                        $('.'+siteName+'speciesSelect').append(speciesList)
-                        });   
-                }
-                
-                
-                function wfc_gs_1_Details(){
-                    
-                    //CLEARS DIV ONCHANGE
-                    document.getElementById("wfc_gs_1_speciesList").innerHTML="";
-                    
-                    var wfc_gs_1_numberBirds = document.getElementById("wfc_gs_1_numberSelect").value;
-                    var siteName = "wfc_goldman_sachs_0_";
-                    
-                    for (i = 0; i < wfc_gs_1_numberBirds; i++){
-                    
-                        $('<div id="detailsDiv'+i+'" class="detailsDiv"><div>Species<select name="'+siteName+'species_'+i+'" id="'+siteName+'species_'+i+'" class="'+siteName+'speciesSelect""></select></div><div><input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="dead" checked>Dead<input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="injured">Injured</div><div><input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="male">Male<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="female">Female<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="unknown" checked>Unknown</div><div><input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="adult">Adult<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="juvenile">Juvenile<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="unknown" checked>Unknown</div><div><input type=text name="'+siteName+'notes_'+i+'" id="'+siteName+'notes_'+i+'" class="speciesNotes"></div></div>').appendTo('#wfc_gs_1_speciesList');
-                        
-                        }
-                    
-                   $(document).ready(function(){
-                        $('.'+siteName+'speciesSelect').append(speciesList)
-                        });   
-                }
-                
-                
-                function wfc_gs_2_Details(){
-                    
-                    //CLEARS DIV ONCHANGE
-                    document.getElementById("wfc_gs_2_speciesList").innerHTML="";
-                    
-                    var wfc_gs_2_numberBirds = document.getElementById("wfc_gs_2_numberSelect").value;
-                    var siteName = "wfc_goldman_sachs_1_";
-                    
-                    for (i = 0; i < wfc_gs_2_numberBirds; i++){
-                    
-                        $('<div id="detailsDiv'+i+'" class="detailsDiv"><div>Species<select name="'+siteName+'species_'+i+'" id="'+siteName+'species_'+i+'" class="'+siteName+'speciesSelect""></select></div><div><input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="dead" checked>Dead<input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="injured">Injured</div><div><input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="male">Male<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="female">Female<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="unknown" checked>Unknown</div><div><input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="adult">Adult<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="juvenile">Juvenile<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="unknown" checked>Unknown</div><div><input type=text name="'+siteName+'notes_'+i+'" id="'+siteName+'notes_'+i+'" class="speciesNotes"></div></div>').appendTo('#wfc_gs_2_speciesList');
-                        
-                        }
-                    
-                   $(document).ready(function(){
-                        $('.'+siteName+'speciesSelect').append(speciesList)
-                        });   
-                }
-                
-                
-                function wfc_gs_3_Details(){
-                    
-                    //CLEARS DIV ONCHANGE
-                    document.getElementById("wfc_gs_3_speciesList").innerHTML="";
-                    
-                    var wfc_gs_3_numberBirds = document.getElementById("wfc_gs_3_numberSelect").value;
-                    var siteName = "wfc_goldman_sachs_2_";
-                    
-                    for (i = 0; i < wfc_gs_3_numberBirds; i++){
-                    
-                        $('<div id="detailsDiv'+i+'" class="detailsDiv"><div>Species<select name="'+siteName+'species_'+i+'" id="'+siteName+'species_'+i+'" class="'+siteName+'speciesSelect""></select></div><div><input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="dead" checked>Dead<input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="injured">Injured</div><div><input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="male">Male<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="female">Female<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="unknown" checked>Unknown</div><div><input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="adult">Adult<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="juvenile">Juvenile<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="unknown" checked>Unknown</div><div><input type=text name="'+siteName+'notes_'+i+'" id="'+siteName+'notes_'+i+'" class="speciesNotes"></div></div>').appendTo('#wfc_gs_3_speciesList');
-                        
-                        }
-                    
-                   $(document).ready(function(){
-                        $('.'+siteName+'speciesSelect').append(speciesList)
-                        });   
-                }
-                
-                
-                function wfc_bp_1_Details(){
-                    
-                    //CLEARS DIV ONCHANGE
-                    document.getElementById("wfc_bp_1_speciesList").innerHTML="";
-                    
-                    var wfc_bp_1_numberBirds = document.getElementById("wfc_bp_1_numberSelect").value;
-                    var siteName = "wfc_brookfield_place_0_";
-                    
-                    for (i = 0; i < wfc_bp_1_numberBirds; i++){
-                    
-                        $('<div id="detailsDiv'+i+'" class="detailsDiv"><div>Species<select name="'+siteName+'species_'+i+'" id="'+siteName+'species_'+i+'" class="'+siteName+'speciesSelect""></select></div><div><input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="dead" checked>Dead<input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="injured">Injured</div><div><input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="male">Male<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="female">Female<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="unknown" checked>Unknown</div><div><input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="adult">Adult<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="juvenile">Juvenile<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="unknown" checked>Unknown</div><div><input type=text name="'+siteName+'notes_'+i+'" id="'+siteName+'notes_'+i+'" class="speciesNotes"></div></div>').appendTo('#wfc_bp_1_speciesList');
-                        
-                        }
-                    
-                   $(document).ready(function(){
-                        $('.'+siteName+'speciesSelect').append(speciesList)
-                        });  
-                }
-                
-                
-                function wfc_bp_2_Details(){
-                    
-                    //CLEARS DIV ONCHANGE
-                    document.getElementById("wfc_bp_2_speciesList").innerHTML="";
-                    
-                    var wfc_bp_2_numberBirds = document.getElementById("wfc_bp_2_numberSelect").value;
-                    var siteName = "wfc_brookfield_place_1_";
-                    
-                    for (i = 0; i < wfc_bp_2_numberBirds; i++){
-                    
-                        $('<div id="detailsDiv'+i+'" class="detailsDiv"><div>Species<select name="'+siteName+'species_'+i+'" id="'+siteName+'species_'+i+'" class="'+siteName+'speciesSelect""></select></div><div><input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="dead" checked>Dead<input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="injured">Injured</div><div><input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="male">Male<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="female">Female<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="unknown" checked>Unknown</div><div><input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="adult">Adult<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="juvenile">Juvenile<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="unknown" checked>Unknown</div><div><input type=text name="'+siteName+'notes_'+i+'" id="'+siteName+'notes_'+i+'" class="speciesNotes"></div></div>').appendTo('#wfc_bp_2_speciesList');
-                        
-                        }
-                    
-                   $(document).ready(function(){
-                        $('.'+siteName+'speciesSelect').append(speciesList)
-                        });  
-                }
-                
-                
-                function wfc_bp_3_Details(){
-                    
-                    //CLEARS DIV ONCHANGE
-                    document.getElementById("wfc_bp_3_speciesList").innerHTML="";
-                    
-                    var wfc_bp_3_numberBirds = document.getElementById("wfc_bp_3_numberSelect").value;
-                    var siteName = "wfc_brookfield_place_2_";
-                    
-                    for (i = 0; i < wfc_bp_3_numberBirds; i++){
-                    
-                        $('<div id="detailsDiv'+i+'" class="detailsDiv"><div>Species<select name="'+siteName+'species_'+i+'" id="'+siteName+'species_'+i+'" class="'+siteName+'speciesSelect""></select></div><div><input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="dead" checked>Dead<input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="injured">Injured</div><div><input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="male">Male<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="female">Female<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="unknown" checked>Unknown</div><div><input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="adult">Adult<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="juvenile">Juvenile<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="unknown" checked>Unknown</div><div><input type=text name="'+siteName+'notes_'+i+'" id="'+siteName+'notes_'+i+'" class="speciesNotes"></div></div>').appendTo('#wfc_bp_3_speciesList');
-                        
-                        }
-                    
-                   $(document).ready(function(){
-                        $('.'+siteName+'speciesSelect').append(speciesList)
-                        });   
-                }
-                
-                
-                function wfc_bp_4_Details(){
-                    
-                    //CLEARS DIV ONCHANGE
-                    document.getElementById("wfc_bp_4_speciesList").innerHTML="";
-                    
-                    var wfc_bp_4_numberBirds = document.getElementById("wfc_bp_4_numberSelect").value;
-                    var siteName = "wfc_brookfield_place_3_";
-                    
-                    for (i = 0; i < wfc_bp_4_numberBirds; i++){
-                    
-                        $('<div id="detailsDiv'+i+'" class="detailsDiv"><div>Species<select name="'+siteName+'species_'+i+'" id="'+siteName+'species_'+i+'" class="'+siteName+'speciesSelect""></select></div><div><input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="dead" checked>Dead<input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="injured">Injured</div><div><input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="male">Male<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="female">Female<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="unknown" checked>Unknown</div><div><input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="adult">Adult<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="juvenile">Juvenile<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="unknown" checked>Unknown</div><div><input type=text name="'+siteName+'notes_'+i+'" id="'+siteName+'notes_'+i+'" class="speciesNotes"></div></div>').appendTo('#wfc_bp_4_speciesList');
-                        
-                        }
-                    
-                   $(document).ready(function(){
-                        $('.'+siteName+'speciesSelect').append(speciesList)
-                        });   
-                }
-                
-                
-                function wfc_bp_5_Details(){
-                    
-                    //CLEARS DIV ONCHANGE
-                    document.getElementById("wfc_bp_5_speciesList").innerHTML="";
-                    
-                    var wfc_bp_5_numberBirds = document.getElementById("wfc_bp_5_numberSelect").value;
-                    var siteName = "wfc_brookfield_place_4_";
-                    
-                    for (i = 0; i < wfc_bp_5_numberBirds; i++){
-                    
-                        $('<div id="detailsDiv'+i+'" class="detailsDiv"><div>Species<select name="'+siteName+'species_'+i+'" id="'+siteName+'species_'+i+'" class="'+siteName+'speciesSelect""></select></div><div><input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="dead" checked>Dead<input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="injured">Injured</div><div><input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="male">Male<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="female">Female<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="unknown" checked>Unknown</div><div><input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="adult">Adult<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="juvenile">Juvenile<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="unknown" checked>Unknown</div><div><input type=text name="'+siteName+'notes_'+i+'" id="'+siteName+'notes_'+i+'" class="speciesNotes"></div></div>').appendTo('#wfc_bp_5_speciesList');
-                        
-                        }
-                    
-                   $(document).ready(function(){
-                        $('.'+siteName+'speciesSelect').append(speciesList)
-                        });   
-                }
-                
-                
-                function wfc_bp_6_Details(){
-                    
-                    //CLEARS DIV ONCHANGE
-                    document.getElementById("wfc_bp_6_speciesList").innerHTML="";
-                    
-                    var wfc_bp_6_numberBirds = document.getElementById("wfc_bp_6_numberSelect").value;
-                    var siteName = "wfc_brookfield_place_5_";
-                    
-                    for (i = 0; i < wfc_bp_6_numberBirds; i++){
-                    
-                        $('<div id="detailsDiv'+i+'" class="detailsDiv"><div>Species<select name="'+siteName+'species_'+i+'" id="'+siteName+'species_'+i+'" class="'+siteName+'speciesSelect""></select></div><div><input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="dead" checked>Dead<input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="injured">Injured</div><div><input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="male">Male<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="female">Female<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="unknown" checked>Unknown</div><div><input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="adult">Adult<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="juvenile">Juvenile<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="unknown" checked>Unknown</div><div><input type=text name="'+siteName+'notes_'+i+'" id="'+siteName+'notes_'+i+'" class="speciesNotes"></div></div>').appendTo('#wfc_bp_6_speciesList');
-                        
-                        }
-                    
-                   $(document).ready(function(){
-                        $('.'+siteName+'speciesSelect').append(speciesList)
-                        });   
-                }
-                
-                
-                function wfc_bp_7_Details(){
-                    
-                    //CLEARS DIV ONCHANGE
-                    document.getElementById("wfc_bp_7_speciesList").innerHTML="";
-                    
-                    var wfc_bp_7_numberBirds = document.getElementById("wfc_bp_7_numberSelect").value;
-                    var siteName = "wfc_brookfield_place_6_";
-                    
-                    for (i = 0; i < wfc_bp_7_numberBirds; i++){
-                    
-                        $('<div id="detailsDiv'+i+'" class="detailsDiv"><div>Species<select name="'+siteName+'species_'+i+'" id="'+siteName+'species_'+i+'" class="'+siteName+'speciesSelect""></select></div><div><input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="dead" checked>Dead<input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="injured">Injured</div><div><input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="male">Male<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="female">Female<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="unknown" checked>Unknown</div><div><input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="adult">Adult<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="juvenile">Juvenile<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="unknown" checked>Unknown</div><div><input type=text name="'+siteName+'notes_'+i+'" id="'+siteName+'notes_'+i+'" class="speciesNotes"></div></div>').appendTo('#wfc_bp_7_speciesList');
-                        
-                        }
-                    
-                   $(document).ready(function(){
-                        $('.'+siteName+'speciesSelect').append(speciesList)
-                        });   
-                }
-                
-                
-                function wfc_bp_8_Details(){
-                    
-                    //CLEARS DIV ONCHANGE
-                    document.getElementById("wfc_bp_8_speciesList").innerHTML="";
-                    
-                    var wfc_bp_8_numberBirds = document.getElementById("wfc_bp_8_numberSelect").value;
-                    var siteName = "wfc_brookfield_place_7_";
-                    
-                    for (i = 0; i < wfc_bp_8_numberBirds; i++){
-                    
-                        $('<div id="detailsDiv'+i+'" class="detailsDiv"><div>Species<select name="'+siteName+'species_'+i+'" id="'+siteName+'species_'+i+'" class="'+siteName+'speciesSelect""></select></div><div><input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="dead" checked>Dead<input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="injured">Injured</div><div><input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="male">Male<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="female">Female<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="unknown" checked>Unknown</div><div><input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="adult">Adult<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="juvenile">Juvenile<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="unknown" checked>Unknown</div><div><input type=text name="'+siteName+'notes_'+i+'" id="'+siteName+'notes_'+i+'" class="speciesNotes"></div></div>').appendTo('#wfc_bp_8_speciesList');
-                        
-                        }
-                    
-                   $(document).ready(function(){
-                        $('.'+siteName+'speciesSelect').append(speciesList)
-                        });   
-                }
-                
-                
-                function wfc_bp_9_Details(){
-                    
-                    //CLEARS DIV ONCHANGE
-                    document.getElementById("wfc_bp_9_speciesList").innerHTML="";
-                    
-                    var wfc_bp_9_numberBirds = document.getElementById("wfc_bp_9_numberSelect").value;
-                    var siteName = "wfc_brookfield_place_8_";
-                    
-                    for (i = 0; i < wfc_bp_9_numberBirds; i++){
-                    
-                        $('<div id="detailsDiv'+i+'" class="detailsDiv"><div>Species<select name="'+siteName+'species_'+i+'" id="'+siteName+'species_'+i+'" class="'+siteName+'speciesSelect""></select></div><div><input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="dead" checked>Dead<input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="injured">Injured</div><div><input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="male">Male<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="female">Female<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="unknown" checked>Unknown</div><div><input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="adult">Adult<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="juvenile">Juvenile<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="unknown" checked>Unknown</div><div><input type=text name="'+siteName+'notes_'+i+'" id="'+siteName+'notes_'+i+'" class="speciesNotes"></div></div>').appendTo('#wfc_bp_9_speciesList');
-                        
-                        }
-                    
-                   $(document).ready(function(){
-                        $('.'+siteName+'speciesSelect').append(speciesList)
-                        });   
-                }
-                
-                
-                function wfc_bp_10_Details(){
-                    
-                    //CLEARS DIV ONCHANGE
-                    document.getElementById("wfc_bp_10_speciesList").innerHTML="";
-                    
-                    var wfc_bp_10_numberBirds = document.getElementById("wfc_bp_10_numberSelect").value;
-                    var siteName = "wfc_brookfield_place_9_";
-                    
-                    for (i = 0; i < wfc_bp_10_numberBirds; i++){
-                    
-                        $('<div id="detailsDiv'+i+'" class="detailsDiv"><div>Species<select name="'+siteName+'species_'+i+'" id="'+siteName+'species_'+i+'" class="'+siteName+'speciesSelect""></select></div><div><input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="dead" checked>Dead<input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="injured">Injured</div><div><input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="male">Male<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="female">Female<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="unknown" checked>Unknown</div><div><input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="adult">Adult<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="juvenile">Juvenile<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="unknown" checked>Unknown</div><div><input type=text name="'+siteName+'notes_'+i+'" id="'+siteName+'notes_'+i+'" class="speciesNotes"></div></div>').appendTo('#wfc_bp_10_speciesList');
-                        
-                        }
-                    
-                   $(document).ready(function(){
-                        $('.'+siteName+'speciesSelect').append(speciesList)
-                        });   
-                }
-                
-                
-                function wfc_bp_11_Details(){
-                    
-                    //CLEARS DIV ONCHANGE
-                    document.getElementById("wfc_bp_11_speciesList").innerHTML="";
-                    
-                    var wfc_bp_11_numberBirds = document.getElementById("wfc_bp_11_numberSelect").value;
-                    var siteName = "wfc_brookfield_place_10_";
-                    
-                    for (i = 0; i < wfc_bp_11_numberBirds; i++){
-                    
-                        $('<div id="detailsDiv'+i+'" class="detailsDiv"><div>Species<select name="'+siteName+'species_'+i+'" id="'+siteName+'species_'+i+'" class="'+siteName+'speciesSelect""></select></div><div><input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="dead" checked>Dead<input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="injured">Injured</div><div><input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="male">Male<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="female">Female<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="unknown" checked>Unknown</div><div><input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="adult">Adult<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="juvenile">Juvenile<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="unknown" checked>Unknown</div><div><input type=text name="'+siteName+'notes_'+i+'" id="'+siteName+'notes_'+i+'" class="speciesNotes"></div></div>').appendTo('#wfc_bp_11_speciesList');
-                        
-                        }
-                    
-                   $(document).ready(function(){
-                        $('.'+siteName+'speciesSelect').append(speciesList)
-                        });   
-                }
-                
-                
-                function wfc_bp_12_Details(){
-                    
-                    //CLEARS DIV ONCHANGE
-                    document.getElementById("wfc_bp_12_speciesList").innerHTML="";
-                    
-                    var wfc_bp_12_numberBirds = document.getElementById("wfc_bp_12_numberSelect").value;
-                    var siteName = "wfc_brookfield_place_11_";
-                    
-                    for (i = 0; i < wfc_bp_12_numberBirds; i++){
-                    
-                        $('<div id="detailsDiv'+i+'" class="detailsDiv"><div>Species<select name="'+siteName+'species_'+i+'" id="'+siteName+'species_'+i+'" class="'+siteName+'speciesSelect""></select></div><div><input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="dead" checked>Dead<input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="injured">Injured</div><div><input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="male">Male<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="female">Female<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="unknown" checked>Unknown</div><div><input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="adult">Adult<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="juvenile">Juvenile<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="unknown" checked>Unknown</div><div><input type=text name="'+siteName+'notes_'+i+'" id="'+siteName+'notes_'+i+'" class="speciesNotes"></div></div>').appendTo('#wfc_bp_12_speciesList');
-                        
-                        }
-                    
-                   $(document).ready(function(){
-                        $('.'+siteName+'speciesSelect').append(speciesList)
-                        });  
-                }
-                
-                
-                function wfc_bp_13_Details(){
-                    
-                    //CLEARS DIV ONCHANGE
-                    document.getElementById("wfc_bp_13_speciesList").innerHTML="";
-                    
-                    var wfc_bp_13_numberBirds = document.getElementById("wfc_bp_13_numberSelect").value;
-                    var siteName = "wfc_brookfield_place_12_";
-                    
-                    for (i = 0; i < wfc_bp_13_numberBirds; i++){
-                    
-                        $('<div id="detailsDiv'+i+'" class="detailsDiv"><div>Species<select name="'+siteName+'species_'+i+'" id="'+siteName+'species_'+i+'" class="'+siteName+'speciesSelect""></select></div><div><input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="dead" checked>Dead<input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="injured">Injured</div><div><input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="male">Male<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="female">Female<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="unknown" checked>Unknown</div><div><input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="adult">Adult<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="juvenile">Juvenile<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="unknown" checked>Unknown</div><div><input type=text name="'+siteName+'notes_'+i+'" id="'+siteName+'notes_'+i+'" class="speciesNotes"></div></div>').appendTo('#wfc_bp_13_speciesList');
-                        
-                        }
-                    
-                   $(document).ready(function(){
-                        $('.'+siteName+'speciesSelect').append(speciesList)
-                        });   
-                }
-                
-                
-                function wfc_bp_14_Details(){
-                    
-                    //CLEARS DIV ONCHANGE
-                    document.getElementById("wfc_bp_14_speciesList").innerHTML="";
-                    
-                    var wfc_bp_14_numberBirds = document.getElementById("wfc_bp_14_numberSelect").value;
-                    var siteName = "wfc_brookfield_place_13_";
-                    
-                    for (i = 0; i < wfc_bp_14_numberBirds; i++){
-                    
-                        $('<div id="detailsDiv'+i+'" class="detailsDiv"><div>Species<select name="'+siteName+'species_'+i+'" id="'+siteName+'species_'+i+'" class="'+siteName+'speciesSelect""></select></div><div><input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="dead" checked>Dead<input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="injured">Injured</div><div><input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="male">Male<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="female">Female<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="unknown" checked>Unknown</div><div><input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="adult">Adult<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="juvenile">Juvenile<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="unknown" checked>Unknown</div><div><input type=text name="'+siteName+'notes_'+i+'" id="'+siteName+'notes_'+i+'" class="speciesNotes"></div></div>').appendTo('#wfc_bp_14_speciesList');
-                        
-                        }
-                    
-                   $(document).ready(function(){
-                        $('.'+siteName+'speciesSelect').append(speciesList)
-                        });  
-                }
-                
-                
-                function wfc_bp_15_Details(){
-                    
-                    //CLEARS DIV ONCHANGE
-                    document.getElementById("wfc_bp_15_speciesList").innerHTML="";
-                    
-                    var wfc_bp_15_numberBirds = document.getElementById("wfc_bp_15_numberSelect").value;
-                    var siteName = "wfc_brookfield_place_14_";
-                    
-                    for (i = 0; i < wfc_bp_15_numberBirds; i++){
-                    
-                        $('<div id="detailsDiv'+i+'" class="detailsDiv"><div>Species<select name="'+siteName+'species_'+i+'" id="'+siteName+'species_'+i+'" class="'+siteName+'speciesSelect""></select></div><div><input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="dead" checked>Dead<input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="injured">Injured</div><div><input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="male">Male<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="female">Female<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="unknown" checked>Unknown</div><div><input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="adult">Adult<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="juvenile">Juvenile<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="unknown" checked>Unknown</div><div><input type=text name="'+siteName+'notes_'+i+'" id="'+siteName+'notes_'+i+'" class="speciesNotes"></div></div>').appendTo('#wfc_bp_15_speciesList');
-                        
-                        }
-                    
-                   $(document).ready(function(){
-                        $('.'+siteName+'speciesSelect').append(speciesList)
-                        });   
-                }
-                
-                
-                function wfc_bp_16_Details(){
-                    
-                    //CLEARS DIV ONCHANGE
-                    document.getElementById("wfc_bp_16_speciesList").innerHTML="";
-                    
-                    var wfc_bp_16_numberBirds = document.getElementById("wfc_bp_16_numberSelect").value;
-                    var siteName = "wfc_brookfield_place_15_";
-                    
-                    for (i = 0; i < wfc_bp_16_numberBirds; i++){
-                    
-                        $('<div id="detailsDiv'+i+'" class="detailsDiv"><div>Species<select name="'+siteName+'species_'+i+'" id="'+siteName+'species_'+i+'" class="'+siteName+'speciesSelect""></select></div><div><input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="dead" checked>Dead<input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="injured">Injured</div><div><input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="male">Male<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="female">Female<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="unknown" checked>Unknown</div><div><input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="adult">Adult<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="juvenile">Juvenile<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="unknown" checked>Unknown</div><div><input type=text name="'+siteName+'notes_'+i+'" id="'+siteName+'notes_'+i+'" class="speciesNotes"></div></div>').appendTo('#wfc_bp_16_speciesList');
-                        
-                        }
-                    
-                   $(document).ready(function(){
-                        $('.'+siteName+'speciesSelect').append(speciesList)
-                        });  
-                }
-                
-                
-                function wfc_bp_17_Details(){
-                    
-                    //CLEARS DIV ONCHANGE
-                    document.getElementById("wfc_bp_17_speciesList").innerHTML="";
-                    
-                    var wfc_bp_17_numberBirds = document.getElementById("wfc_bp_17_numberSelect").value;
-                    var siteName = "wfc_brookfield_place_16_";
-                    
-                    for (i = 0; i < wfc_bp_17_numberBirds; i++){
-                    
-                        $('<div id="detailsDiv'+i+'" class="detailsDiv"><div>Species<select name="'+siteName+'species_'+i+'" id="'+siteName+'species_'+i+'" class="'+siteName+'speciesSelect""></select></div><div><input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="dead" checked>Dead<input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="injured">Injured</div><div><input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="male">Male<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="female">Female<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="unknown" checked>Unknown</div><div><input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="adult">Adult<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="juvenile">Juvenile<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="unknown" checked>Unknown</div><div><input type=text name="'+siteName+'notes_'+i+'" id="'+siteName+'notes_'+i+'" class="speciesNotes"></div></div>').appendTo('#wfc_bp_17_speciesList');
-                        
-                        }
-                    
-                   $(document).ready(function(){
-                        $('.'+siteName+'speciesSelect').append(speciesList)
-                        });   
-                }
-                
-                
-                function wfc_bp_18_Details(){
-                    
-                    //CLEARS DIV ONCHANGE
-                    document.getElementById("wfc_bp_18_speciesList").innerHTML="";
-                    
-                    var wfc_bp_18_numberBirds = document.getElementById("wfc_bp_18_numberSelect").value;
-                    var siteName = "wfc_brookfield_place_17_";
-                    
-                    for (i = 0; i < wfc_bp_18_numberBirds; i++){
-                    
-                        $('<div id="detailsDiv'+i+'" class="detailsDiv"><div>Species<select name="'+siteName+'species_'+i+'" id="'+siteName+'species_'+i+'" class="'+siteName+'speciesSelect""></select></div><div><input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="dead" checked>Dead<input type=radio name="'+siteName+'deadInjured_'+i+'" id="'+siteName+'deadInjured_'+i+'" class="deadInjuredRadio" value="injured">Injured</div><div><input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="male">Male<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="female">Female<input type=radio name="'+siteName+'sex_'+i+'" id="'+siteName+'sex_'+i+'" class="sexRadio" value="unknown" checked>Unknown</div><div><input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="adult">Adult<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="juvenile">Juvenile<input type=radio name="'+siteName+'maturity_'+i+'" id="'+siteName+'maturity_'+i+'" class="maturityRadio" value="unknown" checked>Unknown</div><div><input type=text name="'+siteName+'notes_'+i+'" id="'+siteName+'notes_'+i+'" class="speciesNotes"></div></div>').appendTo('#wfc_bp_18_speciesList');
-                        
-                        }
-                    
-                   $(document).ready(function(){
-                        $('.'+siteName+'speciesSelect').append(speciesList)
-                        });   
-                }
-                
-                
-                
-                
-                
-                
-               $("form :input").change(function() {
-    console.log($(this).closest('form').serialize());
-  });
 
-            </script>
+<p>Site</p>
+<p id="sites"></p> 
 
+Patrol Notes</br>
+<input type="text" id="patrolNotes" class="textField"></input>
+
+<input type="submit"></submit>
+
+</form>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+
+
+//EMPTIES SPECIES DETAILS DIV ON ROUTE CHANGE
+$(document).ready(function(){
+
+
+//NUMBER LIST 
+//var numberEl = $('.numberSelect');
+
+//var birdNumber = "<option value='none'>None</option><option value='1'>1</option><option value='2'>2</option><option value='3'>3</option><option value='4'>4</option><option value='5'>5</option><option value='6'>6</option><option value='7'>7</option><option value='8'>8</option>...
+    
+// this can also be written as...
+var dynamicBirdList;
+
+for (i=0;i<21;i++){
+dynamicBirdList += '<option value='+i+'>'+i+'</option>';
+}
 
     
-    </body>
+    
+//this is the function to dynamically build the details form. for each bird bird found
+    
+var birdDetails = function(birdnumber){
+var html = '';
+        var detailInputs = $('div.detail-inputs');
+//console.log(detailInputs);
+for (i=0; i<birdnumber; i++){
+    
+html += 'Species<select class="species-select">'+speciesList+'</select></br><input type=radio name="deadInjured"class="deadInjuredRadio" value="dead" checked>Dead</input><input type=radio name="deadInjured" class="deadInjuredRadio" value="injured">Injured</input></br><input name="birdsex" type=radio class="sexRadio" value="male">Male</input><input name="birdsex" type=radio class="sexRadio" value="female">Female</input><input name="birdsex" type=radio class="sexRadio" value="unknown" checked>Unknown</input></br><input name="birdmaturity"type=radio class="maturityRadio" value="adult juvenile unknown">Adult</input><input name="birdmaturity" type=radio class="maturityRadio" value="juvenile">Juvenile</input><input name="birdmaturity" type=radio class="maturityRadio" value="unknown" checked>Unknown</input></br>Species <input type=text  class="speciesNotes"></input></br></br>';
+    
+detailInputs.html(html);
+}
+}
+
+
+//var detailForm = $(".bird-details");
+var el = document.getElementById("routeSelect");
+var zoneCount,
+routeName,
+nextBlock;
+
+//this is the main running function, substitutes the sitedetails() function previously created     
+$('select.routes').change(function() {
+
+routeName = el.value;
+console.log(routeName);
+
+zoneCount = $(this.options[this.selectedIndex]).attr('data-zones');
+console.log(zoneCount);
+
+nextBlock = $(".patrol-sites");
+var html = '';
+
+//nextBlock.empty();
+
+for (var i=1;i <= zoneCount;i++){
+console.log(nextBlock);
+console.log(i);
+
+//html += '<fieldset class="dynamic-fieldset"><legend>'+routeName+' '+i+': <strong>Number of Birds Found</strong> <select class="birds-found">'+dynamicBirdList+'</select></legend></fieldset>';
+    
+    html += '<fieldset class="dynamic-fieldset"><legend>'+routeName+' '+i+': <strong>Number of Birds Found</strong> <select class="birds-found">'+dynamicBirdList+'</select></legend><div class="detail-inputs"></div></fieldset>';
+nextBlock.html(html);
+
+}
+ 
+//this function handles the event of a change in the number of birds collected in each patrol zone and generates form details based on that number using the birdDetails function.
+$('select.birds-found').change(function(){
+    dynamicBirdNumber = $(this.options[this.selectedIndex]).attr('value');
+//    var detailForm = $("fieldset.dynamic-fieldset");
+    
+//    var detailInputs = $('div.detail-inputs');
+
+//    console.log(detailInputs);
+    // the birdDetails function uses the value of the selection as a callback to generate the correct number of forms, refer to line 243
+    birdDetails(dynamicBirdNumber);
+    
+});
+});
+    
+
+
+
+
+
+
+
+
+
+var speciesList = "<option></option><option value='unknown'>unknown</option><option value='other'>other (describe in &#39;Notes&#39;)</option><option value='bat sp.'>bat sp.</option><option value='flycatcher sp.'>flycatcher sp.</option><option value='gull sp.'>gull sp.</option><option value='kinglet sp.'>kinglet sp.</option><option value='owl sp.'>owl sp.</option><option value='sparrow sp.'>sparrow sp.</option><option value='thrush sp.'>thrush sp.</option><option value='warbler sp.'>warbler sp.</option><option value='woodpecker sp.'>woodpecker sp.</option><option value='wren sp.'>wren sp.</option><option value='Alder Flycatcher'>Alder Flycatcher</option><option value='American Black Duck'>American Black Duck</option><option value='American Coot'>American Coot</option><option value='American Goldfinch'>American Goldfinch</option><option value='American Kestrel'>American Kestrel</option><option value='American Redstart'>American Redstart</option><option value='American Robin'>American Robin</option><option value='American Woodcock'>American Woodcock</option><option value='Baltimore Oriole'>Baltimore Oriole</option><option value='Barn Swallow'>Barn Swallow</option><option value='Bay-Breasted Warbler'>Bay-Breasted Warbler</option><option value='Belted Kingfisher'>Belted Kingfisher</option><option value='Black-and-white Warbler'>Black-and-white Warbler</option><option value='Black-billed Cuckoo'>Black-billed Cuckoo</option><option value='Black-capped Chickadee'>Black-capped Chickadee</option><option value='Blackpoll Warbler'>Blackpoll Warbler</option><option value='Black-throated Blue Warbler'>Black-throated Blue Warbler</option><option value='Black-throated Green Warbler'>Black-throated Green Warbler</option><option value='Blue Jay'>Blue Jay</option><option value='Blue-headed Vireo'>Blue-headed Vireo</option><option value='Blue-winged Warbler'>Blue-winged Warbler</option><option value='Brown Creeper'>Brown Creeper</option><option value='Brown Thrasher'>Brown Thrasher</option><option value='Brown-headed Cowbird'>Brown-headed Cowbird</option><option value='Canada Warbler'>Canada Warbler</option><option value='Cape May Warbler'>Cape May Warbler</option><option value='Cedar Waxwing'>Cedar Waxwing</option><option value='Chestnut-sided Warbler'>Chestnut-sided Warbler</option><option value='Chipping Sparrow'>Chipping Sparrow</option><option value='Chuck-wills-widow'>Chuck-will's-widow</option><option value='Clapper Rail'>Clapper Rail</option><option value='Common Grackle'>Common Grackle</option><option value='Common Yellowthroat'>Common Yellowthroat</option><option value='Connecticut Warbler'>Connecticut Warbler</option><option value='Dark-eyed Junco'>Dark-eyed Junco</option><option value='Downy Woodpecker'>Downy Woodpecker</option><option value='Eastern Bluebird'>Eastern Bluebird</option><option value='Eastern Kingbird'>Eastern Kingbird</option><option value='Eastern Phoebe'>Eastern Phoebe</option><option value='Eastern Towhee'>Eastern Towhee</option><option value='Eastern Wood-pewee'>Eastern Wood-pewee</option><option value='European Starling'>European Starling</option><option value='Field Sparrow'>Field Sparrow</option><option value='Fox Sparrow'>Fox Sparrow</option><option value='Golden-crowned Kinglet'>Golden-crowned Kinglet</option><option value='Gray Catbird'>Gray Catbird</option><option value='Gray-cheeked Thrush'>Gray-cheeked Thrush</option><option value='Great Crested Flycatcher'>Great Crested Flycatcher</option><option value='Hermit Thrush'>Hermit Thrush</option><option value='Hooded Warbler'>Hooded Warbler</option><option value='House Finch'>House Finch</option><option value='House Sparrow'>House Sparrow</option><option value='House Wren'>House Wren</option><option value='Indigo Bunting'>Indigo Bunting</option><option value='Kentucky Warbler'>Kentucky Warbler</option><option value='Lazuli Bunting'>Lazuli Bunting</option><option value='Least Flycatcher'>Least Flycatcher</option><option value='Lincolns Sparrow'>Lincoln's Sparrow</option><option value='Louisiana Waterthrush'>Louisiana Waterthrush</option><option value='Magnolia Warbler'>Magnolia Warbler</option><option value='Marsh Wren'>Marsh Wren</option><option value='Mourning Dove'>Mourning Dove</option><option value='Mourning Warbler'>Mourning Warbler</option><option value='Northern Cardinal'>Northern Cardinal</option><option value='Northern Flicker'>Northern Flicker</option><option value='Northern Mockingbird'>Northern Mockingbird</option><option value='Northern Parula'>Northern Parula</option><option value='Northern Waterthrush'>Northern Waterthrush</option><option value='Olive-sided Flycatcher'>Olive-sided Flycatcher</option><option value='Orchard Oriole'>Orchard Oriole</option><option value='Osprey'>Osprey</option><option value='Ovenbird'>Ovenbird</option><option value='Palm Warbler'>Palm Warbler</option><option value='Peregrine Falcon'>Peregrine Falcon</option><option value='Pine Warbler'>Pine Warbler</option><option value='Prairie Warbler'>Prairie Warbler</option><option value='Prothonotary Warbler'>Prothonotary Warbler</option><option value='Purple Finch'>Purple Finch</option><option value='Red-headed Woodpecker'>Red-headed Woodpecker</option><option value='Red-bellied Woodpecker'>Red-bellied Woodpecker</option><option value='Red-breasted Nuthatch'>Red-breasted Nuthatch</option><option value='Red-eyed Vireo'>Red-eyed Vireo</option><option value='Red-tailed Hawk'>Red-tailed Hawk</option><option value='Rock Pigeon'>Rock Pigeon</option><option value='Rose-breasted Grosbeak'>Rose-breasted Grosbeak</option><option value='Ruby-crowned Kinglet'>Ruby-crowned Kinglet</option><option value='Ruby-throated Hummingbird'>Ruby-throated Hummingbird</option><option value='Savannah Sparrow'>Savannah Sparrow</option><option value='Scarlet Tanager'>Scarlet Tanager</option><option value='Seaside Sparrow'>Seaside Sparrow</option><option value='Song Sparrow'>Song Sparrow</option><option value='Sora'>Sora</option><option value='Swainsons Thrush'>Swainson's Thrush</option><option value='Swamp Sparrow'>Swamp Sparrow</option><option value='Tennessee Warbler'>Tennessee Warbler</option><option value='Tufted Titmouse'>Tufted Titmouse</option><option value='Veery'>Veery</option><option value='Virginia Rail'>Virginia Rail</option><option value='White-breasted Nuthatch'>White-breasted Nuthatch</option><option value='White-crowned Sparrow'>White-crowned Sparrow</option><option value='White-eyed Vireo'>White-eyed Vireo</option><option value='White-throated Sparrow'>White-throated Sparrow</option><option value='Willow Flycatcher'>Willow Flycatcher</option><option value='Wilsons Warbler'>Wilson's Warbler</option><option value='Winter Wren'>Winter Wren</option><option value='Wood Thrush'>Wood Thrush</option><option value='Worm-eating Warbler'>Worm-eating Warbler</option><option value='Yellow Warbler'>Yellow Warbler</option><option value='Yellow-bellied Flycatcher'>Yellow-bellied Flycatcher</option><option value='Yellow-bellied Sapsucker'>Yellow-bellied Sapsucker</option><option value='Yellow-billed Cuckoo'>Yellow-billed Cuckoo</option><option value='Yellow-breasted Chat'>Yellow-breasted Chat</option><option value='Yellow-rumped Warbler'>Yellow-rumped Warbler</option><option value='Yellow-throated Vireo'>Yellow-throated Vireo</option>";
+
+
+
+});
+
+</script>
+
+
+
+</body>
 
 </html>
 
